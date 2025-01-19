@@ -11,5 +11,5 @@ Using Docker:
 
 ```
 docker build -t weblog .
-docker run -p 5000:5000 weblog
+docker run -p 8000:8000 weblog
 ```
