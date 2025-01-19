@@ -138,8 +138,151 @@
             information I already have in my Obsidian notes. For example, I've got some list with favorite books and
             films. I can turn these lists into suitable Anki flashcards.</p>
         <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/llms-supercharge-both-apps-3.png">
-        <p>If I want to use these questions to learn Russian now, I should just ask the LLM to translate them. Answering these questions in Anki will be a lot easier than answering other questions in Russians, because I already know a lot of context because they're based on notes I've written myself.</p>
+        <p>If I want to use these questions to learn Russian now, I should just ask the LLM to translate them. Answering
+            these questions in Anki will be a lot easier than answering other questions in Russians, because I already
+            know a lot of context because they're based on notes I've written myself.</p>
         <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/llms-supercharge-both-apps-4.png">
+        <h2>How I've been using the Claude LLM when learning Russian</h2>
+        <p>In the part above I already showed some examples how I've been using LLMs with learning Russian. In what
+            follows I'll show some more examples, showing how an LLM can be used in a variety of ways.</p>
+        <h3>Ask to explain a grammatical concept</h3>
+        <p>Say I'm a complete Russian novice and I don't know anything about how verbs in Russian work. You can ask the
+            LLM to give you a quick introduction to this topic.</p>
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/ask-to-explain-a-grammatical-concept-1.png">
+        <p>This introduction of a concept can be customized in the prompt as well. For example, you can make the link
+            with a language you're already familiar with. This gives you some grounding and helps you put the concepts
+            explained into context.</p>
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/ask-to-explain-a-grammatical-concept-2.png">
+        <p>Since I know a bit of Russian already I can make the call these differences are really differences between
+            Russian and English and aren't just minor details. Of course absolute beginners can't make this call, but
+            this doesn't pose too much of a problem. What you're asking for is very basic (an introduction to a very
+            basic concept in a widely spoken language). You can be reasonably sure the output will be good enough.</p>
+        <p>Even if there are mistakes, it's a starting point. You can do your own research. If later on you notice there
+            was a mistake in the LLM output, this might actually be beneficial. I noted several times already correcting
+            these mistakes helps a lot with memorizing. Probably because it's something active to do. In a way these
+            mistakes are a boost to the language learning process.</p>
+        <h3>Ask why a specific form of a word is used</h3>
+        <p>Often you read something and you're not sure exactly why the case ending is what it is. Is this genitive? And
+            if it is, why? You can just ask the LLM to explain.</p>
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/ask-why-a-specific-form-of-a-word-is-used-1.png">
+        <p>This approach works well in combination with Anki. You can imagine multiple types of questions:</p>
+        <ul>
+            <li>just reusing the same question:
+                <ul>
+                    <li>Q: Which case to use with нет?</li>
+                    <li>A: genitive case</li>
+                </ul>
+            </li>
+            <li>shortening the question:
+                <ul>
+                    <li>Q: нет + {case}</li>
+                    <li>A: genitive</li>
+                </ul>
+            </li>
+        </ul>
+        <p>You notice LLMs can be quite verbose. Here it says "negative construction with нет". But of course нет will
+            always be about negation. That's why I shortened the answered to "after нет". You still have to think for
+            yourself. The LLM points you in the right direction and you have to assess yourself what to make of what it
+            provides.</p>
+        <h3>Partial translation</h3>
+        <p><a
+                href="https://www.reddit.com/r/languagelearning/comments/16mlg02/language_learning_app_using_partial_translation/">Opinions
+                differ on whether this is a good
+                idea</a> but I found translating some words to Russian in a text while keeping other words in the
+            original language
+            (English in my case) to be quite an enjoyable way of immersing myself in Russian without overburdening
+            myself. You ask the LLM to only translate some words in the English input text. You can be pretty specific
+            about what you want translated and what not: only translate difficult (long) words, only translate words
+            related to a specific theme, ... Or alternate between foreign and native words.</p>
+        <p>A good example of partial translation is <a
+                href="https://play.textadventures.co.uk/Play.aspx?id=ubqglkk1j0m5bzdeolih9a">the Metro book series
+                turned into a game</a>:</p>
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/partial-translation-1.png">
+        <p>This works well if you know what to expect. Either you already read the book in English or the context makes
+            clear what to expect. You do need to do some prompt engineering though to make it work, but not a lot. For
+            example, if you just ask the LLM to alternate without providing context why, it will provide both the
+            Russian translation but also the original English word which spoils the effect:</p>
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/partial-translation-2.png">
+        <p>By providing an example how the alternating text should be formatted and what makes a good candidate for
+            translation, the results are instantly a lot better. To the point I don't think it's a lot worse than the
+            Metro text adventure. I assume in that game it was done manually since the game was released long before
+            LLMs became mainstream.</p>
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/partial-translation-3.png">
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/partial-translation-4.png">
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/partial-translation-5.png">
+        <p>I didn't ask for the reason why these words exactly were translated, but the LLM provided it by himself. You
+            could ask to list the reason why each word was translated for testing purposes:</p>
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/partial-translation-6.png">
+        <p>This information you can use once more to iterate on your prompt. You could for example tell the LLM to only
+            translate if a word is part of a phrase. An example of this was how "all this time" was translated into "all
+            this время". This is a standard theme with LLMs. You first try out a very general prompt and see in what way
+            the output differs from what you want. Based on this output you iterate and bit by bit the result moves in
+            the direction you want.</p>
+        <p>I had somewhat forgotten about this partial translation approach, but now I rediscovered it I remember why I
+            like so much. It's very nice to be able to read a book in a language you're not all too familiar with
+            without having to look up the meaning of each word.</p>
+        <h3>Quickly generate a lot of customized examples</h3>
+        <p>Whether you're focusing on grammar or vocabulary, you learn best by example. Using LLMs it's easy to create a
+            lot of targeted examples. Say I'm learning about verb conjugations. In Russian there are 2 main conjugation
+            types: 1st conjugation (exemplified by знать) and the 2nd conjugation (exemplified by говорить). It's
+            natural to want to know what these conjugations look like.</p>
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/quickly-generate-a-lot-of-customized-examples-1.png">
+        <p>Anything you can think of can be customized: the difficulty level, the theme, ... You just have to ask for
+            it.</p>
+        <h3>Help with creating hints for words in Anki flashcards</h3>
+        <p>It's well known Russian words can be quite long. For example "sight" (in the touristic sense of the word) can
+            be translated as достопримечательность. That's quite daunting if Russian isn't your native language. Adding
+            these words as flashcards in Anki makes for a very steep learning curve. It would help if I could add some
+            hint to the question, for example the word split into syllables. In itself this isn't hard to do. But it's
+            rather boring and annoying to do. The solution is just a prompt away (in the process showing another example
+            of how easy it is to generate examples):</p>
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/help-with-creating-hints-for-words-in-anki-flashcards-1.png">
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/help-with-creating-hints-for-words-in-anki-flashcards-2.png">
+        <p>But using LLMs you can do even better. Why would you limit yourself to syllables and not try something more
+            ambitious like splitting the word in its constituent parts?</p>
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/help-with-creating-hints-for-words-in-anki-flashcards-3.png">
+        <p>Talk about LLMs often is about some kind of superintelligence but the way I use it, it's more like a tool
+            making common tasks scalable. If I'd have to cut 200 words into syllables I'd find it boring, it'd take a
+            lot of time so I'd probably abandon the project before even trying. But if I can just ask the LLM to do it,
+            all of a sudden the realm of possible projects expands a lot. This is a common theme with LLMs: projects
+            previously unfeasible become feasible now.</p>
+        <h3>Turn facts into questions</h3>
+        <p>My Obsidian vault contains a lot of notes but all of these are facts. The format Anki uses are questions. I
+            could manually translate these facts to questions which takes time. Or I could let the LLM do it. The higher
+            the quality of the input information, the better this works.</p>
+        <p>For example, after the release of Gladiator II I was interested in how historically accurate the film really
+            is and stumbled upon this <a
+                href="https://acoup.blog/2024/12/06/collections-nitpicking-gladiator-ii-part-i/">scathing critique</a>.
+            It contains entries like this:</p>
+        <blockquote>
+            But that's not the biggest timeline problem! Instead, the biggest timeline problem is that it is the third
+            century AD and we are attacking Numidia. ...
+            Which is to say, by 200 A.D., the earliest of the multitude of possible dates for this film (which mashes
+            together events from 211 to 218), Numidia has been a Roman province <em>two-hundred and fifty years</em>. By
+            this point, North Africa, far from being some foreign 'barbarian' land is distinctly Roman.
+        </blockquote>
+        <p>If I ask the LLM to think of some questions based on that input I get this:</p>
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/turn-facts-into-questions-1.png">
+        <p>All of a sudden the data is in a format usable to Anki.</p>
+        <h3>Use LLM as translator</h3>
+        <p>Sometimes you can keep it even more basic. Using LLMs, you don't need a separate translation app but can just
+            prompt to translate some input text. Any Anki cards I already have can easily be translated into Russian.
+        </p>
+        <h3>Ask for equivalent expression in different language</h3>
+        <p>If <a href="https://dic.academic.ru/dic.nsf/dic_wingwords/1384/%D0%9B%D1%83%D1%87%D1%88%D0%B5">expressions go
+                way back, to Latin or Greek expressions</a>, the mapping of the words between languages is often
+            one-to-one making translating easy and easy to remember as well. Idea inspired by <a
+                href="https://howtogetfluent.com/translation-as-a-language-learning-method/">Translation as a language
+                learning method - why and how</a>, an
+            article focusing on the benefits and drawbacks of translation as a learning tool.</p>
+        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/ask-for-equivalent-expression-in-different-language-1.png">
 </body>
 
 </html>
