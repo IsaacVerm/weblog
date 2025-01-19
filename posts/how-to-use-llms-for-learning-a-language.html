@@ -282,7 +282,140 @@
                 href="https://howtogetfluent.com/translation-as-a-language-learning-method/">Translation as a language
                 learning method - why and how</a>, an
             article focusing on the benefits and drawbacks of translation as a learning tool.</p>
-        <img src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/ask-for-equivalent-expression-in-different-language-1.png">
+        <img
+            src="/static/images/posts/en/how-to-use-llms-for-learning-a-language/ask-for-equivalent-expression-in-different-language-1.png">
+        <h2>How do these practical examples relate to the bigger picture?</h2>
+        <p>The examples above are very concrete, but they often point to larger developments.</p>
+        <h3>Data becomes fluid</h3>
+        <p>In a lot of the examples above, the basic pattern consisted of changing text from one format to another. For
+            example turning phrases into questions. If you'd want to you can turn these
+            questions back into phrases as well. It's no longer so clear what type of data you're dealing with. And
+            maybe it matters less than it used to. I'm not the first one to notice this:</p>
+        <a href="https://newsletter.squishy.computer/p/llms-and-information-post-scarcity">LLMs and information
+            post-scarcity:</a>
+        <blockquote>
+            Content has become like clay. LLMs can remix it, summarize it, elaborate on it, hallucinate it, combine it
+            with other content, freely transform it between text, audio, image, and back again. It seems we have
+            achieved a kind of information post-scarcity. A regime of radical overproduction. A content singularity. How
+            will this change things?
+        </blockquote>
+        <h3>Iteration becomes inexpensive</h3>
+        <p>It's easy to get a quick prototype of an idea off the ground. You try out something and see if the result is
+            somewhat in the right direction. Most of the times there are issues with the output format or all of a
+            sudden you realise what you're asking for isn't really what you want. After a couple of iterations, you get
+            something working. If you notice you keep using this prototype, you can turn it into a more permanent
+            project using code.</p>
+        <h3>Because of the decrease in friction new opportunities open up</h3>
+        <a href="https://nicholas.carlini.com/writing/2024/how-i-use-ai.html">How I Use "AI":</a>
+        <blockquote>
+            In fact, I can confidently say that I probably just wouldn't have made this quiz if I didn't have access to
+            a language model to help me---because I was uninterested in spending time writing the entire web application
+            from scratch. And I'm someone who knows how to program!
+        </blockquote>
+        <p>There are things I don't want to spend time on like splitting hundreds of words in syllables. It takes a lot
+            of time and the payoff is only marginal. However, with LLMs the effort required decreases drastically so all
+            of a sudden this marginal payoff is bigger than the effort invested and splitting hundreds of words in
+            syllables actually becomes a valuable activity.</p>
+        <a href="https://nicholas.carlini.com/writing/2024/how-i-use-ai.html">How I Use "AI":</a>
+        <blockquote>
+            There are two kinds of programs. First, you have programs that you want to do _right_; they'll be around for
+            a while and the cleanliness matters because you'll have to maintain it for several years. Then you have the
+            programs that wil exist for all of 25 seconds; they'll help you complete some task, and then be immediately
+            discarded.
+
+            In these cases, where I don't care at all about the quality of the code, and the programs are entirely
+            self-contained, I now almost exclusively use LLMs to write them for me.
+        </blockquote>
+        <p>Still disappearance of friction has a lot of consequences. There's the danger of your programs just staying
+            prototypes and never moving on to a more structured level. If I'd just use the examples as described above
+            without going any further, I'd miss out on a lot of value. But these examples did give me a chance to see
+            what works well and what I find useful.</p>
+        <p>For example I love creating custom examples. Having these turned into Anki questions single-handedly made me
+            use the Anki application a lot more. But in the current process there's still a lot of friction: I've got to
+            put the prompt in <a href="https://www.librechat.ai/">LibreChat</a>, check if the results are allright and
+            copy the results into Anki. In itself all of these tasks are "solved", but each task still takes a bit of
+            time. I know from experience it's this part which might make you give up.</p>
+        <p>The idea is to formalize this creation of examples into a programmed pipeline. At that time the examples are
+            pushed into Anki everyday and all I have to do is open the Anki app in the morning. The crucial insight is I
+            wouldn't have started on this pipeline without having seen the working prototype first. Writing the pipeline
+            (even assisted by an LLM) still takes quite some time and you only want to do this if you know beforehand
+            the time investment will be worth it.
+        </p>
+        <h3>Democratization of skills</h3>
+        <a href="https://nicholas.carlini.com/writing/2024/how-i-use-ai.html">How I Use "AI":</a>
+        <blockquote>
+            I believe that even current models are largely sufficient to allow the vast majority of people to solve
+            meaningful tasks they could never have solved before just by asking for the solution.
+        </blockquote>
+        <p>A lot of the tasks detailed above in the past would have required at least some coding knowledge. If I would
+            have wanted to split words in syllables, I would have needed to program a way how to do this or find some
+            code capable of doing this exactly the way I need. Most of the tasks are <a
+                href="https://en.wikipedia.org/wiki/Natural_language_processing">NLP-related</a> so a lot of <a
+                href="https://en.wikipedia.org/wiki/Regular_expression">regular
+                expressions</a> would have been needed. Maybe you could have
+            use a Python package like <a href="https://spacy.io/">spaCy</a> but it would still have been a reasonable
+            task and even
+            for someone proficient at programming NLP tasks it would have taken quite some time to implement. Enough
+            time in order not to be able to iterate on the solution. But by simply asking the LLM to do it for you, you
+            avoid having to know how to code. This doesn't mean programming is a thing of the past because LLMs are
+            notoriously non-deterministic, so if you want to have some guardrails and consistency you'll still have to
+            know how to program. But for prototyping there's nothing better.</p>
+        <p>The <a href="https://spacy.io/usage/large-language-models">spaCy package</a> itself describes it best:</p>
+        <blockquote>
+            Supervised learning is much worse than LLM prompting for prototyping, but for many tasks it's much better
+            for production. A transformer model that runs comfortably on a single GPU is extremely powerful, and it's
+            likely to be a better choice for any task for which you have a well-defined output. You train the model with
+            anything from a few hundred to a few thousand labelled examples, and it will learn to do exactly that.
+            Efficiency, reliability and control are all better with supervised learning, and accuracy will generally be
+            higher than LLM prompting as well.
+        </blockquote>
+        <h3>LLM becomes a tutor</h3>
+        <p>This goes back to the original starting point of this article.</p>
+        <a href="https://nicholas.carlini.com/writing/2024/how-i-use-ai.html">How I Use "AI":</a>
+        <blockquote>
+            This means that instead of reading some static tutorials on how to get started, which assume a particular
+            reader who knows specific things and who wants to achieve some particular goals, I can work interactively
+            with a language model to learn whatever I need to solve my task.
+        </blockquote>
+        <p>If I ask the LLM to explain a grammar concept using custom examples, this is exactly what I'm doing.</p>
+        <h3>Less friction is more fun</h3>
+        <p>There's a lot less friction. In itself it doesn't seem like that would matter a lot. Say I need a few
+            examples of a grammatical concept. I could ask the LLM, but I could also just open a textbook and look. So
+            what's the difference you'd say? But once you try to do this once with an LLM, you instantly notice this
+            does change a lot. It feels different, more pleasant and fluid in a way.</p>
+        <p>Aside from this, all the friction adds up quickly as well. In a best case scenario you find what you need
+            right away. But this hardly ever is the reality. Maybe you don't really know where to look. Or the concept
+            is related to several other concepts and the examples you want just don't exist. You can easily spend an
+            hour chasing down those examples.</p>
+        <a href="https://nicholas.carlini.com/writing/2024/how-i-use-ai.html">How I Use "AI":</a>
+        <blockquote>
+            When I show some people these examples they get kind of defensive and say “The LLM hasn't done anything you
+            couldn't have done with the tools you already had!” And you know what? They're right. But there's nothing
+            you couldn't do with the search engine you couldn't have done with a physical book on the topic, and there's
+            nothing you couldn't have done with a physical book that you couldn't have done by reading the source code.
+
+            But each of these, in turn, is easier than the last. And when something is easier, you do it more often and
+            in qualitatively different ways.
+        </blockquote>
+        <h2>Conclusion</h2>
+        <p>LLMs are here to stay and I think the advantages they bring should be clear to anyone. They were clear to me
+            when experimenting with using an LLM to make learning Russian easier, and they seem clear to people way more
+            knowledgable on them than me like <a href="https://nicholas.carlini.com/writing">Nicholas Carlini</a> and <a
+                href="https://simonwillison.net/">Simon Willison</a>. Even if you're not convinced by the
+            examples I've shown, give it a try for yourself. You don't even need a monthly subscription. You can just
+            use the API of a major provider like Anthropic with <a href="https://www.anthropic.com/claude">Claude</a>
+            and run a UI wrapper like <a>LibreChat</a> (which I'm
+            using myself but any UI wrapper would do). Or run the LLM locally yourself with <a
+                href="https://ollama.com/"></a>Ollama for example (you do
+            need some patience though if you don't have a cutting-edge computer, although the requirements you often see
+            online often seem exaggerated). It's always good to go back to the original source and don't blindly trust
+            what others say about any topic. To find out for yourself what's hype and what's not.</p>
+        <p>Experiment with LLMs and apply them to whatever topic interests you most. It's crazy people still say (as you
+            often hear): "Oh I can't do that. I would have to follow a course to first get to know more about this topic
+            before I start doing something.". I strongly believe this is the wrong approach. People should be more like
+            Bob Dylan and just keep going at it. Somehow something will always pop up. Not everything will turn out
+            great, but it's guaranteed you'll have learned something.</p>
+
 </body>
 
 </html>
