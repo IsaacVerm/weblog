@@ -193,12 +193,12 @@
             the
             LLM to give you a quick introduction to this topic.</p>
         <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/ask-to-explain-a-grammatical-concept-1.png">
+            src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-to-explain-a-grammatical-concept-1.png">
         <p>This introduction of a concept can be customized in the prompt as well. For example, you can make the link
             with a language you're already familiar with. This gives you some grounding and helps you put the concepts
             explained into context.</p>
         <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/ask-to-explain-a-grammatical-concept-2.png">
+            src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-to-explain-a-grammatical-concept-2.png">
         <p>Since I know a bit of French already I can make the call these differences are really differences between
             French and English and not just minor details. Of course absolute beginners can't make this call, but
             this doesn't pose too much of a problem. What you're asking for is very basic (an introduction to a very
@@ -207,32 +207,30 @@
             was a mistake in the LLM output, this might actually be beneficial. I noted several times already correcting
             these mistakes helps a lot with memorizing. Probably because it's something active to do. In a way these
             mistakes are a boost to the language learning process.</p>
-        <h3>Ask why a specific form of a word is used</h3>
-        <p>Often you read something and you're not sure exactly why the case ending is what it is. Is this genitive? And
-            if it is, why? You can just ask the LLM to explain.</p>
+        <h3>Ask why a specific word is used</h3>
+        <p>Often you read something and you're not sure exactly why a word is used. Why not some other verb? Why does
+            the word end in these letters? You can just ask the LLM to explain.</p>
         <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/ask-why-a-specific-form-of-a-word-is-used-1.png">
+            src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-why-a-specific-form-of-a-word-is-used-1.png">
         <p>This approach works well in combination with Anki. You can imagine multiple types of questions:</p>
         <ul>
             <li>just reusing the same question:
                 <ul>
-                    <li>Q: Which case to use with нет?</li>
-                    <li>A: genitive case</li>
+                    <li>Q: Which verb to use when you talk about the weather?</li>
+                    <li>A: faire</li>
                 </ul>
             </li>
             <li>shortening the question:
                 <ul>
-                    <li>Q: нет + {case}</li>
-                    <li>A: genitive</li>
+                    <li>Q: weather + {verb}</li>
+                    <li>A: faire</li>
                 </ul>
             </li>
         </ul>
-        <p>You notice LLMs can be quite verbose. Here it says "negative construction with нет". But of course нет will
-            always be about negation. That's why I shortened the answered to "after нет". You still have to think for
-            yourself. The LLM points you in the right direction and you have to assess yourself what to make of what it
-            provides.</p>
         <h3>Partial translation</h3>
-        <p><a
+        <p>A good example of partial translation is <a
+                href="https://play.textadventures.co.uk/Play.aspx?id=ubqglkk1j0m5bzdeolih9a">the Metro book series
+                turned into a game</a>.<a
                 href="https://www.reddit.com/r/languagelearning/comments/16mlg02/language_learning_app_using_partial_translation/">Opinions
                 differ on whether this is a good
                 idea</a> but I found translating some words to French in a text while keeping other words in the
@@ -241,28 +239,24 @@
             myself. You ask the LLM to only translate some words in the English input text. You can be pretty specific
             about what you want translated and what not: only translate difficult (long) words, only translate words
             related to a specific theme,... Or alternate between foreign and native words.</p>
-        <p>A good example of partial translation is <a
-                href="https://play.textadventures.co.uk/Play.aspx?id=ubqglkk1j0m5bzdeolih9a">the Metro book series
-                turned into a game</a>:</p>
-        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/partial-translation-1.png">
         <p>This works well if you know what to expect. Either you already read the book in English or the context makes
             clear what to expect. You do need to do some prompt engineering though to make it work, but not a lot. For
             example, if you just ask the LLM to alternate without providing context why, it will provide both the
             French translation but also the original English word which spoils the effect:</p>
-        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/partial-translation-2.png">
+        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-2.png">
         <p>By providing an example how the alternating text should be formatted and what makes a good candidate for
             translation, the results are instantly a lot better. To the point I don't think it's a lot worse than the
             Metro text adventure. I assume in that game it was done manually since the game was released long before
             LLMs became mainstream.</p>
-        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/partial-translation-3.png">
-        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/partial-translation-4.png">
-        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/partial-translation-5.png">
+        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-3.png">
+        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-4.png">
         <p>I didn't ask for the reason why these words exactly were translated, but the LLM provided it by himself. You
             could ask to list the reason why each word was translated for testing purposes:</p>
-        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/partial-translation-6.png">
+        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-6.png">
         <p>This information you can use once more to iterate on your prompt. You could for example tell the LLM to only
-            translate if a word is part of a phrase. An example of this was how "all this time" was translated into "all
-            this время". This is a standard theme with LLMs. You first try out a very general prompt and see in what way
+            translate if a word is part of a phrase. An example of this was how "in search of" was translated into "in
+            recherche off". This is a standard theme with LLMs. You first try out a very general prompt and see in what
+            way
             the output differs from what you want. Based on this output you iterate and bit by bit the result moves in
             the direction you want.</p>
         <p>I had somewhat forgotten about this partial translation approach, but now I rediscovered it I remember why I
@@ -273,24 +267,23 @@
             lot of targeted examples. Say I'm learning about verb conjugations. It's
             natural to want to know what these conjugations look like.</p>
         <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/quickly-generate-a-lot-of-customized-examples-1.png">
+            src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/quickly-generate-a-lot-of-customized-examples-1.png">
         <p>Anything you can think of can be customized: the difficulty level, the theme, ... You just have to ask for
             it.</p>
         <h3>Help with creating hints for words in Anki flashcards</h3>
-        <p>It's well known French words can be quite long. For example "sight" (in the touristic sense of the word) can
-            be translated as достопримечательность. That's quite daunting if French isn't your native language. Adding
+        <p>It's well known French words can be quite long. For example "law" (3 letters) can
+            be translated as "législation" (11 letters) in French. That's quite daunting if French isn't your native
+            language. Adding
             these words as flashcards in Anki makes for a very steep learning curve. It would help if I could add some
             hint to the question, for example the word split into syllables. In itself this isn't hard to do. But it's
             rather boring and annoying to do. The solution is just a prompt away (in the process showing another example
             of how easy it is to generate examples):</p>
         <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/help-with-creating-hints-for-words-in-anki-flashcards-1.png">
+            src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/help-with-creating-hints-for-words-in-anki-flashcards-1.png">
+        <p>You can be ambitious and not limit yourself to syllables and try something more
+            ambitious like splitting the word in its constituent parts.</p>
         <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/help-with-creating-hints-for-words-in-anki-flashcards-2.png">
-        <p>But using LLMs you can do even better. Why would you limit yourself to syllables and not try something more
-            ambitious like splitting the word in its constituent parts?</p>
-        <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/help-with-creating-hints-for-words-in-anki-flashcards-3.png">
+            src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/help-with-creating-hints-for-words-in-anki-flashcards-2.png">
         <p>Talk about LLMs often is about some kind of superintelligence but the way I use it, it's more like a tool
             making common tasks scalable. If I'd have to cut 200 words into syllables I'd find it boring, it'd take a
             lot of time so I'd probably abandon the project before even trying. But if I can just ask the LLM to do it,
@@ -312,21 +305,21 @@
             this point, North Africa, far from being some foreign 'barbarian' land is distinctly Roman.
         </blockquote>
         <p>If I ask the LLM to think of some questions based on that input I get this:</p>
-        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/turn-facts-into-questions-1.png">
+        <img src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/turn-facts-into-questions-1.png">
         <p>All of a sudden the data is in a format usable to Anki.</p>
         <h3>Use LLM as translator</h3>
         <p>Sometimes you can keep it even more basic. Using LLMs, you don't need a separate translation app but can just
             prompt to translate some input text. Any Anki cards I already have can easily be translated into French.
         </p>
         <h3>Ask for equivalent expression in different language</h3>
-        <p>If <a href="https://dic.academic.ru/dic.nsf/dic_wingwords/1384/%D0%9B%D1%83%D1%87%D1%88%D0%B5">expressions go
-                way back, to Latin or Greek expressions</a>, the mapping of the words between languages is often
+        <p>If expressions go
+            way back, to Latin or Greek expressions, the mapping of the words between languages is often
             one-to-one making translating easy and easy to remember as well. Idea inspired by <a
                 href="https://howtogetfluent.com/translation-as-a-language-learning-method/">Translation as a language
                 learning method - why and how</a>, an
             article focusing on the benefits and drawbacks of translation as a learning tool.</p>
         <img
-            src="/static/images/posts/how-to-use-llms-for-learning-a-language-en/ask-for-equivalent-expression-in-different-language-1.png">
+            src="/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-for-equivalent-expression-in-different-language-1.png">
         <h2>How do these practical examples relate to the bigger picture?</h2>
         <p>The examples above are very concrete, but they often point to larger developments.</p>
         <h3>Data becomes fluid</h3>
