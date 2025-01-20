@@ -4,7 +4,7 @@ Locally:
 python3 -m venv myenv
 source myenv/bin/activate
 pip install -r requirements.txt
-python app.py
+gunicorn app:app
 ```
 
 Using Docker:
