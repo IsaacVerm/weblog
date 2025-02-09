@@ -22,9 +22,9 @@
 <p>Combining these three, it becomes possible to read the text even when you’re not proficient enough yet.</p>
 <h3 id="root-of-the-word">root of the word</h3>
 <p>Russian words are notoriously long, but often the root of the word is short and returns in many different words. <a href="http://russian.cornell.edu/grammar/html/gr11_a_a.htm">Knowing the root can help a lot both with understanding and remembering</a>.</p>
-<p><img src="verbs-with-root-каз.png" /></p>
+<p><img src="building-a-web-app-to-help-with-reading-a-foreign-language/verbs-with-root-каз.png" /></p>
 <p>You can ask the LLM to show what the root of a word is. Take for example the first part of the first sentence in Последний кольценосец:</p>
-<p><img src="ask-llm-root-word.png" /></p>
+<p><img src="building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-root-word.png" /></p>
 <h3 id="sentences-cut-in-semantically-sensible-pieces">sentences cut in semantically sensible pieces</h3>
 <p>The first sentence of Последний кольценосец is quite long:</p>
 <blockquote>
@@ -35,12 +35,12 @@
 </blockquote>
 <p>Having an entire, long sentence in front of you which you don’t understand at all is tiring. I’ll only keep reading this book in Russian if it’s relatively fun to do.</p>
 <p>You can split this long sentences into pieces with the help of an LLM:</p>
-<p><img src="ask-llm-split-sentence-in-semantically-sensible-pieces.png" /></p>
+<p><img src="building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-split-sentence-in-semantically-sensible-pieces.png" /></p>
 <p>It’s clear having the English part next to the Russian part makes it a lot easier to read, but I’m not sure yet how exactly to implement this in the app.</p>
 <p>This works well because the sentence was originally translated into English with an LLM as well so the LLM didn’t do anything fancy and kept the exact same structure as in Russian. This is less readable in English than a more literary translation, but for learning the language it helps a lot.</p>
 <h3 id="hints-in-easy-language">hints in easy language</h3>
 <p>You can ask the LLM to explain a word using simple language. The explanation can still be in Russian, so you avoid having an internal translation.</p>
-<p><img src="ask-llm-explain-word-simple-language.png" /></p>
+<p><img src="building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-explain-word-simple-language.png" /></p>
 <h2 id="how-does-the-app-work-in-practice">how does the app work in practice?</h2>
 <p>Now we know the exact problem we’re trying to solve and roughly what to focus on, we can make the app more concrete. If we use the app, what do we want to happen?</p>
 <h3 id="steps">steps</h3>
@@ -65,7 +65,7 @@
 </ul>
 <p>In a way these options are ordered according to difficulty. First you try it the hard way with an example phrase and only if you don’t get at all what it’s about you get the translation in English. It’s nice to be challenged by default knowing you’re never stuck if you really don’t get the word.</p>
 <p>Having the English translation is handy if you really don’t understand what it’s about. Or it might be the word is just too difficult for you still:</p>
-<p><img src="word-too-difficult-judged-by-llm.png" /></p>
+<p><img src="building-a-web-app-to-help-with-reading-a-foreign-language/word-too-difficult-judged-by-llm.png" /></p>
 <h2 id="features">features</h2>
 <h3 id="already-implemented-features">already implemented features</h3>
 <p>Development of the app itself has not started yet.</p>
