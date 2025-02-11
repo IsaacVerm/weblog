@@ -42,6 +42,21 @@ def add_toc_to_html_post():
     print("Create a HTML table of contents for the HTML above. Returning nothing else but the HTML.")
     print("add HTML returned by LLM after <h1> tag in HTML post")
     input("Press Enter when you have added the table of contents to the HTML post...")
+    
+def check_post_served_by_web_server():
+    os.system('clear')
+    print("* step 5: run web server in Docker")
+    print("")
+    print("command: docker build -t weblog .")
+    print("command: docker run -p 8000:8000 weblog")
+    print("open http://0.0.0.0:8000/posts/{postNameDashes} in your browser")
+    print("checklist:")
+    print("- post visible in the browser")
+    print("- images displayed correctly")
+    print("- table of contents displayed correctly")
+    print("- no major layout issues")
+    
+    input("Press Enter when you have run the web server and checked the post in the browser...")
 
 def main():
     # run steps in sequence
@@ -49,6 +64,7 @@ def main():
     copy_obsidian_post_to_weblog_repo()
     convert_markdown_post_to_html()
     add_toc_to_html_post()
+    run_web_server()
     
     os.system('clear')
 
