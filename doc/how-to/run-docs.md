@@ -1,0 +1,1 @@
+`python doc/how-to/{doc}.py`
