@@ -31,12 +31,24 @@ def convert_markdown_post_to_html():
     print("command: pandoc posts/{postNameDashes}.md -o posts/{postNameDashes}.html")
     print("After running the command a HTML file of the Markdown post should be created in the posts folder.")
     input("Press Enter when you have converted the Markdown post to HTML...")
+    
+def add_toc_to_html_post():
+    os.system('clear')
+    print("* step 4: add table of contents to HTML post")
+    print("")
+    print("open LibreChat")
+    print("copy the HTML of the post into LibreChat")
+    print("run this prompt:")
+    print("Create a HTML table of contents for the HTML above. Returning nothing else but the HTML.")
+    print("add HTML returned by LLM after <h1> tag in HTML post")
+    input("Press Enter when you have added the table of contents to the HTML post...")
 
 def main():
     # run steps in sequence
     create_post_in_obsidian()
     copy_obsidian_post_to_weblog_repo()
     convert_markdown_post_to_html()
+    add_toc_to_html_post()
     
     os.system('clear')
 
