@@ -1,5 +1,6 @@
-# building a web app to help with reading a foreign language
-## what triggered building this app?
+# Building a web app to help with reading a foreign language
+
+## What triggered building this app?
 
 Recently I went to a [Lord of the Rings concert](https://www.ccbrugge.be/agenda/4483/mystery-ensemble-by-la-chapelle-sauvage/the-music-of-the-lord-of-the-rings). Since I've been brushing up my Russian skills, it got me wondering whether a Russian version of Lord of the Rings is available. This made me stumble on [Последний кольценосец](https://en.wikipedia.org/wiki/The_Last_Ringbearer), an apocryphal version of Lord of the Rings:
 
@@ -7,7 +8,7 @@ Recently I went to a [Lord of the Rings concert](https://www.ccbrugge.be/agenda/
 
 I found the idea behind the book interesting, but the [text in Russian itself](https://fan.lib.ru/e/eskov/last_ringlord.shtml) is too hard for me. Having recently experimented with [using an LLM for language learning](https://mini-computer.tail1ad9dd.ts.net/posts/how-to-use-llms-for-learning-a-language-ru), I decided to try to create an app incorporating an LLM to help out. 
 
-## what problem does this app solve?
+## What problem does this app solve?
 
 When I tried to read Последний кольценосец, I noticed these aspects made it hard for me to read the text:
 
@@ -16,7 +17,7 @@ When I tried to read Последний кольценосец, I noticed these 
 
 Both of these problems can be attacked with an LLM. You can use the LLM to make the sentences (semantically) shorter and to dumb down the words.
 
-## what does the app focus on?
+## What does the app focus on?
 
 The app tries to make a difference in three ways:
 
@@ -26,17 +27,17 @@ The app tries to make a difference in three ways:
 
 Combining these three, it becomes possible to read the text even when you're not proficient enough yet.
 
-### root of the word
+### Root of the word
 
 Russian words are notoriously long, but often the root of the word is short and returns in many different words. [Knowing the root can help a lot both with understanding and remembering](http://russian.cornell.edu/grammar/html/gr11_a_a.htm).
 
-![](verbs-with-root-каз.png)
+![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/verbs-with-root-каз.png)
 
 You can ask the LLM to show what the root of a word is. Take for example the first part of the first sentence in Последний кольценосец:
 
-![](ask-llm-root-word.png)
+![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-root-word.png)
 
-### sentences cut in semantically sensible pieces
+### Sentences cut in semantically sensible pieces
 
 The first sentence of Последний кольценосец is quite long:
 
@@ -48,23 +49,23 @@ Having an entire, long sentence in front of you which you don't understand at al
 
 You can split this long sentences into pieces with the help of an LLM:
 
-![](ask-llm-split-sentence-in-semantically-sensible-pieces.png)
+![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-split-sentence-in-semantically-sensible-pieces.png)
 
 It's clear having the English part next to the Russian part makes it a lot easier to read, but I'm not sure yet how exactly to implement this in the app.
 
 This works well because the sentence was originally translated into English with an LLM as well so the LLM didn't do anything fancy and kept the exact same structure as in Russian. This is less readable in English than a more literary translation, but for learning the language it helps a lot.
 
-### hints in easy language
+### Hints in easy language
 
 You can ask the LLM to explain a word using simple language. The explanation can still be in Russian, so you avoid having an internal translation.
 
-![](ask-llm-explain-word-simple-language.png)
+![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-explain-word-simple-language.png)
 
-## how does the app work in practice?
+## How does the app work in practice?
 
 Now we know the exact problem we're trying to solve and roughly what to focus on, we can make the app more concrete. If we use the app, what do we want to happen?
 
-### steps
+### Steps
 
 - Russian sentence is displayed
 - you press next
@@ -77,7 +78,7 @@ Now we know the exact problem we're trying to solve and roughly what to focus on
 
 Pressing next is done by tapping the space bar.
 
-### explanation of the word
+### Explanation of the word
 
 The word we hover over can be explained in different ways:
 
@@ -91,18 +92,18 @@ In a way these options are ordered according to difficulty. First you try it the
 Having the English translation is handy if you really don't understand what it's about.
 Or it might be the word is just too difficult for you still:
 
-![](word-too-difficult-judged-by-llm.png)
+![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/word-too-difficult-judged-by-llm.png)
 
 
-## features
+## Features
 
-### already implemented features
+###  Features already implemented
 
 Development of the app itself has not started yet.
 
-### potentially useful features
+### Potentially useful features
 
-#### toggle difficulty language
+#### Toggle difficulty language
 
 A1, A2 or B1.
 
@@ -110,6 +111,6 @@ A1, A2 or B1.
 
 This might not be needed if the example phrases, descriptions, ... are generated by the LLM beforehand. In that case you can mass import flashcards in Anki using CSV.
 
-## changelog
+## CHANGELOG
 
 - 09-02-2025: initial draft
