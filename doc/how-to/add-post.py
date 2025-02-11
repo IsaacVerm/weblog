@@ -64,7 +64,7 @@ def main():
     copy_obsidian_post_to_weblog_repo()
     convert_markdown_post_to_html()
     add_toc_to_html_post()
-    run_web_server()
+    check_post_served_by_web_server()
     
     os.system('clear')
 
