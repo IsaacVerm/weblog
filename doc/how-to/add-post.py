@@ -1,6 +1,7 @@
 import os
 
 def create_post_in_obsidian():
+    os.system('clear') # if not the terminal will be cluttered with the previous steps
     print("* step 1: create post in Obsidian")
     print("")
     print("checklist:")
@@ -14,7 +15,7 @@ def create_post_in_obsidian():
     input("Press Enter when you have created the post in Obsidian...")
     
 def copy_obsidian_post_to_weblog_repo():
-    os.system('clear') # if not the terminal will be cluttered with the previous steps
+    os.system('clear')
     print("* step 2: copy Obsidian post (and images used in the post) to weblog repo")
     print("")
     print("checklist:")
