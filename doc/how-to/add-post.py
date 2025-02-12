@@ -6,8 +6,7 @@ def ask_for_post_name():
     print("")
     post_name_natural = input("Type the name of your post:\n\n")
     post_name_kebab_case = post_name_natural.lower().replace(" ", "-")
-    # dictionary with 2 versions because I'll definitely use the natural language version in this doc later on
-    post_names = {'natural language': post_name_natural, 'kebab_case': post_name_kebab_case}
+    post_names = {'natural_language': post_name_natural, 'kebab_case': post_name_kebab_case}
     return post_names
 
 def create_post_in_obsidian(post_name_kebab_case):
@@ -59,6 +58,7 @@ def check_post_served_by_web_server(post_name_kebab_case):
     os.system('clear')
     print("* STEP 5: run web server in Docker")
     print("")
+    print("(assuming you have Docker installed and running)")
     print("COMMAND: docker build -t weblog .")
     print("COMMAND: docker run -p 8000:8000 weblog")
     print("")
@@ -71,7 +71,22 @@ def check_post_served_by_web_server(post_name_kebab_case):
     print("- no major layout issues")
     print("")
     input("Press Enter when you have run the web server and checked the post in the browser...")
-
+    
+def commit_post_to_github(post_name_natural_language):
+    os.system('clear')
+    print("* STEP 6: commit post to GitHub")
+    print("")
+    print("Don't create a separate issue/merge request for adding a post. Just commit it directly to the main branch.")
+    print("")
+    print("(assuming you're on the main branch)")
+    print("COMMAND: git add -a")
+    print(f"COMMAND: git commit -m 'add post {post_name_natural_language}'")
+    print("COMMAND: git push")
+    print("")
+    print("The commit of the post should be visible on the weblog repo page on GitHub.")
+    print("")
+    input("Press Enter when you have committed the post to GitHub...")
+          
 def main():
     # run steps in sequence
     post_names = ask_for_post_name()
@@ -80,6 +95,7 @@ def main():
     convert_markdown_post_to_html(post_names['kebab_case'])
     add_toc_to_html_post()
     check_post_served_by_web_server(post_names['kebab_case'])
+    commit_post_to_github(post_names['natural_language'])
     
     os.system('clear')
     
