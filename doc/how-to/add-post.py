@@ -1,15 +1,23 @@
 import os
 
-def create_post_in_obsidian():
+def ask_for_post_name():
     os.system('clear') # if not the terminal will be cluttered with the previous steps
+    print("* step 0: what's the name of your post?")
+    print("")
+    post_name_natural = input("Type the name of your post.")
+    post_name_kebab_case = post_name_natural.lower().replace(" ", "-")
+    post_names = {'natural language': post_name_natural, 'kebab_case': post_name_kebab_case}
+    return post_names
+
+def create_post_in_obsidian(post_name_kebab_case):
+    os.system('clear')
     print("* step 1: create post in Obsidian")
     print("")
     print("checklist:")
     print("- post should be kept in posts folder")
     print("- there's a newline after each header")
     print("- there's a newline before starting a list")
-    print("- images are added as ![](/static/images/posts/{postNameDashes}/{imageName}.{extension})")
-    print("    example postNameDashes: how-to-use-llms-for-learning-a-language-fr")
+    print(f"- images are added as ![](/static/images/posts/{post_name_kebab_case}/{{image_name}}.{{extension}})")
     print("    make sure you use /static and not static or the images won't load in the web app later on")
     print("")
     input("Press Enter when you have created the post in Obsidian...")
@@ -61,7 +69,8 @@ def check_post_served_by_web_server():
 
 def main():
     # run steps in sequence
-    create_post_in_obsidian()
+    post_names = ask_for_post_name()
+    create_post_in_obsidian(post_names['kebab_case'])
     copy_obsidian_post_to_weblog_repo()
     convert_markdown_post_to_html()
     add_toc_to_html_post()
