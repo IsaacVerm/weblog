@@ -56,7 +56,7 @@ def add_toc_to_html_post():
     print("")
     input("Press Enter when you have added the table of contents to the HTML post...")
     
-def check_post_served_by_web_server(post_name_kebab_case):
+def serve_post(post_name_kebab_case):
     os.system('clear')
     print("* STEP 5: run web server in Docker")
     print("")
@@ -96,7 +96,7 @@ def main():
     copy_obsidian_post_to_weblog_repo(post_names['kebab_case'])
     convert_markdown_post_to_html(post_names['kebab_case'])
     add_toc_to_html_post()
-    check_post_served_by_web_server(post_names['kebab_case'])
+    serve_post(post_names['kebab_case'])
     commit_post_to_github(post_names['natural_language'])
     
     os.system('clear')
