@@ -9,16 +9,18 @@ def ask_for_post_name():
     post_names = {'natural_language': post_name_natural, 'kebab_case': post_name_kebab_case}
     return post_names
 
-def create_post_in_obsidian(post_name_kebab_case):
+def create_post_in_obsidian(post_name_kebab_case, post_name_natural):
     os.system('clear')
     print("* STEP 1: create post in Obsidian")
     print("")
     print("CHECKLIST:")
-    print("- post should be kept in posts folder")
+    print(f"- post is kept at /static/posts/{post_name_natural}.md (.md added automatically by Obsidian) in the Obsidian vault")
+    print(f"- images are kept in the /static/images/posts/{post_name_kebab_case} folder in the Obsidian vault")
     print("- there's a newline after each header")
     print("- there's a newline before starting a list")
     print(f"- images are added as ![](/static/images/posts/{post_name_kebab_case}/{{image_name}}.{{extension}})")
-    print("    make sure you use /static and not static or the images won't load in the web app later on")
+    print("")
+    print("Make sure to use /static and not static or the post and images won't load in the web app later on.")
     print("")
     input("Press Enter when you have created the post in Obsidian...")
     
@@ -62,7 +64,7 @@ def check_post_served_by_web_server(post_name_kebab_case):
     print("COMMAND: docker build -t weblog .")
     print("COMMAND: docker run -p 8000:8000 weblog")
     print("")
-    print(f"open http://0.0.0.0:8000/posts/{post_name_kebab_case} in your browser to check if the post is displayed correctly")
+    print(f"Open http://0.0.0.0:8000/posts/{post_name_kebab_case} in your browser to check if the post is displayed correctly.")
     print("")
     print("CHECKLIST:")
     print("- post visible in the browser")
@@ -90,7 +92,7 @@ def commit_post_to_github(post_name_natural_language):
 def main():
     # run steps in sequence
     post_names = ask_for_post_name()
-    create_post_in_obsidian(post_names['kebab_case'])
+    create_post_in_obsidian(post_names['kebab_case'], post_names['natural_language'])
     copy_obsidian_post_to_weblog_repo(post_names['kebab_case'])
     convert_markdown_post_to_html(post_names['kebab_case'])
     add_toc_to_html_post()
