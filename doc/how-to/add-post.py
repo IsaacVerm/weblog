@@ -18,7 +18,9 @@ def create_post_in_obsidian(post_name_kebab_case, post_name_natural):
     print(f"- images are kept in the /static/images/posts/{post_name_kebab_case} folder in the Obsidian vault")
     print("- there's a newline after each header")
     print("- there's a newline before starting a list")
-    print(f"- images are added as ![](/static/images/posts/{post_name_kebab_case}/{{image_name}}.{{extension}})")
+    print(f"- images are added as ![](/static/images/posts/{post_name_kebab_case}/{{image_name}}.{{extension}}) instead of internal Obsidian links")
+    print("- external links are added as [link text](url) instead of internal Obsidian links")
+    print("- the title of the post is the # header in the post")
     print("")
     print("Make sure to use /static and not static or the post and images won't load in the web app later on.")
     print("")
@@ -29,7 +31,7 @@ def copy_obsidian_post_to_weblog_repo(post_name_kebab_case):
     print("* STEP 2: copy Obsidian post (and images used in the post) to weblog repo")
     print("")
     print("CHECKLIST:")
-    print("- Markdown post should be copied to the posts folder")
+    print(f"- Markdown post should be copied to /static/posts/{post_name_kebab_case}.md")
     print(f"- images should be copied to the static/images/posts/{post_name_kebab_case} folder")
     print("")
     input("Press Enter when you have copied the post to the weblog repo...")
@@ -39,7 +41,7 @@ def convert_markdown_post_to_html(post_name_kebab_case):
     print("* STEP 3: convert Markdown post to html")
     print("")
     print("(assuming you're in the root of the weblog repo)")
-    print(f"COMMAND: pandoc posts/{post_name_kebab_case}.md -o posts/{post_name_kebab_case}.html")
+    print(f"COMMAND: pandoc static/posts/{post_name_kebab_case}.md -o static/posts/{post_name_kebab_case}.html")
     print("")
     print("After running the command a HTML file of the Markdown post should be created in the posts folder.")
     print("")
@@ -56,9 +58,17 @@ def add_toc_to_html_post():
     print("")
     input("Press Enter when you have added the table of contents to the HTML post...")
     
+def add_post_to_posts_overview(post_name_kebab_case, post_name_natural):
+    os.system('clear')
+    print("* STEP 5: add post to posts overview")
+    print("")
+    print(f"Add the post to /static/pages/posts_overview.html as <li><a href=\"/static/posts/{post_name_kebab_case}.html\">{post_name_natural}</a></li>")
+    print("")
+    input("Press Enter when you have added the post to the posts overview...")
+    
 def serve_post(post_name_kebab_case):
     os.system('clear')
-    print("* STEP 5: run web server in Docker")
+    print("* STEP 6: run web server in Docker")
     print("")
     print("(assuming you have Docker installed and running)")
     print("COMMAND: docker build -t weblog .")
@@ -76,7 +86,7 @@ def serve_post(post_name_kebab_case):
     
 def commit_post_to_github(post_name_natural_language):
     os.system('clear')
-    print("* STEP 6: commit post to GitHub")
+    print("* STEP 7: commit post to GitHub")
     print("")
     print("Don't create a separate issue/merge request for adding a post. Just commit it directly to the main branch.")
     print("")
@@ -96,6 +106,7 @@ def main():
     copy_obsidian_post_to_weblog_repo(post_names['kebab_case'])
     convert_markdown_post_to_html(post_names['kebab_case'])
     add_toc_to_html_post()
+    add_post_to_posts_overview(post_names['kebab_case'], post_names['natural_language'])
     serve_post(post_names['kebab_case'])
     commit_post_to_github(post_names['natural_language'])
     

@@ -1,0 +1,44 @@
+<h1 id="docs-as-cli">Docs as CLI</h1>
+<p>I discovered this little gem: <a href="https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/">Do-nothing scripting - the key to gradual automation</a>. The idea behind the approach is deceptively simple.The basic assumption is you’ll always have something called <a href="https://sre.google/sre-book/eliminating-toil/">toil</a>:</p>
+<blockquote>
+<p>Toil is the kind of work tied to running a production service that tends to be manual, repetitive, automatable, tactical, devoid of enduring value, and that scales linearly as a service grows.</p>
+</blockquote>
+<p>Even in times of LLMs where it seems like everything can be automated with ease, in reality that’s just not the case. For example, even though my weblog is still very simple I already have two rather elaborate manual procedures :</p>
+<ul>
+<li>how to add a post to the weblog</li>
+<li>how to redeploy (code) changes to the weblog</li>
+</ul>
+<p>Just adding a post presently involved 6 steps:</p>
+<ul>
+<li>create the post in Obsidian</li>
+<li>copy the Obsidian Markdown post to the <code>weblog</code> repo</li>
+<li>convert the Markdown post to HTML</li>
+<li>add a table of contents to the Markdown post</li>
+<li>serve the post (and check if it’s displayed correctly)</li>
+<li>commit the post to GitHub</li>
+</ul>
+<p>There’s no avoiding doing this. It’s a weblog, I want to add posts. I’ll need to have a way to add posts, either manually or an automated way. Often the first idea to get rid of the manual process is to automate everything, all at once. This rarely is a succesful approach. It takes a lot of time and most of the times you underestimate how variable the process is. Making small modifications isn’t hard when going through the process manually, but can take a lot of time to properly, reliably implement. Unrelated but I also find it fun sometimes to do something and not think at all. I could also go for a walk of course.</p>
+<p>So what else can you do when you’re not automating? You can document the process. This is a big step up since know you can have a lot more confidence in what you’re doing. If you have to go through a long procedure, at least you’ll be confident you’ll get the result you want. However, writing the documents also takes time. They’ll improve over time when going through the procedure a couple of times, but still you have to make the up-front investment.</p>
+<p>Turns out there’s a way to supercharge your documents. A neat little trick: do-nothing scripting, using your documentation in a CLI. Each step in the documented process corresponds to a Python function. This function doesn’t change anything itself but prints instructions. Take for example the <a href="https://github.com/IsaacVerm/weblog/blob/0a4eeafe9aa682e714ec99bdfaa1470a38f75f3a/doc/how-to/add-post.py#L12">create_post_in_obsidian function</a>. Creating a post in Obsidian is easy but there are some gotchas. You have to make sure there’s a newline after each header, there should be a newline before starting a list, the post and the images used in the post should be kept in a specific folder, … None of this is rocket science but you can be sure you’ll not remember all of these details later on. By putting these in code, there will be no way not to be remembered of these gotchas (which is exactly what you want). Example what the code looks like:</p>
+<pre><code>def create_post_in_obsidian(post_name_kebab_case, post_name_natural):
+    os.system(&#39;clear&#39;)
+    print(&quot;* STEP 1: create post in Obsidian&quot;)
+    print(&quot;&quot;)
+    print(&quot;CHECKLIST:&quot;)
+    print(f&quot;- post is kept at /static/posts/{post_name_natural}.md (.md added automatically by Obsidian) in the Obsidian vault&quot;)
+    print(f&quot;- images are kept in the /static/images/posts/{post_name_kebab_case} folder in the Obsidian vault&quot;)
+    print(&quot;- there&#39;s a newline after each header&quot;)
+    print(&quot;- there&#39;s a newline before starting a list&quot;)
+    print(f&quot;- images are added as ![](/static/images/posts/{post_name_kebab_case}/{{image_name}}.{{extension}})&quot;)
+    print(&quot;&quot;)
+    print(&quot;Make sure to use /static and not static or the post and images won&#39;t load in the web app later on.&quot;)
+    print(&quot;&quot;)
+    input(&quot;Press Enter when you have created the post in Obsidian...&quot;)</code></pre>
+<p>When you run the script, it runs each function (so each step) one after another. <a href="https://github.com/IsaacVerm/weblog/pull/6">I tried it out myself</a> (and <a href="https://github.com/IsaacVerm/weblog/pull/10">already started improving on the basic setup</a>) and find the process a lot more lightweight and pleasant than just reading through a documented procedure. Additional advantage: it’s the first step towards automation. Each step corresponds to a function. You can automate just a single function at the time. Since you know there’s already some code skeleton, the energy needed to get started with the automation is way less than it would be if you’d have to start from scratch. After a while most of the critical steps will have been automated. All of this encourages an iterative approach where you keep building on your docs. This is good, the documentation should be alive.</p>
+<p>The end result looks like this:</p>
+<p><img src="/static/images/posts/docs-as-cli/doc-cli-all-steps.gif" /></p>
+<p>My first experiment was with a <a href="https://diataxis.fr/">how-to guide</a> to publish a post on my <code>weblog</code>, but I can see value in using the same approach of docs as CLIs for other documentation types like references and explanations. In this way the doc/CLI can be more like a quiz.</p>
+<h2 id="changelog">CHANGELOG</h2>
+<ul>
+<li>12-02-2025: initial draft</li>
+</ul>
