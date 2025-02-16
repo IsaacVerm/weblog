@@ -77,7 +77,7 @@
 
 > They will build and maintain strong relationships with our Human Feedback (HF) resources and optimize how we do this work on an ongoing basis.
 
-## market cap Apple covers 5 years of the Russia budget
+## Market cap Apple covers 5 years of the Russia budget
 
 ![](/static/images/posts/interesting-trivia/maxim-katz.png)
 
@@ -101,7 +101,7 @@
 
 > In fact, there was a family tutor of the Einsteins who went by the name Max Talmud (possibly the best name of a tutor _ever_), and it was indeed Max Talmud who introduced the young 12-year-old Albert to geometry, prefacing young Albert’s eventual transformation of our understanding of space and time into something geometric. Maybe we don’t make Einsteins anymore because we don’t make Max Talmuds anymore.
 
-## muzzle velocity
+## Steve Bannon calls overwhelming the media muzzle velocity
 
 ![](/static/images/posts/interesting-trivia/muzzle-velocity.jpg)
 
@@ -111,7 +111,7 @@
 > 
 > All we have to do is flood the zone. Every day we hit them with three things. They’ll bite on one, and we’ll get all of our stuff done. Bang, bang, bang. These guys will never — will never be able to recover. But we’ve got to start with muzzle velocity. 
 
-## at one point in time Myspace was visited more than Google
+## At one point in time Myspace was visited more than Google
 
 ![](/static/images/posts/interesting-trivia/memento-mori.webp)
 
@@ -138,3 +138,6 @@ Emre told me one: "At yalanı, sikeyim inananı".
 ## CHANGELOG
 
 - 16-02-2025: initial draft
+- 16-02-2025: fix layout
+    - make sure all titles are uppercase
+    - give "muzzle velocity" a more accurate title
