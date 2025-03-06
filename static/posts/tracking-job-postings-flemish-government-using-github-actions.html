@@ -1,0 +1,240 @@
+<h1 id="tracking-job-postings-flemish-government-using-github-actions">Tracking job postings Flemish government using
+    GitHub Actions</h1>
+<div class="toc">
+    <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#setting-up-the-scraper">Setting up the scraper</a>
+            <ul>
+                <li><a href="#preliminary-check-theres-no-geo-blocking">Preliminary check there's no geo-blocking</a>
+                </li>
+                <li><a href="#create-repository-containing-scraping-code">Create repository containing scraping code</a>
+                </li>
+                <li><a href="#find-the-url-of-the-api-endpoint-returning-job-postings">Find the URL of the API endpoint
+                        returning job postings</a></li>
+                <li><a href="#adapting-request-to-overview-search-to-fit-our-needs">Adapting request to overview-search
+                        to fit our needs</a></li>
+                <li><a href="#creating-a-github-action-workflow-to-fetch-data-from-the-endpoint-on-schedule">Creating a
+                        GitHub Action workflow to fetch data from the endpoint on schedule</a></li>
+            </ul>
+        </li>
+        <li><a href="#a-quick-way-to-exploit-the-data">A quick way to exploit the data</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Recently I discovered a new technique to scrape data thanks to the <a
+        href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping - track changes over time by scraping to
+        a Git repository</a> article (make sure to check out the <a
+        href="https://www.youtube.com/watch?v=2CjA-03yK8I">live demo</a>, it contains more or less the same info as the
+    article but it’s impressive to see how much scraping work you can get done in just a couple of minutes). The basic
+    idea behind the article is to leverage <a href="https://github.com/features/actions">GitHub Actions</a> and GitHub
+    itself to track changes to data over time.</p>
+<p>Using GitHub Actions opens a lot of possibilities: you don’t need to set up your own infrastructure and you can take
+    care of everything GitHub already offers in terms of version control (to track how data changed over time). Also you
+    don’t need a lot of code to set this up: just a configuration file in <code>.github/workflows</code> (which you can
+    even do in the browser itself) and the scraper can run. The end result is a commit on GitHub for each change in the
+    data. You can set up GitHub Actions to run regularly so you don’t have to think about any scheduling anymore. The
+    added value over just downloading the data once is you have information about the changes. When talking about job
+    postings this is rather interesting because a posting might get updated and it’s interesting why and when this
+    happened.</p>
+<p>Before I was writing another post on the same topic (instead of scraping job postings I was scraping <a
+        href="https://subsidieregister.vlaanderen.be">Subsidieregister</a>, a site detailing subsidies granted by the
+    government) but got bogged down. I ran into some issues which were not impossible to solve, but made the whole idea
+    a lot less attractive (more on that later). The key thing I realized is the process of scraping has to be as simple
+    as possible. When a data source is hard to get hold of, you should first think whether the data is actually worth it
+    before going into problem solving mode.</p>
+<p>What’s different between tracking the job postings of the Flemish government and tracking Subsidieregister?</p>
+<ul>
+    <li>the job postings site uses an API you can use (not documented officialy but easy to find and structured, more on
+        that later) instead of having to scrape the pages</li>
+    <li>there’s no <a href="https://en.wikipedia.org/wiki/Geo-blocking">geo-blocking</a> as there is for
+        Subsidieregister so you can’t use the default GitHub Actions runner</li>
+</ul>
+<p>Both of these differences are entirely solvable, but make the whole process a lot less lightweight. In the rest of
+    the article I’ll go through the concrete steps it takes to set up scraping of the Flemish governement job postings.
+</p>
+<h2 id="setting-up-the-scraper">Setting up the scraper</h2>
+<h3 id="preliminary-check-theres-no-geo-blocking">Preliminary check there’s no geo-blocking</h3>
+<p>When trying to scrape Subsidieregister using GitHub Actions I discovered this isn’t possible using the default <a
+        href="https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners">GitHub-hosted
+        runner</a>. I assume because it’s located in the US because when I select the US as country in my VPN, I can no
+    longer access the site while I can access it when no VPN is enabled. Luckily this wasn’t a problem when scraping the
+    job postings on <a href="https://www.vlaanderen.be/werken-voor-vlaanderen">Werken voor Vlaanderen</a>. I put the VPN
+    at US and could still access the site perfectly fine.</p>
+<h3 id="create-repository-containing-scraping-code">Create repository containing scraping code</h3>
+<p>This technique heavily relies on GitHub and GitHub actions so you first need to <a
+        href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen">create a repository on GitHub</a>.</p>
+<h3 id="find-the-url-of-the-api-endpoint-returning-job-postings">Find the URL of the API endpoint returning job postings
+</h3>
+<p>We’re going to use the API of <a href="https://www.vlaanderen.be/werken-voor-vlaanderen/vacatures">the Flemish
+        government job postings site</a> so we first have to know what endpoint we actually need to make requests to.
+    Any browser has some developer tools enabling you to see what requests are made when visiting a page. In the example
+    below I use <a href="https://firefox-source-docs.mozilla.org/devtools-user/">Firefox DevTools</a>, but the process
+    is more or less the same for any browser.</p>
+<p><img src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/firefox-devtools.png" />
+</p>
+<p>This is the network tab of the developer tools showing requests made when I opened the job postings page. Any request
+    made by your browser to the server is logged here. This includes the request for the job postings data:</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/overview-search-devtools.png" />
+</p>
+<p>The <code>https://www.vlaanderen.be/api/overview-search</code> endpoint returns all job postings data (including
+    metadata) in JSON format:</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/overview-search-json.png" />
+</p>
+<p>Not strictly necessary, but if you right click and ask to open the request in a new tab the data is formatted and way
+    more readable. This makes it easy to verify if you’re really dealing with the data you think you’re dealing with:
+</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/open-request-in-new-tab-devtools.png" />
+</p>
+<h3 id="adapting-request-to-overview-search-to-fit-our-needs">Adapting request to <code>overview-search</code> to fit
+    our needs</h3>
+<p>Developer tools in the browser has an option to copy the request as <code>curl</code> command. Since I want to fetch
+    the data with <code>curl</code> anyway, this is very handy:</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/copy-request-as-curl-devtools.png" />
+</p>
+<p>The problem is everything is copied. <a
+        href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen/blob/main/curl-overview-search.sh">Every
+        parameter sent to <code>overview-search</code></a> <a href="">The copied <code>curl</code> command</a> is copied
+    as well. Definitely not every parameter is required for the request to be succesful. In itself it doesn’t matter if
+    the request contains irrelevant parameters, but it does make maintenance in the long run harder. If I want to make a
+    change later on, I’ll never be sure if I’m breaking something or not. Since no documentation for the API is
+    provided, we have to find a different way to determine which parameters are required and which aren’t. I decided on
+    a two-step approach where I first let the LLM have a go at it and do some manual curation afterwards.</p>
+<p>First I use the <code>llm</code> tool asking to remove any fields not strictly required:</p>
+<pre><code>cat curl-overview-search.sh | llm &quot;Go over this curl command and keep only the fields which you assume will be required for the request to be succesful. Format the command over multiple lines so it&#39;s as readable as possible.&quot; &gt; curl-overview-search-min.sh</code></pre>
+<p>If we now run the <a
+        href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen/blob/d4efbd273161eef9f724c9e65a8f16b66cbace3b/curl-overview-search-min.sh"><code>curl</code>
+        command without the parameters identified as superfluous by the LLM</a>, the request is still succesful.
+    However, I assume there are still some other fields like <code>Origin</code> which aren’t required either. I iterate
+    over each of these fields removing the field and testing the <code>curl</code> command (setting the
+    <code>limit</code> field to 1 to make the test as fast as possible). If the command still passes, it means the field
+    can be safely removed.</p>
+<p>The <code>curl</code> command eventually looks like this:</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/final-curl-overview-search-command.png" />r
+</p>
+<p>The basic parts are:</p>
+<ul>
+    <li>specifiying we’re doing a <code>POST</code>request</li>
+    <li>specifying <code>json</code> as content type</li>
+    <li>authorization</li>
+    <li>setting <code>limit</code> to 1000 so all job postings are fetched (usually there are around 200 job postings at
+        any given time)</li>
+    <li>some filtering options: removing these will still result in a succesful request, but you’ll fetch a lot of
+        unrelated data</li>
+</ul>
+<p>The <code>Authorization</code> field is very basic when <a href="https://www.base64decode.org/">decoded with
+        base64</a> so no need to make this dynamic:</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/base64-authorization-field-decoded.png" />
+</p>
+<h3 id="creating-a-github-action-workflow-to-fetch-data-from-the-endpoint-on-schedule">Creating a GitHub Action workflow
+    to fetch data from the endpoint on schedule</h3>
+<p>In the step just before we determined <code>/overview-search</code> is the endpoint we need and we specified exactly
+    what parameters to provide. Now we want to add a GitHub Action workflow to fetch the job posting on a regular basis
+    using the <code>curl</code> command identified above and commit the results whenever the data changes.</p>
+<p>Workflows should be added to <code>.github/workflows</code>. You don’t even need an editor to add this file, but you
+    can add this workflow on GitHub itself from within your browser:</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/add-file-to-repo-in-github-itself.png" />
+</p>
+<p>The worksflow I use is based on the <a
+        href="https://github.com/simonw/ca-fires-history/blob/main/.github/workflows/scrape.yml">workflow used as an
+        example in the Simon Willison git scraping article</a>:</p>
+<div class="sourceCode" id="cb2">
+    <pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Scrape latest data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;0 0,8,16 * * *&#39;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="at">  </span><span class="fu">scheduled</span><span class="kw">:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out this repo</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Fetch latest data</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|-</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>        curl &#39;https://www.fire.ca.gov/api/sitecore/Incident/GetFiresForMap&#39; \</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>          -X POST --data-raw &#39;showFeatured=False&#39; | jq &gt; incidents-june-2023-format.json</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Commit and push if it changed</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|-</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>        git config user.name &quot;Automated&quot;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>        git config user.email &quot;actions@users.noreply.github.com&quot;</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>        git add -A</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>        timestamp=$(date -u)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>        git commit -m &quot;Latest data: ${timestamp}&quot; || exit 0</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>        git push</span></code></pre>
+</div>
+<p>Using <a href="https://llm.datasette.io/en/stable/">llm</a>, another one of Simon Willison’s tools, I quickly get an
+    idea of what each key in the file means:</p>
+<div class="sourceCode" id="cb3">
+    <pre
+        class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">cat</span> fires-workflow.yml <span class="kw">|</span> <span class="ex">llm</span> <span class="st">&quot;Explain in a concise way what each part of this workflow does&quot;</span> <span class="op">&gt;</span> explanation-fires-workflow.md</span></code></pre>
+</div>
+<p>This returns:</p>
+<pre><code>This GitHub workflow automates data scraping from a fire incident API:
+
+1. **Trigger configuration**: Runs when code is pushed, manually triggered, or every 20 minutes (at minutes 6, 26, and 46 of each hour)
+
+2. **Job setup**: Uses Ubuntu as the execution environment
+
+3. **Steps**:
+- Checks out the repository code
+- Fetches data by sending a POST request to the California fire API and saves the JSON response
+- Configures git user identity
+- Commits and pushes changes with a timestamped message (only if the data changed)
+
+The workflow essentially creates an automated data collection system that regularly updates a repository with the latest fire incident information.</code></pre>
+<p>This is entirely correct. I do want to make some changes to this workflow: - there’s no need to fetch the data every
+    20 minutes, 3 times a day is more than enough - use <code>actions/checkout@v4</code> instead of <code>v3</code>:
+    <code>v4</code> is already available so I’ll use this latest version - the command to fetch the data itself should
+    of course point to the endpoint we identified before</p>
+<p>The <a
+        href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen/blob/bf617642e2f3d60ba061e32ae6ad4e2e54556536/.github/workflows/scrape.yml">final
+        workflow looks like this</a>. 3 times a day GitHub tries to get the job postings and if any job postings have
+    been added or deleted, a commit is made.</p>
+<h2 id="a-quick-way-to-exploit-the-data">A quick way to exploit the data</h2>
+<p>Having the data as a <a
+        href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen/blob/main/job-postings.json">constantly updating
+        JSON file</a> is nice, but the format isn’t very user-friendly. Originally I was planning on using <a
+        href="https://datasette.io/">Datasette</a>, in combation with <a
+        href="https://datasette.io/tools/sqlite-utils">sqlite-utils</a>, to display the data in a more readable format.
+    This would have meant converting the <code>job-postings.json</code> file to a <code>sqlite</code> table and then
+    displaying this table with <code>Datasette</code>. While looking up how to do this, I noticed there’s an even easier
+    way to do this. <a href="https://github.com/simonw/datasette-lite/">Datasette Lite is a Datasette instance served to
+        your browser</a>. You can <a
+        href="https://simonwillison.net/2022/Nov/18/datasette-lite-loading-json-data/">point Datasette to the JSON file
+        directly</a> by adding <code>?json=</code> to the <code>https://lite.datasette.io</code> URL adding the URL
+    pointing to your JSON file (<a
+        href="https://raw.githubusercontent.com/IsaacVerm/track-werken-voor-vlaanderen/refs/heads/main/job-postings.json">job-postings.json
+        in the repo</a> in our case). So
+    <code>https://lite.datasette.io?json=https://raw.githubusercontent.com/IsaacVerm/track-werken-voor-vlaanderen/refs/heads/main/job-postings.json</code>
+    will create a Datasette instance for the latest version of our job postings.</p>
+<p><img
+        src="/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/job-postings-datasette.png" />
+</p>
+<p>Datasette gives immediate access to all kinds of useful functionality like filtering and running SQL queries against
+    your data. You can just send this link to anyone you want and they can experiment with the data right away.</p>
+<p>In the first place I wanted to focus on how the data changes, but the Datasette Lite above doesn’t focus on this yet.
+    Other tools like <a href="https://datasette.io/tools/git-history">git-history</a> are more suitable for that, but I
+    have yet to experiment with that. Might be food for another post.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I really like this approach of using GitHub Actions for scraping. It feels very lightweight. I imagine I’ll be
+    applying the same approach to other data sources in the future. The lightweight part is really important: scraping
+    Subsidieregister was more complex and this complexity really made it not worth doing. You had to use <a
+        href="https://playwright.dev/">Playwright</a> to fetch the data and I couldn’t use the basic GitHub Actions
+    runner because of geo-blocking. I underestimated how much this would increase the time it takes to finish the
+    project. The devil is always in the details. I’m not saying it’s never worth it to go down this more complex road,
+    but you have to make sure first the value of the final result offsets all the effort it takes to get there.</p>
+<h2 id="changelog">CHANGELOG</h2>
+<ul>
+    <li>06-03-2025: initial draft</li>
+</ul>
