@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def show_index():
-    return send_from_directory('static/pages', 'posts_overview.html')
+    return send_from_directory('static/pages', 'posts_overview_public.html')
 
 @app.route('/posts/<post_name>')
 def show_post(post_name):
