@@ -1,0 +1,28 @@
+<h1 id="choosing-data-format-for-data-saved-to-github-repo">19-03-2025 - choosing data format for data saved to GitHub repo</h1>
+<h2 id="what-can-go-wrong-when-saving-data">What can go wrong when saving data?</h2>
+<p>Previously I wrote a <a href="https://mini-computer.tail1ad9dd.ts.net/static/posts/tracking-job-postings-flemish-government-using-github-actions.html">post about using GitHub Actions to scrape Flemish government job postings</a>. The results are saved on <a href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen">GitHub</a> in JSON format. This was the first time I did so and I do regret some choices (or lack of thinking about how to handle these):</p>
+<ul>
+<li>I’m keeping all the data in one big object: should have just kept the job postings and discarded the metadata.</li>
+<li>Each job posting is spread over multiple lines: <code>git</code> excels at comparing files line-by-line so if each job posting would be on a line of its own, it’d be much easier to check how many job postings were added or removed at any given point in time.</li>
+</ul>
+<h2 id="is-json-always-the-best-option">Is JSON always the best option?</h2>
+<p>Next to this the project also got me wondering whether JSON is the right format for my needs. CSV especially seems attractive because it would allow to leverage <code>git</code>’s ability to make line-by-line comparison. Although that’s true, <a href="https://jsonlines.org/examples/">CSV has its disadvantages</a>:</p>
+<ul>
+<li>Data has to be flat: <code>JSON</code> allows to have objects nested within objects or arrays within objects, when using CSV there’s no such thing.</li>
+<li>Everything is text: there are no data types (numeric, string, boolean, …).</li>
+<li>This means how the data is handled depends on the system you’re using, you can never be sure the application you’re using will interpret the data the way you want.</li>
+</ul>
+<h2 id="json-lines-the-ideal-solution">JSON Lines, the ideal solution</h2>
+<p>These are pretty big disadvantages, all of this to have line-by-line comparisons. Luckily this is one of those rare cases where you can have your cake and eat it too. A format called <a href="https://jsonlines.org/">JSON Lines</a>, sometimes also called NDJSON (newline-delimited JSON), exists (I was vaguely aware of its existence since <a href="https://lichess.org/api">the Lichess API uses it</a>. The main idea of JSON Lines is each line contains a valid <a href="https://www.json.org/json-en.html">JSON value</a> and these lines are separate by newlines. This solves the main issue I had with using JSON as a format to save data in. Now it’s easy to see at a glance what data has been added or removed. Take for example the data added in <a href="https://github.com/IsaacVerm/track-vrt-nws/commit/40f765e018a6a729afb5928cf23afcdff496375f">this commit</a> in the <code>track-vrt-nws</code> repository (in which I scrape new news articles and if there are any I add them to the file below):</p>
+<p><img src="/static/images/posts/19-03-2025---choosing-data-format-for-data-saved-to-github-repo/git-changes-main-events-track-vrt-nws.png" /></p>
+<p>The remaining question is how to get there. I had fun using <code>jq</code> when <a href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen">tracking job postings</a> or <a href="https://github.com/IsaacVerm/track-subsidieregister">new subsidies</a>, so I was happy to discover <code>jq</code> offers the <a href="https://jqlang.org/manual/#invoking-jq"><code>--compact-output</code> option</a> which offers exactly what I need:</p>
+<blockquote>
+<p>By default, jq pretty-prints JSON output. Using this option will result in more compact output by instead putting each JSON object on a single line.</p>
+</blockquote>
+<p>For example, <a href="https://github.com/IsaacVerm/track-werken-voor-vlaanderen/blob/ea9d6a976f31cf492b54cd632e9db6a8521af705/curl-overview-search-min.sh#L24">this</a> shows how it’s applied in the <code>track-werken-voor-vlaanderen</code> repo. A small flag and you can always revert back to JSON.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>JSON Lines perfectly suits my needs: it’s the best combination of JSON and having each element on a single line to easily compare data changes. Thanks to <code>jq</code> transforming JSON to JSON Lines or the inverse is a breeze.</p>
+<h2 id="changelog">CHANGELOG</h2>
+<ul>
+<li>19-03-2025: initial draft</li>
+</ul>
