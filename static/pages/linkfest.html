@@ -4,73 +4,49 @@
     <meta charset="UTF-8">
     <title>Linkfest</title>
     <style>
-        /* Full width reset */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
+            font-family: monospace;
+            margin-bottom: 2rem;
         }
-        
-        html, body {
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+
+        h1 {
+            color: #1a2c6c;
         }
         
         body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            width: 100vw;
+            font-size: 1.6rem;
+            background-color: #efeeda;
         }
-        
-        h1 {
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        
-        #links-container {
-            width: 100%;
-        }
-        
-        .link-item {
-            margin-bottom: 30px;
-            width: 100%;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
-        
-        .link-item h2 {
-            margin-bottom: 10px;
-            width: 100%;
-        }
-        
-        .link-item p {
-            margin-bottom: 15px;
-            width: 100%;
-        }
-        
-        .link-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-top: 10px;
+
+        .container {
+            max-width: 70ch;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         a {
-            color: #0066cc;
+            color: #f7941d;
             text-decoration: none;
         }
         
         a:hover {
             text-decoration: underline;
         }
+        
+        img {
+            /* make all images black and white */
+            filter: grayscale(100%);
+            max-width: 70ch;
+            height: auto;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
     <h1>Linkfest</h1>
     <div id="links-container"></div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/RGB_Cube_Show_lowgamma_cutout_a.png/1280px-RGB_Cube_Show_lowgamma_cutout_a.png" />
 
     <script>
         fetch('/static/data/links.json')
@@ -97,7 +73,6 @@
                     if (link.screenshot) {
                         const screenshot = document.createElement('img');
                         screenshot.src = `/static/images/links/${link.screenshot}`;
-                        screenshot.alt = `Screenshot of ${link.name}`;
                         linkItem.appendChild(screenshot);
                     }
                     
@@ -105,5 +80,6 @@
                 });
             });
     </script>
+    </div>
 </body>
 </html>
