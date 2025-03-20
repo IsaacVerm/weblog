@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linkfest</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: monospace;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #1a2c6c;
+        }
+        
+        body {
+            font-size: 1.6rem;
+            background-color: #efeeda;
+        }
+
+        .container {
+            max-width: 70ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        blockquote {
+            border-left: 4px solid #f7941d;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #555;
+            margin-left: 0;
+        }
+        
+        a {
+            color: #f7941d;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        img {
+            /* make all images black and white */
+            filter: grayscale(100%);
+            max-width: 70ch;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Linkfest</h1>
+    <div id="links-container"></div>
+    <script>
+        fetch('/static/data/links.json')
+            .then(response => response.json())
+            .then(links => {
+                const container = document.getElementById('links-container');
+                
+                links.forEach(link => {
+                    const linkItem = document.createElement('div');
+                    linkItem.className = 'link-item';
+                    
+                    const title = document.createElement('h2');
+                    const linkElement = document.createElement('a');
+                    linkElement.href = link.source;
+                    linkElement.textContent = link.name;
+                    linkElement.target = "_blank";
+                    title.appendChild(linkElement);
+                    linkItem.appendChild(title);
+
+                    const quote = document.createElement('blockquote');
+                    quote.textContent = link.key_text;
+                    linkItem.appendChild(quote);
+                    
+                    const whyInteresting = document.createElement('p');
+                    whyInteresting.textContent = link.why_interesting;
+                    linkItem.appendChild(whyInteresting);
+                    
+                    /* not every link has a screenshot */
+                    if (link.screenshot) {
+                        const screenshot = document.createElement('img');
+                        screenshot.src = `/static/images/links/${link.screenshot}`;
+                        linkItem.appendChild(screenshot);
+                    }
+                    
+                    container.appendChild(linkItem);
+                });
+            });
+    </script>
+    </div>
+</body>
+</html>
