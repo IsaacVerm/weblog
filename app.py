@@ -6,6 +6,10 @@ app = Flask(__name__)
 def show_index():
     return send_from_directory('static/pages', 'posts_overview_public.html')
 
+@app.route('/private')
+def show_private_index():
+    return send_from_directory('static/pages', 'posts_overview_private.html')
+
 @app.route('/linkfest')
 def show_linkfest():
     return send_from_directory('static/pages', 'linkfest.html')
