@@ -24,6 +24,14 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        blockquote {
+            border-left: 4px solid #f7941d;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #555;
+            margin-left: 0;
+        }
         
         a {
             color: #f7941d;
@@ -46,8 +54,6 @@
     <div class="container">
     <h1>Linkfest</h1>
     <div id="links-container"></div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/RGB_Cube_Show_lowgamma_cutout_a.png/1280px-RGB_Cube_Show_lowgamma_cutout_a.png" />
-
     <script>
         fetch('/static/data/links.json')
             .then(response => response.json())
@@ -65,11 +71,16 @@
                     linkElement.target = "_blank";
                     title.appendChild(linkElement);
                     linkItem.appendChild(title);
+
+                    const quote = document.createElement('blockquote');
+                    quote.textContent = link.key_text;
+                    linkItem.appendChild(quote);
                     
                     const whyInteresting = document.createElement('p');
                     whyInteresting.textContent = link.why_interesting;
                     linkItem.appendChild(whyInteresting);
                     
+                    /* not every link has a screenshot */
                     if (link.screenshot) {
                         const screenshot = document.createElement('img');
                         screenshot.src = `/static/images/links/${link.screenshot}`;
