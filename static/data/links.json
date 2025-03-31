@@ -1,33 +1,107 @@
 [
     {
-        "name": "1945-2015 Rebuilding Dresden",
+        "title": "1945-2015 Rebuilding Dresden",
         "source": "https://mashable.com/feature/rebuilding-dresden",
         "key_text": "Over two days and nights in February 1945, American and British bombers dropped 2,400 tons of high explosives and 1,500 tons of incendiary bombs on the German city of Dresden.",
         "why_interesting": "It took 2 days to bomb Dresden, it took decades before the city was rebuilt.",
         "screenshot": "sheep-frauenkirche-dresden-1957.jpg"
     },
     {
-        "name": "1968 Has Ended",
+        "title": "1968 Has Ended",
         "source": "https://charlesschifano.substack.com/p/1968-has-ended",
         "key_text": "The ’68 shackles, so ubiquitous in politics and culture, are now gone. Although it didn’t happen because of the usual reasons. New generations didn’t rise up and rebel. Nobody was tossed off the boat. Nobody was forced to resign. What happened, instead, was more prosaic, and certainly more subtle, but I’ve noticed it a few times recently, especially since the beginning of the pandemic—it comes in casual conversations with university students or with those just entering their twenties, and it should have been predictable. For the first time, the period is simply too far away. If you’re an undergraduate now, you were probably born after another milestone, September 2001, and that makes 1968, for the most part, as distant as the French Revolution.",
-        "why_interesting": "Culture is moving on rapidly these days."
-    }, 
+        "why_interesting": "Culture is moving on rapidly these days.",
+        "screenshot": "a-space-odyssey-1968.jpg"
+    },
     {
-        "name": "20 Years After The End Of The World",
+        "title": "20 Years After The End Of The World",
         "source": "https://www.npr.org/2021/12/09/1062519603/radiohead-kid-a-amnesiac-throughline-thom-yorke-stanley-donwood",
         "key_text": "Around the same time, a Polish philosopher named Zygmunt Bauman published a book called Liquid Modernity. His big idea was that the anxiety and unease people in the West were feeling in the late 20th century was due to the fact that technology was developing faster than culture: We could not keep up with the lightning-fast advancements in communication, transportation and entertainment.",
-        "why_interesting": "Radiohead was always about dread."
+        "why_interesting": "",
+        "screenshot": "kid-a.jpg"
     },
     {
-        "name": "Effective learning: Twenty rules of formulating knowledge",
+        "title": "Effective learning: Twenty rules of formulating knowledge",
         "source": "https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge",
         "key_text": "The speed of learning will depend on the way you formulate the material. The same material can be learned many times faster if well formulated! The difference in speed can be stunning!  ",
-        "why_interesting": "Learning how to learn is an important skill never taught."
+        "why_interesting": "Learning how to learn is an important skill never taught.",
+        "screenshot": "why-we-stopped-making-einsteins.webp"
     },
     {
-        "name": "4 Principles for Chess Improvement",
+        "title": "4 Principles for Chess Improvement",
         "source": "https://zwischenzug.substack.com/p/4-principles-for-chess-improvement",
         "key_text": "There are more resources out there than ever. On the one hand, this is great: you have lots of material to work with. On the other, it’s a nightmare: there seems to be a huge mountain of stuff to get through. The good news is, you really don’t have to do most of that stuff. The bad news – well, it’s not really bad news – is you need to focus relentlessly on what actually matters.",
-        "why_interesting": "Keep your chess training simple but consistent if you want results."
+        "why_interesting": "Keep your chess training simple but consistent if you want results.",
+        "screenshot": "lichess-horsey.png"
+    },
+    {
+        "title": "A Coder Considers the Waning Days of the Craft",
+        "source": "https://archive.ph/6VSg5",
+        "key_text": "So maybe the thing to teach isn’t a skill but a spirit. I sometimes think of what I might have been doing had I been born in a different time. The coders of the agrarian days probably futzed with waterwheels and crop varietals; in the Newtonian era, they might have been obsessed with glass, and dyes, and timekeeping. I was reading an oral history of neural networks recently, and it struck me how many of the people interviewed—people born in and around the nineteen-thirties—had played with radios when they were little. Maybe the next cohort will spend their late nights in the guts of the A.I.s their parents once regarded as black boxes. I shouldn’t worry that the era of coding is winding down. Hacking is forever.",
+        "why_interesting": "What you think has always been the way it is, might be a very recent development.",
+        "screenshot": "lee-sedol.webp"
+    },
+    {
+        "title": "A Guide to Russian Media in the Times of Total Censorship",
+        "source": "https://www.proekt.media/en/guide-en/russian-media-after-war-en",
+        "key_text": "The advertising model is practically disabled -- the largest international advertisers have left the market, while domestic advertisers have no desire to work with the outlawed media. As a result, the non-profit model has proven to be the most desirable, and demand for institutional donor grants has grown exponentially.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Achieving GM Level Strength Without Calculation",
+        "source": "https://www.chess-journal.com/googleSearchless.html",
+        "key_text": "It's possible to create an engine without a search that reaches grandmaster strength.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "A Personal Computer for Children of All Ages",
+        "source": "https://mprove.de/visionreality/media/kay72.html",
+        "key_text": "For many years it has been a tradition to attempt to cure our society's ills through technology: 'You have slums? Let's build low-cost housing!' 'You can't afford that TV? We'll build a cheaper one and you can buy it on time, even though it will break before you've finished paying for it!' 'Your kids aren't learning and education is too expensive? We'll build you a teaching machine which will guarantee your kids will pass tests!' Unfortunately, most of these 'cures' are no more than paint over rust; the sources of the initial problems still remain.",
+        "why_interesting": "",
+        "screenshot": "dynabooks.jpg"
+    },
+    {
+        "title": "A Lesson on Elementary Worldly Wisdom As It Relates To Investment Management & Business",
+        "source": "https://fs.blog/great-talks/a-lesson-on-worldly-wisdom",
+        "key_text": "Well, the first rule is that you can’t really know anything if you just remember isolated facts and try and bang ’em back. If the facts don’t hang together on a latticework of theory, you don’t have them in a usable form.You’ve got to have models in your head. And you’ve got to array your experience—both vicarious and direct—on this latticework of models. You may have noticed students who just try to remember and pound back what is remembered. Well, they fail in school and in life. You’ve got to hang experience on a latticework of models in your head.",
+        "why_interesting": "",
+        "screenshot": "munger-buffett.webp"
+    },
+    {
+        "title": "A GPT-4 Capability Forecasting Challenge",
+        "source": "https://nicholas.carlini.com/writing/llm-forecast/question/Capital-of-Paris",
+        "key_text": "This is a game that tests your ability to predict ('forecast') how well GPT-4 will perform at various types of questions.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "All grown up and no place to go",
+        "source": "https://meduza.io/en/feature/2021/12/18/all-grown-up-and-no-place-to-go",
+        "key_text": "After the end, in the 1990s, we watched from below as our parents, brothers, and sisters tried to grab their chance; most, of course, didn’t catch it, but we thought when the time comes we wouldn’t miss ours. When it came, it turned out that everything that could’ve been ours was already someone else’s.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Alarming Navy Intel Slide Warns Of China’s 200 Times Greater Shipbuilding Capacity",
+        "source": "https://www.twz.com/alarming-navy-intel-slide-warns-of-chinas-200-times-greater-shipbuilding-capacity",
+        "key_text": "The graphic shows that China’s shipyards have a capacity of around 23,250,000 tons versus less than 100,000 tons in the United States. That is at least an astonishing 232 times greater than the United States.",
+        "why_interesting": "",
+        "screenshot": "us-china-ship-building-capacity.webp"
+    },
+    {
+        "title": "Al-Assad’s Soldiers Hope for Amnesty. First, They Have to Take a Number.",
+        "source": "https://www.nytimes.com/2024/12/18/world/middleeast/syria-assad-soldier-amnesty.html",
+        "key_text": "During its decades-long rule, the Assad government built a brutal security apparatus, detaining, torturing and executing opponents. Last week, the rebel coalition that overthrew him said it would hunt down senior officials implicated in crimes, while rank-and-file conscripted soldiers would receive amnesty. More than 600 people came when the so-called reconciliation center first opened on Sunday in Latakia, in a province that has been an Assad stronghold. Many more followed on Monday, the line extending the length of the large security compound.",
+        "why_interesting": "Bureaucracy always pops up.",
+        "screenshot": ""
+    },
+    {
+        "title": "In Praise of Idleness",
+        "source": "https://harpers.org/archive/1932/10/in-praise-of-idleness/",
+        "key_text": "I think that there is far too much work done in the world, that immense harm is caused by the belief that work is virtuous, and that what needs to be preached in modern industrial countries is quite different from what always has been preached.",
+        "why_interesting": "",
+        "screenshot": "bertrand-russell-child.jpg"
     }
 ]
