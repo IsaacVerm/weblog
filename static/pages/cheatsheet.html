@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linkfest</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        h2::first-letter {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Cheatsheet</h1>
+    <div id="cheatsheet-container"></div>
+    <script>
+        const container = document.getElementById('cheatsheet-container');
+
+        fetch('/static/data/cheatsheet.json')
+            .then(response => response.json())
+            .then(gotchas => {        
+                gotchas.forEach(gotcha => {
+                    const gotchaItem = document.createElement('div');
+
+                    gotchaItem.innerHTML = `
+                        <h2>${gotcha.goal}</h2>
+                        <ul>
+                            <li>Why useful: ${gotcha.why_useful}</li>
+                            <li>Tool: ${gotcha.tool}</li>
+                            <li><a target="_blank" href="${gotcha.url_doc}">Doc how to ${gotcha.goal}.</a> </li>
+                            <li><a target="_blank" href="${gotcha.url_repo}">Link to commit where this technique is applied.</a> </li>
+                        </ul>
+                        <p>Task:</p>
+                        <blockquote>${gotcha.task}</blockquote>
+                        <pre><code>${gotcha.command}</code></pre>
+                        <p>Remarks:</p>
+                        <ul>
+                            ${gotcha.command_remarks.map(remark => `<li>${remark}</li>`).join('')}
+                        </ul>
+                    `;
+                    
+                    container.appendChild(gotchaItem);
+                });
+            });
+    </script>
+    </div>
+</body>
+</html>

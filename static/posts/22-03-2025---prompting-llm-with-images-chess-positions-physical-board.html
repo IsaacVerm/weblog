@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>22-03-2025 - prompting LLM with images chess positions physical board</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="container">
+<h1 id="prompting-llm-with-images-chess-positions-physical-board">22-03-2025 - prompting LLM with images chess positions physical board</h1>
+<p>For quite some time I have been thinking how cool it would be to have a physical chess board setup digitizing the moves. You could play moves and the moves will be registered so you can analyse the game on your computer later on. Apparently <a href="https://digitalgametechnology.com/products/home-use-e-boards">boards like that already exist</a>, but they’re quite pricy and if I check the <a href="https://www.reddit.com/r/chess/comments/s583d7/dgt_pegasus_board_review/">reviews</a> I’m not that convinced they work all that well.</p>
+<p>I’ve been using the <a href="https://llm.datasette.io/en/stable/">llm utility of Datasette</a> a lot and noticed there’s an option to add images to the prompt. This way I could just ask the LLM to translate a picture of a chessboard to <a href="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation">FEN</a> (notation for chess positions). Based on previous positive results, I expected this to work out quite well.</p>
+<p>Take for example this position resulting from the <a href="https://lichess.org/opening/Vienna_Game_Vienna_Gambit/e4_e5_Nc3_Nf6_f4_exf4_e5">Vienna Gambit</a>:</p>
+<p><img src="/static/images/posts/22-03-2025---prompting-llm-with-images-chess-positions-physical-board/chessboard-4.jpg" style="width: 75%;"/></p>
+<p>I prompt Claude 3.7 Sonnet to get the FEN of this position:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="ex">llm</span> <span class="st">&quot;give the FEN notation of this position&quot;</span> -a chessboard-4.jpg</span></code></pre></div>
+<p>The resulting FEN, <code>r1bqk1nr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R</code>, is completely off the mark:</p>
+<p><img src="/static/images/posts/22-03-2025---prompting-llm-with-images-chess-positions-physical-board/chessboard-4-lichess.png" /></p>
+<p>Not a single piece is in its right place. It’s clear using images with an LLM is different than using text. I’m definitely <a href="https://medium.com/@gyardley/chess-claude-3-5-sonnet-d05cc57e00c1">not the only one getting disappointing results</a>. However, I do see plenty of possibilities to experiment though:</p>
+<ul>
+<li>Take pictures of the board from different angles. Now I went for a 45 degree angle, but maybe other options are better.</li>
+<li>I could for example take a picture from straight above with perfect lightning and provide the LLM with a mapping between how each piece looks from above and the name of the piece.</li>
+<li>I used Claude Sonnet 3.7. Maybe other models are better suited for this task.</li>
+</ul>
+<p>Something I already experimented with is giving the model some additional context about the position. If I’d use it in a real-life application, I’d already have the FEN of the position just before. I could give this FEN to the model with the image and ask it to give the FEN of the position in the image:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ex">llm</span> <span class="st">&quot;Give the FEN notation of this position. The previous position was rnbqkb1r/pppp1ppp/5n2/8/4Pp2/2N5/PPPP2PP/R1BQKBNR w KQkq - 0 4 and now it&#39;s White&#39;s turn to play.&quot;</span> -a chessboard-4.jpg</span></code></pre></div>
+<p>This doesn’t seem to improve anything, the result still is really off:</p>
+<p><img src="/static/images/posts/22-03-2025---prompting-llm-with-images-chess-positions-physical-board/chessboard-4-with-prompt-previous-position-lichess.png" /></p>
+<p>In a way this is to be expected, even <a href="https://github.com/notnil/fenify-3D?tab=readme-ov-file#prediction-visualization">way more rigorous research</a> cites a very low accuracy rate: models can get a lot of squares right (62 or 63 out of all 64 squares) but any model which doesn’t have perfect accuracy isn’t really usable in practice. It seems you only get at <a href="https://repository.tudelft.nl/record/uuid:5453c9dd-6a9b-4443-a4cf-c6b9db2f4c10">15% of board recognition</a>. I assume this number is inflated as well: the model will probably handle early game positions way better than late game positions since there are just way more examples of those.</p>
+<p>A different approach would be to make sure the physical chess pieces resemble digital pieces. This problem is as good as solved (for example by <a href="https://chessvision.ai/">Chessvision.ai</a>).</p>
+<h2 id="changelog">CHANGELOG</h2>
+<ul>
+<li>22-03-2025: initial draft</li>
+</ul>
+</div>
+</body>
+</html>

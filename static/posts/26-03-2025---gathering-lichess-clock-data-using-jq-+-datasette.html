@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>26-03-2025 - gathering Lichess clock data using jq + Datasette</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="container">
+<h1 id="gathering-lichess-clock-data-using-jq-datasette">26-03-2025 - gathering Lichess clock data using jq + Datasette</h1>
+<h2 id="whats-the-problem-i-want-to-tackle">What’s the problem I want to tackle?</h2>
+<p>I have wanted to improve my chess time management for a while now. <a href="https://zwischenzug.substack.com/p/time-management">Time management</a> is a very important topic, but a blind spot for a lot of people (not just me):</p>
+<blockquote>
+<p>It was easy to make major progress in this area, because of where I was starting from: no intentional time management strategy whatsoever… I firmly believe that if you have trouble with either moving too fast or moving too slow, you should fix that before you work on any other area of chess improvement, because time trouble sabotages everything else you’re working on. (<a href="https://chessimprovementlab.substack.com/p/11-things-i-did-to-take-my-uscf-rating">Dan Bock</a>)</p>
+</blockquote>
+<p>In a first stage (covered by this post) I want to get all time-related data of chess games I played and use <a href="https://datasette.io/">Datasette</a> to inspect what the data looks like. At a later stage I want to take the analysis a bit further. What types of moves do I spend a lot of time on? If I blitz out a move, is it often a bad one?</p>
+<h2 id="where-to-get-the-data-from">Where to get the data from?</h2>
+<p>I usually play chess on <a href="https://lichess.org/">Lichess</a>. Lichess offers an API which gives you exactly the data you need to solve these questions. If you call the <a href="https://chessimprovementlab.substack.com/p/11-things-i-did-to-take-my-uscf-rating"><code>/games/user/{username}</code></a> endpoint, you get the following data for all games played. Below is a complete example of a single game:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;5FVTi1qN&quot;</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="dt">&quot;rated&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="dt">&quot;variant&quot;</span><span class="fu">:</span> <span class="st">&quot;standard&quot;</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="dt">&quot;speed&quot;</span><span class="fu">:</span> <span class="st">&quot;blitz&quot;</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    <span class="dt">&quot;perf&quot;</span><span class="fu">:</span> <span class="st">&quot;blitz&quot;</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="dt">&quot;createdAt&quot;</span><span class="fu">:</span> <span class="dv">1742832718107</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    <span class="dt">&quot;lastMoveAt&quot;</span><span class="fu">:</span> <span class="dv">1742833012388</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;mate&quot;</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    <span class="dt">&quot;source&quot;</span><span class="fu">:</span> <span class="st">&quot;pool&quot;</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    <span class="dt">&quot;players&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>      <span class="dt">&quot;white&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>        <span class="dt">&quot;user&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>          <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;ja9xn97a&quot;</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>          <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;ja9xn97a&quot;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>        <span class="fu">},</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>        <span class="dt">&quot;rating&quot;</span><span class="fu">:</span> <span class="dv">1541</span><span class="fu">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>        <span class="dt">&quot;ratingDiff&quot;</span><span class="fu">:</span> <span class="dv">7</span><span class="fu">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>        <span class="dt">&quot;analysis&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>          <span class="dt">&quot;inaccuracy&quot;</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>          <span class="dt">&quot;mistake&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>          <span class="dt">&quot;blunder&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>          <span class="dt">&quot;acpl&quot;</span><span class="fu">:</span> <span class="dv">27</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>        <span class="fu">}</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>      <span class="fu">},</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>      <span class="dt">&quot;black&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a>        <span class="dt">&quot;user&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a>          <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;indexinator&quot;</span><span class="fu">,</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a>          <span class="dt">&quot;flair&quot;</span><span class="fu">:</span> <span class="st">&quot;nature.full-moon-face&quot;</span><span class="fu">,</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a>          <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;indexinator&quot;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a>        <span class="fu">},</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a>        <span class="dt">&quot;rating&quot;</span><span class="fu">:</span> <span class="dv">1535</span><span class="fu">,</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true"></a>        <span class="dt">&quot;ratingDiff&quot;</span><span class="fu">:</span> <span class="dv">-6</span><span class="fu">,</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true"></a>        <span class="dt">&quot;analysis&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a>          <span class="dt">&quot;inaccuracy&quot;</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true"></a>          <span class="dt">&quot;mistake&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true"></a>          <span class="dt">&quot;blunder&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true"></a>          <span class="dt">&quot;acpl&quot;</span><span class="fu">:</span> <span class="dv">71</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true"></a>        <span class="fu">}</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true"></a>      <span class="fu">}</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true"></a>    <span class="fu">},</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true"></a>    <span class="dt">&quot;winner&quot;</span><span class="fu">:</span> <span class="st">&quot;white&quot;</span><span class="fu">,</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true"></a>    <span class="dt">&quot;moves&quot;</span><span class="fu">:</span> <span class="st">&quot;e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nf6 Nxc6 bxc6 Nc3 Bc5 Bg5 Be7 Bc4 O-O O-O Kh8 Re1 Ng8 Bxe7 Nxe7 Qh5 Ng6 Rad1 d6 h3 Be6 Bxe6 fxe6 Ne2 Qf6 Nd4 Qxf2+ Kh1 Nf4 Qg4 h5 Qg5 e5 Nf5 g6 Qh6+ Kg8 Qg7#&quot;</span><span class="fu">,</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true"></a>    <span class="dt">&quot;clocks&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true"></a>      <span class="dv">30003</span><span class="ot">,</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true"></a>      <span class="dv">30003</span><span class="ot">,</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true"></a>      <span class="dv">29947</span><span class="ot">,</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true"></a>      <span class="er">...</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true"></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true"></a>    <span class="dt">&quot;analysis&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true"></a>      <span class="fu">{</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true"></a>        <span class="dt">&quot;eval&quot;</span><span class="fu">:</span> <span class="dv">18</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true"></a>      <span class="fu">{</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true"></a>        <span class="dt">&quot;eval&quot;</span><span class="fu">:</span> <span class="dv">21</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true"></a>      <span class="er">...</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true"></a>      <span class="fu">{</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true"></a>        <span class="dt">&quot;mate&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true"></a>        <span class="dt">&quot;best&quot;</span><span class="fu">:</span> <span class="st">&quot;f8f7&quot;</span><span class="fu">,</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true"></a>        <span class="dt">&quot;variation&quot;</span><span class="fu">:</span> <span class="st">&quot;Rf7&quot;</span><span class="fu">,</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true"></a>        <span class="dt">&quot;judgment&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true"></a>          <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Blunder&quot;</span><span class="fu">,</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true"></a>          <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;Checkmate is now unavoidable. Rf7 was best.&quot;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true"></a>        <span class="fu">}</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true"></a>    <span class="er">]</span><span class="fu">,</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true"></a>    <span class="dt">&quot;clock&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true"></a>      <span class="dt">&quot;initial&quot;</span><span class="fu">:</span> <span class="dv">300</span><span class="fu">,</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true"></a>      <span class="dt">&quot;increment&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true"></a>      <span class="dt">&quot;totalTime&quot;</span><span class="fu">:</span> <span class="dv">300</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true"></a>    <span class="fu">}</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true"></a>  <span class="fu">}</span></span></code></pre></div>
+<p>Not all of these fields are relevant to us. The fields needed for a time management analysis are:</p>
+<ul>
+<li><code>id</code>: the game id</li>
+<li><code>players.{color}.user.id</code>: what color each player is playing with</li>
+<li><code>moves</code>: moves in <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)">algebraic notation</a></li>
+<li><code>clocks</code>: time remaining till the end of the game on the clock in 1/100 of a second the moment a move was made. Strangely enough it starts at 30003 instead of 30000 in the example above. This is strange because the game I played was 5 minutes so 5 * 60 * 100 would make 30000 and not 30003.</li>
+<li><code>evals</code>: evaluation of the position in <a href="https://zwischenzug.substack.com/p/centipawns-suck">centipawns</a></li>
+</ul>
+<p>Run this command if you want to check the data out for yourself:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ex">curl</span> -X GET <span class="kw">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  <span class="ex">-H</span> <span class="st">&quot;Accept: application/x-ndjson&quot;</span> <span class="kw">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="ex">--get</span> <span class="kw">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  <span class="ex">--data</span> <span class="st">&quot;max=5&quot;</span> <span class="kw">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  <span class="ex">--data</span> <span class="st">&quot;clocks=true&quot;</span> <span class="kw">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  <span class="ex">--data</span> <span class="st">&quot;evals=true&quot;</span> <span class="kw">\</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>  <span class="ex">https</span>://lichess.org/api/games/user/indexinator</span></code></pre></div>
+<p>The default data type is <a href="https://en.wikipedia.org/wiki/Portable_Game_Notation">PGN</a> if you don’t specify the <code>Accept</code> header. I want to work with JSON data so have to specify this in the <code>Accept</code> header. I’m interested in the move times (derived from the clock times) and evaluations of the moves. Both of these aren’t returned by the endpoint by default so have to be specified as well. If you don’t provide the <code>max</code> parameter, the endpoint will stream thousands of games.</p>
+<h2 id="how-to-fetch-the-data">How to fetch the data</h2>
+<p>Originally I was planning on just using <a href="https://jqlang.org/">jq</a> to do all the data wrangling and data transformations (creating news fields, filtering, …). However when reading <a href="https://news.ycombinator.com/item?id=39782356">this comment on Hacker News</a> I changed my mind:</p>
+<blockquote>
+<p>As an old Unix guy this is exactly how I see jq: a gateway to a fantastic library of text processing tools. I see a lot of complicated things done inside the language, which is a valid approach. But I don’t need it to be a programming language itself, just a transform to meet my next command after the pipe.</p>
+</blockquote>
+<p>I noticed as well you start to struggle when you try to use <code>jq</code> for tasks too complex. It’s not like it’s impossible but you’re pushing <code>jq</code> to do something it doesn’t seem meant to be used for. Better to use several tools, each one tailored to the task. This fits in with the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a>:</p>
+<blockquote>
+<p>Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new “features”.</p>
+</blockquote>
+<p>So instead of using <code>jq</code> for everything, now I’m planning to use <code>jq</code> just to transform the JSON data to a tabular format. Additional cleaning can be done later on in the <code>sqlite</code> database itself. At the end <code>sqlite-utils</code> allows to <a href="https://sqlite-utils.datasette.io/en/stable/cli.html#inserting-json-data">insert this JSON data into a <code>sqlite</code> database</a>. This allows me to take advantage of <a href="https://datasette.io/for">all Datasette has to offer</a>.</p>
+<p><img src="/static/images/posts/26-03-2025---gathering-lichess-clock-data-using-jq-+-datasette/pipeline-chess-games.png" /></p>
+<h2 id="using-jq-to-transform-the-data-in-tabular-format">Using <code>jq</code> to transform the data in tabular format</h2>
+<p>There are 2 types of fields to extract from <code>/games/user/{username}</code>:</p>
+<ul>
+<li>fields relevant on the game level
+<ul>
+<li><code>id</code></li>
+<li><code>players.{color}.user.id</code></li>
+</ul></li>
+<li>fields relevant on the move level
+<ul>
+<li><code>moves</code></li>
+<li><code>clocks</code></li>
+<li><code>evals</code></li>
+</ul></li>
+</ul>
+<p>We’ll first focus on fields relevant on the move level since the movel level will be the basic unit of analysis.</p>
+<p>Fetching the move fields can be done in a rather elegant way in <code>jq</code> using <a href="https://jqlang.org/manual/#map-map_values">map</a>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">cat</span> games.json <span class="kw">|</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    <span class="ex">jq</span> <span class="st">&#39;map({</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="st">        moves,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="st">        clocks,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="st">        evals: (.analysis | map(.eval))</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="st">    })&#39;</span></span></code></pre></div>
+<p>We loop over all the games using <code>map</code> and <a href="https://jqlang.org/manual/#object-construction">create an object</a> for each game. Note you can combine the shortcut version for creating an object (just specifying <code>moves</code> or <code>clocks</code>) with a more elaborate specification for <code>evals</code>. Extracting <code>evals</code> is a bit more involved than extracting <code>moves</code> or <code>clocks</code> because the evaluation numbers themselves are nested 1 level deeper than the <code>moves</code> and <code>clocks</code>.</p>
+<p>The problem now however is <code>moves</code>, <code>clocks</code> and <code>evals</code> have different data types:</p>
+<ul>
+<li><code>moves</code>: string</li>
+<li><code>clocks</code>: array of integers</li>
+<li><code>evals</code>: array of integers</li>
+</ul>
+<p>It makes sense to use an array for <code>moves</code> so we transform the <code>moves</code> string into an array of strings. This can be done very easily with <a href="https://jqlang.org/manual/#split-1">split</a>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="ex">moves</span>: (.moves <span class="kw">|</span> <span class="fu">split</span>(<span class="st">&quot; &quot;</span>))</span></code></pre></div>
+<p>We’re working with fields relevant on a move level, but at the moment we’re still working at the game level. Transforming these games into moves can be done in <code>jq</code> using the <a href="https://jqlang.org/manual/#transpose">transpose</a> function. If you’ve got an array of arrays it will unite elements with the same index in a single array like in this simplified example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="ex">jq</span> <span class="st">&#39;transpose&#39;</span> <span class="op">&lt;&lt;&lt;</span> [[1,2,3],[4,5,6]]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="bu">[</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>  [</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    1,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    4</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>  ],</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>  [</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    2,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    5</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  ],</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>  [</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>    3,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>    6</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>  ]</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a><span class="bu">]</span></span></code></pre></div>
+<p>Applied to our data this looks like this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="ex">...</span> <span class="kw">|</span> <span class="ex">map</span>([.moves, .clocks, .evals] <span class="kw">|</span> <span class="ex">transpose</span> <span class="kw">|</span> <span class="ex">map</span>({move: .[0], clock: .[1], eval: .[2]}))</span></code></pre></div>
+<p>The data now looks like this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="ot">[</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="fu">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>      <span class="dt">&quot;move&quot;</span><span class="fu">:</span> <span class="st">&quot;e4&quot;</span><span class="fu">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>      <span class="dt">&quot;clock&quot;</span><span class="fu">:</span> <span class="dv">30003</span><span class="fu">,</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>      <span class="dt">&quot;eval&quot;</span><span class="fu">:</span> <span class="dv">18</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    <span class="fu">{</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>      <span class="dt">&quot;move&quot;</span><span class="fu">:</span> <span class="st">&quot;e5&quot;</span><span class="fu">,</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>      <span class="dt">&quot;clock&quot;</span><span class="fu">:</span> <span class="dv">30003</span><span class="fu">,</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>      <span class="dt">&quot;eval&quot;</span><span class="fu">:</span> <span class="dv">21</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>    <span class="er">...</span></span></code></pre></div>
+<p>We’re done for fields relevant at the move level. For each move I’d also like to see some game fields repeated to make later analysis easier:</p>
+<ul>
+<li><code>game_id</code>: game in which the move took place</li>
+<li><code>player_id</code>: player who made the move</li>
+<li><code>player_color</code></li>
+</ul>
+<p>The key here is the <a href="https://jqlang.org/manual/#variable-symbolic-binding-operator">Variable Operator</a>: you can save the <code>game_id</code> early on in the pipeline and reuse it later when working at the move level:</p>
+<blockquote>
+<p>The expression <code>exp as $x | ...</code> means: for each value of expression <code>exp</code>, run the rest of the pipeline with the entire original input, and with <code>$x</code> set to that value. Thus <code>as</code> functions as something of a foreach loop.</p>
+</blockquote>
+<p>In practice:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="ex">...</span> <span class="kw">|</span> <span class="ex">map</span>(.id as <span class="va">$game_id</span> <span class="kw">|</span> [<span class="ex">.moves</span>, .clocks, .evals] <span class="kw">|</span> <span class="ex">transpose</span> <span class="kw">|</span> <span class="ex">map</span>({game_id: <span class="va">$game_id</span>, move: .[0], clock: .[1], eval: .[2]})</span></code></pre></div>
+<p>The game id as saved as <code>$game_id</code> and injected at the end in the last <code>map</code>.</p>
+<p>Note in this data format we don’t know which player made which move. We just know what color each player belongs to, Black or White. Since in chess the moves with an odd index will always be made by White (since a player can just make a single move at a time), we can deduct which player made which move but to get there seems rather involved. For now I’ll just save the Black and White player separately and I’ll deal with the problem later using <code>sqlite</code>.</p>
+<p>After <a href="https://jqlang.org/manual/#flatten">flattening</a> (we no longer have to keep a separate array for each game since the game id is now available at the move level), the data now looks like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="ot">[</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>    <span class="fu">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>      <span class="dt">&quot;game_id&quot;</span><span class="fu">:</span> <span class="st">&quot;5FVTi1qN&quot;</span><span class="fu">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>      <span class="dt">&quot;player_white&quot;</span><span class="fu">:</span> <span class="st">&quot;ja9xn97a&quot;</span><span class="fu">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>      <span class="dt">&quot;player_black&quot;</span><span class="fu">:</span> <span class="st">&quot;indexinator&quot;</span><span class="fu">,</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>      <span class="dt">&quot;move&quot;</span><span class="fu">:</span> <span class="st">&quot;e4&quot;</span><span class="fu">,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>      <span class="dt">&quot;clock&quot;</span><span class="fu">:</span> <span class="dv">30003</span><span class="fu">,</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>      <span class="dt">&quot;eval&quot;</span><span class="fu">:</span> <span class="dv">18</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>    <span class="fu">{</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>      <span class="dt">&quot;game_id&quot;</span><span class="fu">:</span> <span class="st">&quot;5FVTi1qN&quot;</span><span class="fu">,</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>      <span class="dt">&quot;player_white&quot;</span><span class="fu">:</span> <span class="st">&quot;ja9xn97a&quot;</span><span class="fu">,</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>      <span class="dt">&quot;player_black&quot;</span><span class="fu">:</span> <span class="st">&quot;indexinator&quot;</span><span class="fu">,</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a>      <span class="dt">&quot;move&quot;</span><span class="fu">:</span> <span class="st">&quot;e5&quot;</span><span class="fu">,</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>      <span class="dt">&quot;clock&quot;</span><span class="fu">:</span> <span class="dv">30003</span><span class="fu">,</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>      <span class="dt">&quot;eval&quot;</span><span class="fu">:</span> <span class="dv">21</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>    <span class="er">...</span></span></code></pre></div>
+<p>This is exactly the data format Datasette expects to <a href="https://sqlite-utils.datasette.io/en/stable/cli.html#inserting-json-data">insert JSON into a <code>sqlite</code> database</a>: an array of objects with each key being a field name in the <code>sqlite</code> table.</p>
+<p>The final code to gather data <a href="https://github.com/IsaacVerm/track-lichess/blob/94641362bbff20a115389e3d061627a4a28facda/games-table.sh">can be found here</a>.</p>
+<h2 id="exploring-the-data-in-datasette">Exploring the data in Datasette</h2>
+<p>As usual the data wrangling part was the hard part. From now on it’s smooth sailing. Converting the move times in JSON to <code>sqlite</code> is a simple command:</p>
+<pre><code>sqlite-utils insert move-times.db move_times move-times.json </code></pre>
+<p>We can inspect data in <code>move-times.db</code> with this simple Datasette command:</p>
+<pre><code>datasette serve move-times.db</code></pre>
+<p>This <a href="https://github.com/simonw/datasette">opens the Datasette web interface</a> wrapping our data:</p>
+<p><img src="/static/images/posts/26-03-2025---gathering-lichess-clock-data-using-jq-+-datasette/datasette-move-times.png" /></p>
+<p>This is a great start but a quick inspection of the data makes clear some essential data is still missing:</p>
+<ul>
+<li>There’s no move number: if we want to analyse just the opening for example we’d like to filter rows with a row number smaller than 10. <a href="https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-row_number/">ROW_NUMBER</a> seems like an easy way to add this move number in <code>sqlite</code>.</li>
+<li>There are 2 player fields, one for Black and one for White. Filtering is easier if there’d be just a single player field for the player who made the move.</li>
+<li>The raw <code>eval</code> value isn’t that interesting. What’s interesting is how the evaluation of the position changed by making a move.</li>
+<li>Not strictly necessary but based on the algebraic notation you could add some fields like <code>type_move</code> (capture if <code>x</code>, checkmate if <code>#</code>, …) or which piece has moved (e.g. queen moves if move is Qc2).</li>
+<li>Not strictly necessary either but a field with a URL pointing to the position of the move could be easy to create based on the game id and move number. This would allow you to quickly test hypothesis.</li>
+</ul>
+<h2 id="takeaways">Takeaways</h2>
+<h3 id="you-can-use-pipes-within-object-construction">You can use pipes within object construction</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="ex">map</span>({</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    <span class="ex">...</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    <span class="ex">evals</span>: (.analysis <span class="kw">|</span> <span class="ex">map</span>(.eval))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>})</span></code></pre></div>
+<p>This way you can be very concise.</p>
+<h3 id="you-can-get-very-far-with-map">You can get very far with <code>map</code></h3>
+<p><code>jq</code> is a functional language so having a function to apply another function to each input is very powerful.</p>
+<h3 id="think-about-data-structure-before-implementing-any-jq-code">Think about data structure before implementing any <code>jq</code> code</h3>
+<p>Implementing the script to extract the data was straightforward because I first made sure all the relevant move data was placed in arrays. After that I could leverage <code>jq</code> using <a href="https://jqlang.org/manual/#transpose">transpose</a> and I quickly got a working solution.</p>
+<h3 id="its-a-bad-idea-to-ask-an-llm-to-create-an-entire-jq-command">It’s a bad idea to ask an LLM to create an entire <code>jq</code> command</h3>
+<p>The result is always too verbose and very often doesn’t work (completely). In itself this is not a big problem if you could curate the solution afterwards but often I find debugging of these LLM commands later on near impossible. It’s better to know a few basic concepts well and try to combine these in more creative ways.</p>
+<h3 id="but-you-can-let-an-llm-help-with-explaining-and-debugging-simple-commands">But you can let an LLM help with explaining and debugging simple commands</h3>
+<p>You give it the input you have and the output you want:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="ex">llm</span> <span class="st">&quot;I&#39;m using jq and I&#39;ve got an input object {id: &#39;a&#39;, moves: [1,2,3]}. I want to turn this into [[&#39;a&#39;,&#39;a&#39;,&#39;a&#39;], [1,2,3]].&quot;</span></span></code></pre></div>
+<p>This way you learn and you can build the command step by step which makes it easier to debug afterwards. It also allows you to select from several different approaches. This avoids choosing an approach you don’t completely understand.</p>
+<p>Debugging by doing <code>cat {jq-file} | llm "why doesn't this work?"</code> works wonders as well.</p>
+<h3 id="some-basic-things-are-very-hard-in-jq">Some basic things are very hard in <code>jq</code></h3>
+<p>It’s <a href="https://stackoverflow.com/a/65540354">rather complex to repeat a string a number of times into an array</a>. For example creating an array which contains n elements, all of which are the same string. Pay attention with LLMs here. The LLM will claim you can do this but the solution works only for strings and not arrays of strings.</p>
+<h3 id="jq-conceptscommands-to-remember"><code>jq</code> concepts/commands to remember</h3>
+<p>These are important concepts/commands to know inside out: - <a href="https://jqlang.org/manual/#map-map_values"><code>map</code></a> - <a href="https://jqlang.org/manual/#transpose"><code>transpose</code></a>: this is like <code>zip</code> in other programming languages - <a href="https://jqlang.org/manual/#variable-symbolic-binding-operator">Variable Operator</a>: if you want to reuse a value for each element of an array.</p>
+<h2 id="changelog">CHANGELOG</h2>
+<ul>
+<li>26-03-2025: initial draft</li>
+</ul>
+</div>
+</body>
+</html>
