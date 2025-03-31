@@ -1,0 +1,15 @@
+[
+    {
+        "goal": "convert CSV to sqlite format",
+        "why_useful": "Having the data in sqlite format is handy because it allows you to use Datasette to explore the data.",
+        "tool": "sqlite-utils",
+        "url_doc": "https://sqlite-utils.datasette.io/en/stable/cli.html#inserting-json-data",
+        "url_repo": "https://github.com/IsaacVerm/dagtsjoling/blob/ccc41f228560e8b959e17f665dca26fc36a37187/clean-table.sh#L11",
+        "task": "Convert walks.csv as table walks in the walks.db sqlite database.",
+        "command": "sqlite-utils insert walks.db walks walks.csv --csv",
+        "command_remarks": [
+            "--csv required because normally sqlite-utils expects JSON instead of CSV as input format.",
+            "walks doesn't have any semantic meaning in this command, it's just the name of the table."
+        ]
+    }
+]
