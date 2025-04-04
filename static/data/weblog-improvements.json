@@ -21,5 +21,11 @@
             {"name": "Cats and Dogs", "url": "https://www.hplovecraft.com/writings/texts/essays/cd.aspx"},
             {"name": "track-vrt-nws GitHub repo", "url": "https://github.com/IsaacVerm/track-vrt-nws"}
         ]
+    },
+    {
+        "name": "filter Linkfest by theme",
+        "done": false,
+        "tools": ["Document Web API"],
+        "sources": []
     }
 ]
