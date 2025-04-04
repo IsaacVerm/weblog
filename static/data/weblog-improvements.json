@@ -39,5 +39,12 @@
         "tools": ["Document Web API"],
         "tasks": [],
         "sources": []
+    },
+    {
+        "name": "add tools page",
+        "done": false,
+        "tools": [],
+        "tasks": [],
+        "sources": []
     }
 ]
