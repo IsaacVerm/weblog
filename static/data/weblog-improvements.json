@@ -6,5 +6,11 @@
         "sources": [
             {"name": "Datasette llm logging", "url": "https://llm.datasette.io/en/stable/logging.html#logging-to-sqlite"}
         ]
+    },
+    {
+        "name": "add page quotes",
+        "done": false,
+        "tools": [],
+        "sources": []
     }
 ]
