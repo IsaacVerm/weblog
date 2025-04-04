@@ -23,7 +23,8 @@
                 .then(response => response.json())
                 .then(improvements => {
                     improvements.forEach(improvement => {
-                        Promise.all([fetch('/static/data/weblog-improvements-descriptions/add-page-llm-usage.txt').then(response => response.text()),
+                        // filenames are in kebab case
+                        Promise.all([fetch(`/static/data/weblog-improvements-descriptions/${improvement.name.toLowerCase().split(' ').join('-')}.txt`).then(response => response.text()),
                         fetch('/static/data/tools.json').then(response => response.json())
                         ]).then(([description, tools]) => {
                             const improvementItem = document.createElement('div');
