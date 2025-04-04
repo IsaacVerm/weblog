@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Weblog improvements</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
     <div class="container">
-    <h1>Weblog improvements</h1>
-    <p>This weblog is a living thing I want to keep improving.
-        Up till now I've kept a note on my computer with the improvements I want to make.
-        However, there's no reason not to make this list of improvements available here.
-        This way I can get early feedback.
-    </p>
-    <div id="improvements-container"></div>
-    <script>
-        const container = document.getElementById('improvements-container');
+        <h1>Weblog improvements</h1>
+        <p>This weblog is a living thing I want to keep improving.
+            Up till now I've kept a note on my computer with the improvements I want to make.
+            However, there's no reason not to make this list of improvements available here.
+            This way I can get early feedback.
+        </p>
+        <div id="improvements-container"></div>
+        <script>
+            const container = document.getElementById('improvements-container');
 
-        fetch('/static/data/weblog-improvements.json')
-            .then(response => response.json())
-            .then(improvements => {        
-                improvements.forEach(improvement => {
-                    const improvementItem = document.createElement('div');
+            fetch('/static/data/weblog-improvements.json')
+                .then(response => response.json())
+                .then(improvements => {
+                    improvements.forEach(improvement => {
+                        Promise.all([fetch('/static/data/weblog-improvements-descriptions/add-page-llm-usage.txt').then(response => response.text()),
+                        fetch('/static/data/tools.json').then(response => response.json())
+                        ]).then(([description, tools]) => {
+                            const improvementItem = document.createElement('div');
 
-                    improvementItem.innerHTML = `
-                        <h2>${improvement.feature}</h2>
-                        <p>${improvement.context}</p>
-                        <h3>sources</h3>
-                        <ul>
-                            ${improvement.sources.map(source => `<li><a target="_blank" href=${source.url}>${source.name}</a></p>`).join('')}
-                        </ul>
-                    `;
-                    
-                    container.appendChild(improvementItem);
+                            improvementItem.innerHTML = `
+                                <h2>${improvement.name}</h2>
+                                <p>${description}</p>
+                                <h3>sources</h3>
+                                <ul>
+                                    ${improvement.sources.map(source => `<li><a target="_blank" href=${source.url}>${source.name}</a></p>`).join('')}
+                                </ul>
+                                <h3>tools</h3>
+                                <ul>
+                                    ${improvement.tools.map(toolName => `<li><a target="_blank" href=${tools.find(tool => tool.name == toolName).url}>${toolName}</a></p>`).join('')}
+                                </ul>
+                            `;
+
+                            container.appendChild(improvementItem);
+                        })
+                    });
                 });
-            });
-    </script>
+        </script>
     </div>
 </body>
+
 </html>

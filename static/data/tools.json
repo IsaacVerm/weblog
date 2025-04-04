@@ -1,0 +1,4 @@
+[
+    {"name": "Datasette llm", "url": "https://llm.datasette.io/en/stable/", "description": "A Datasette CLI utility and Python library for interacting with Large Language Models"},
+    {"name": "Claude", "url": "https://www.anthropic.com/claude", "description": "Claude is a family of large language models developed by Anthropic."}
+]
