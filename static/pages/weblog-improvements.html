@@ -32,13 +32,17 @@
                             improvementItem.innerHTML = `
                                 <h2>${improvement.name}</h2>
                                 <p>${description}</p>
+                                ${(improvement.tasks && improvement.tasks.length > 0) ? "<h3>tasks</h3>" : ""}
+                                <ul>
+                                    ${improvement.tasks.map(task => `<li>${task}</li>`).join('')}
+                                </ul>
                                 ${(improvement.sources && improvement.sources.length > 0) ? "<h3>sources</h3>" : ""}
                                 <ul>
-                                    ${improvement.sources.map(source => `<li><a target="_blank" href=${source.url}>${source.name}</a></p>`).join('')}
+                                    ${improvement.sources.map(source => `<li><a target="_blank" href=${source.url}>${source.name}</a></li>`).join('')}
                                 </ul>
                                 ${(improvement.tools && improvement.tools.length > 0) ? "<h3>tools</h3>" : ""}
                                 <ul>
-                                    ${improvement.tools.map(toolName => `<li><a target="_blank" href=${tools.find(tool => tool.name == toolName).url}>${toolName}</a></p>`).join('')}
+                                    ${improvement.tools.map(toolName => `<li><a target="_blank" href=${tools.find(tool => tool.name == toolName).url}>${toolName}</a></li>`).join('')}
                                 </ul>
                             `;
 

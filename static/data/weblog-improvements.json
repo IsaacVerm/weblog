@@ -3,6 +3,15 @@
         "name": "add page LLM usage",
         "done": false,
         "tools": ["Datasette llm", "Claude"],
+        "tasks": [
+            "get llm logs in JSON format",
+            "load llm logs into sqlite database",
+            "display sqlite llm logs in Datasette",
+            "create LLM usage page with introduction what it's about",
+            "label each prompt by adding field 'prompt_type' to JSON llm logs",
+            "add part to LLM usage page for each new prompt_type",
+            "count prompt_type to get an idea what I use llm for the most"
+        ],
         "sources": [
             {"name": "Datasette llm logging", "url": "https://llm.datasette.io/en/stable/logging.html#logging-to-sqlite"}
         ]
@@ -11,12 +20,14 @@
         "name": "add page quotes",
         "done": false,
         "tools": [],
+        "tasks": [],
         "sources": []
     },
     {
         "name": "add short post sample VRT article titles translated",
         "done": false,
         "tools": ["jq", "Datasette llm"],
+        "tasks": [],
         "sources": [
             {"name": "Cats and Dogs", "url": "https://www.hplovecraft.com/writings/texts/essays/cd.aspx"},
             {"name": "track-vrt-nws GitHub repo", "url": "https://github.com/IsaacVerm/track-vrt-nws"}
@@ -26,6 +37,7 @@
         "name": "filter Linkfest by theme",
         "done": false,
         "tools": ["Document Web API"],
+        "tasks": [],
         "sources": []
     }
 ]
