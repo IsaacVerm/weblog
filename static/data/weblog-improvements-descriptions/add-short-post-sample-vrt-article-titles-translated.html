@@ -1,0 +1,33 @@
+<p>
+    I recently started reading Lovecraft again.
+    The language used by Lovecraft is always rather convoluted:
+
+    <blockquote>
+    Being told of the cat-and-dog fight about to occur in the Blue Pencil Club—a new thing for your circle, perhaps, though not unfamiliar to amateurdom as a whole—I cannot resist contributing a few Thomasic yowls and sibilants upon my side of the dispute, though conscious that the word of a venerable ex-member can scarcely have much weight against the brilliancy of such still active adherents as may bark upon the other side.
+    </blockquote>
+
+    For example I had never heard the word "thomasic" before.
+    Recently I experimented with LLM usage for translation and this works perfectly well.
+    You can ask the LLM to explain any difficult words (whatever way you want to define difficulty).
+    This makes going through a difficult text a lot easier.
+    For example with a very simple prompt you can get something like this:
+
+    <img src="/static/images/weblog-improvements/prompt-lovecraft-difficult-words.jpeg" style="margin-top: 2rem;"/>
+
+    This got me thinking. Recently I've started tracking VRT news articles.
+    In 2 weeks I've scraped about 2000 article titles.
+    This could be a good combination with the translation approach.
+    Samply a few titles randomly and prompt the LLM to ask you to translate them one by one.
+    If you don't know a word, you can ask the LLM to explain the word after you went over all of the article titles.
+    The orginal prompt can be saved in Datasette llm.
+
+    For now I'm just going to start with a short post about experimenting how to get this right.
+    Later on I can turn it into a full-fledged app:
+
+    <ul>
+        <li>save words you mark as to remember</li>
+        <li>choose filtering options what to consider difficult</li>
+        <li>how to split up the sentences</li>
+        <li>...</li>
+    </ul>
+</p>

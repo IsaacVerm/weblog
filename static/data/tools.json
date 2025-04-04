@@ -1,4 +1,5 @@
 [
     {"name": "Datasette llm", "url": "https://llm.datasette.io/en/stable/", "description": "A Datasette CLI utility and Python library for interacting with Large Language Models"},
-    {"name": "Claude", "url": "https://www.anthropic.com/claude", "description": "Claude is a family of large language models developed by Anthropic."}
+    {"name": "Claude", "url": "https://www.anthropic.com/claude", "description": "Claude is a family of large language models developed by Anthropic."},
+    {"name": "jq", "url": "https://jqlang.org/", "description": "jq is a command-line JSON processor. You can transform structured data with the same ease that sed, awk, grep and friends let you play with text."}
 ]

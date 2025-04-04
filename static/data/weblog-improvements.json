@@ -12,5 +12,14 @@
         "done": false,
         "tools": [],
         "sources": []
+    },
+    {
+        "name": "add short post sample VRT article titles translated",
+        "done": false,
+        "tools": ["jq", "Datasette llm"],
+        "sources": [
+            {"name": "Cats and Dogs", "url": "https://www.hplovecraft.com/writings/texts/essays/cd.aspx"},
+            {"name": "track-vrt-nws GitHub repo", "url": "https://github.com/IsaacVerm/track-vrt-nws"}
+        ]
     }
 ]
