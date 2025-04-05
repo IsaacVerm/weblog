@@ -42,9 +42,11 @@
     },
     {
         "name": "add tools page",
-        "done": false,
-        "tools": [],
+        "done": true,
+        "tools": ["Document Web API"],
         "tasks": [],
-        "sources": []
+        "sources": [
+            {"name": "Tools", "url": "https://mini-computer.tail1ad9dd.ts.net/static/pages/tools.html"}
+        ]
     }
 ]
