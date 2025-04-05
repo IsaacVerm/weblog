@@ -23,7 +23,8 @@
                 .then(response => response.json())
                 .then(improvements => {
                     improvements.forEach(improvement => {
-                        Promise.all([fetch('/static/data/weblog-improvements-descriptions/add-page-llm-usage.txt').then(response => response.text()),
+                        // filenames are in kebab case
+                        Promise.all([fetch(`/static/data/weblog-improvements-descriptions/${improvement.name.toLowerCase().split(' ').join('-')}.html`).then(response => response.text()),
                         fetch('/static/data/tools.json').then(response => response.json())
                         ]).then(([description, tools]) => {
                             const improvementItem = document.createElement('div');
@@ -31,13 +32,17 @@
                             improvementItem.innerHTML = `
                                 <h2>${improvement.name}</h2>
                                 <p>${description}</p>
-                                <h3>sources</h3>
+                                ${(improvement.tasks && improvement.tasks.length > 0) ? "<h3>tasks</h3>" : ""}
                                 <ul>
-                                    ${improvement.sources.map(source => `<li><a target="_blank" href=${source.url}>${source.name}</a></p>`).join('')}
+                                    ${improvement.tasks.map(task => `<li>${task}</li>`).join('')}
                                 </ul>
-                                <h3>tools</h3>
+                                ${(improvement.sources && improvement.sources.length > 0) ? "<h3>sources</h3>" : ""}
                                 <ul>
-                                    ${improvement.tools.map(toolName => `<li><a target="_blank" href=${tools.find(tool => tool.name == toolName).url}>${toolName}</a></p>`).join('')}
+                                    ${improvement.sources.map(source => `<li><a target="_blank" href=${source.url}>${source.name}</a></li>`).join('')}
+                                </ul>
+                                ${(improvement.tools && improvement.tools.length > 0) ? "<h3>tools</h3>" : ""}
+                                <ul>
+                                    ${improvement.tools.map(toolName => `<li><a target="_blank" href=${tools.find(tool => tool.name == toolName).url}>${toolName}</a></li>`).join('')}
                                 </ul>
                             `;
 

@@ -1,4 +1,0 @@
-For a while I've been using the Datasette LLM plugin to use models like Claude Sonnet and Haiku.
-I'm using it for a variety of tasks: translation, getting an overview of relevant concepts to an idea, code generation and explanation,... Datasette llm automatically saves all prompts and responses.
-Since I've been using it for about 2 months already, it'd be interesting to analyse how I've been using it and see if I can discover a pattern in my LLM usage.
-Having an overview means I can think more in detail how I want to improve on my LLM workflow in the future.
