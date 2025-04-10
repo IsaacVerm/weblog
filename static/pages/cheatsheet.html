@@ -24,7 +24,7 @@
                     const gotchaItem = document.createElement('div');
 
                     gotchaItem.innerHTML = `
-                        <h2>${gotcha.goal}</h2>
+                        <h2 id=${gotcha.goal.toLowerCase().replace(/[\s_]+/g, '-')}>${gotcha.goal}</h2>
                         <ul>
                             <li>Why useful: ${gotcha.why_useful}</li>
                             <li>Tool: ${gotcha.tool}</li>

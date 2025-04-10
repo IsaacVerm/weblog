@@ -39,7 +39,7 @@
                     const toolItem = document.createElement('div');
 
                     toolItem.innerHTML = `
-                        <h2><a target="_blank" href="${tools.find(tool => tool.name == toolName).url}">${toolName}</a></h2>
+                        <h2 id=${tools.find(tool => tool.name == toolName).name.toLowerCase().replace(/[\s_]+/g, '-')}><a target="_blank" href="${tools.find(tool => tool.name == toolName).url}">${toolName}</a></h2>
                         <blockquote>${tools.find(tool => tool.name == toolName).description}</blockquote>
                         <p>Tool used in these posts and pages:</p>
                         <ul>

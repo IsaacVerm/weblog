@@ -43,7 +43,7 @@
     {
         "name": "add tools page",
         "done": true,
-        "pr_url": "https://github.com/IsaacVerm/weblog/commit/b170b3434db16e411542206597b03ec11d8fe0d9",
+        "code_url": "https://github.com/IsaacVerm/weblog/commit/b170b3434db16e411542206597b03ec11d8fe0d9",
         "tools": ["Document Web API"],
         "tasks": [],
         "sources": [
@@ -52,7 +52,8 @@
     },
     {
         "name": "add anchor links to permanent pages",
-        "done": false,
+        "done": true,
+        "code_url": "https://github.com/IsaacVerm/weblog/pull/30",
         "tools": ["Document Web API"],
         "tasks": [
             "add ids to headers tools page",

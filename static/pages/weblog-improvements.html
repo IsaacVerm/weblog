@@ -30,7 +30,7 @@
                             const improvementItem = document.createElement('div');
 
                             improvementItem.innerHTML = `
-                                <h2>${improvement.name} ${improvement.done ? `<a target="_blank" href=${improvement.pr_url}>(done)</a>` : ""}</h2>
+                                <h2 id=${improvement.name.toLowerCase().replace(/[\s_]+/g, '-')}>${improvement.name} ${improvement.done ? `<a target="_blank" href=${improvement.code_url}>(done)</a>` : ""}</h2>
                                 <p>${description}</p>
                                 ${(improvement.tasks && improvement.tasks.length > 0) ? "<h3>tasks</h3>" : ""}
                                 <ul>
