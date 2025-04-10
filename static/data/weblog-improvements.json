@@ -48,5 +48,19 @@
         "sources": [
             {"name": "Tools", "url": "https://mini-computer.tail1ad9dd.ts.net/static/pages/tools.html"}
         ]
+    },
+    {
+        "name": "add anchor links to permanent pages",
+        "done": false,
+        "tools": ["Document Web API"],
+        "tasks": [
+            "add ids to headers tools page",
+            "add ids to headers cheatsheet page",
+            "add ids to headers improvements page"
+        ],
+        "sources": [
+            {"name": "Tools", "url": "https://mini-computer.tail1ad9dd.ts.net/static/pages/tools.html"},
+            {"name": "URI fragment", "url": "https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment"}
+        ]
     }
 ]
