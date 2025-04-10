@@ -52,7 +52,8 @@
     },
     {
         "name": "add anchor links to permanent pages",
-        "done": false,
+        "done": true,
+        "code_url": "https://github.com/IsaacVerm/weblog/pull/30",
         "tools": ["Document Web API"],
         "tasks": [
             "add ids to headers tools page",
