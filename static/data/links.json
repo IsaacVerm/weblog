@@ -222,5 +222,61 @@
         "key_text": "Nam-ı Kemal jokes (Turkish: Nâm-ı Kemâl fıkraları) are a variety of dirty jokes in Turkish folk literature that originated during the Ottoman era. In the archaic Ottoman Turkish language, the phrase nam-ı Kemal means \" a man named Kemal\", i.e. a generic and unconventionally humorous everyman. However, due to the phrase's vocal similarity with the name of one of the most foremost figures in Turkish literature, the poet and playwright Namık Kemal (1840–1888), the jokes underwent an evolution. With the growing obscurity of Ottoman terms among most speakers of modern Turkish, \"nam-ı Kemal jokes\" became, more often than not, \"Namık Kemal jokes\", an example of a mondegreen. The obscenity of the \"nam-ı Kemal jokes\" tradition is based mainly on phallic exaggerations.",
         "why_interesting": "Nam-ı Kemal jokes are dirty jokes in Turkish.",
         "screenshot": "namik-kemal.jpg"
+      },
+      {
+        "title": "The Russian Effort to Abolish Marriage",
+        "source": "https://www.theatlantic.com/magazine/archive/1926/07/the-russian-effort-to-abolish-marriage/306295/",
+        "key_text": " As a solution for the vexing problem of children she suggested a scheme of 'marriage insurance,' to be financed by an annual levy of one dollar on every adult citizen of the Soviet Union. This would provide a fund of about sixty million dollars a year, enough to provide for all the babies who might be born as a result of free-love unions.",
+        "why_interesting": "",
+        "screenshot": "kollontai.jpg"
+      },
+      {
+        "title": "fellrnr",
+        "source": "https://fellrnr.com/wiki/Trust_No_One",
+        "key_text": "The most important running tip I have is this; do not trust these running tips! More precisely, don't take anything I, or anyone else, tells you at face value. Do your own research, check the references given, and verify the facts that are presented.",
+        "why_interesting": "",
+        "screenshot": ""
+      },
+      {
+        "title": "AI legibility, physical archives, and the future of research",
+        "source": "https://resobscura.substack.com/p/ai-legibility-archives-future-of-research",
+        "key_text": "Generative AI has made it absurdly easy to generate a lot of text or images. But it hasn't made us any better at subtracting the useful, meaningful, or simply interesting stuff from text and images — isolating the gold from the fool's gold.",
+        "why_interesting": "",
+        "screenshot": ""
+      },
+      {
+        "title": "Unmasking EncryptHub: Help from ChatGPT & OPSEC blunders",
+        "source": "",
+        "key_text": "This brings us to the present, and to the picture of a conflicted man. Someone who has perhaps not had the easiest life, and has struggled to choose between a legitimate career and cybercrime and trying to play both roles at the same time. Whatever his motivations, he is clearly a driven individual with a desire to learn.",
+        "why_interesting": "",
+        "screenshot": ""
+      },
+      {
+        "title": "Trump tells Oprah his political views in 1988",
+        "source": "https://youtu.be/6BJYbn4MppM?feature=shared&t=21",
+        "key_text": "I want free trade.",
+        "why_interesting": "",
+        "screenshot": ""
+      },
+      {
+        "title": "How couples met (1930-2024)",
+        "source": "https://x.com/burkov/status/1843793993274143184",
+        "key_text": "",
+        "why_interesting": "",
+        "screenshot": "how-couples-met-2024.png"
+      },
+      {
+        "title": "Northern European Enclosure Dam",
+        "source": "https://en.wikipedia.org/wiki/Northern_European_Enclosure_Dam",
+        "key_text": "The Northern European Enclosure Dam (NEED) is a proposed solution to the problem of rising ocean levels in Northern Europe. It would be a megaproject, involving the construction of two massive dams in the English Channel and the North Sea; the former between France and England, and the latter between Scotland and Norway.",
+        "why_interesting": "",
+        "screenshot": "need.png"
+      },
+      {
+        "title": "The case against conversational interfaces",
+        "source": "https://julian.digital/2025/03/27/the-case-against-conversational-interfaces/",
+        "key_text": "To put the writing and speaking speeds into perspective, we form thoughts at 1,000-3,000 words per minute. Natural language might be natural, but it’s a bottleneck. And yet, if you think about your day-to-day interactions with other humans, most communication feels really fast and efficient. That’s because natural language is only one of many data transfer mechanisms available to us. For example, instead of saying “I think what you just said is a great idea”, I can just give you a thumbs up. Or nod my head. Or simply smile. ",
+        "why_interesting": "",
+        "screenshot": "thumb-data-compression.png"
       }
 ]
