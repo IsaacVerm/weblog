@@ -1,5 +1,61 @@
 [
     {
+        "title": "The Egg",
+        "source": "https://www.galactanet.com/oneoff/theegg.html",
+        "key_text": "Once you’ve lived every human life throughout all time, you will have grown enough to be born.”\n\n“So the whole universe,” you said, “it’s just…”\n\n“An egg.” I answered. “Now it’s time for you to move on to your next life.”",
+        "why_interesting": "",
+        "screenshot": "egg-a-ghost-is-born-wilco.jpeg"
+    },
+    {
+        "title": "Tracking all of President Trump’s false or misleading claims",
+        "source": "https://www.washingtonpost.com/graphics/politics/trump-claims-database/",
+        "key_text": "In four years, President Trump made 30,573 false or misleading claims.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "AI crap",
+        "source": "https://drewdevault.com/2023/08/29/2023-08-29-AI-crap.html",
+        "key_text": "There is a machine learning bubble, but the technology is here to stay. Once the bubble pops, the world will be changed by machine learning. But it will probably be crappier, not better.\n\nContrary to the AI doomer’s expectations, the world isn’t going to go down in flames any faster thanks to AI. Contemporary advances in machine learning aren’t really getting us any closer to AGI.\n\nWhat will happen to AI is boring old capitalism. Its staying power will come in the form of replacing competent, expensive humans with crappy, cheap robots.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "A hackable AI assistant using a single SQLite table and a handful of cron jobs | Hacker News",
+        "source": "https://news.ycombinator.com/item?id=43681287",
+        "key_text": "An email-based, artificial coworker is so obviously the right way to penetrate virtually every B2B market in existence.",
+        "why_interesting": "",
+        "screenshot": "jenkins.png"
+    },
+    {
+        "title": "Hacking a Smart Home Device",
+        "source": "https://jmswrnr.com/blog/hacking-a-smart-home-device",
+        "key_text": "If we're going to hack this device to be controlled by custom software, we're going to need to understand its current capabilities and plan a point of attack, requiring the least amount of work to achieve our goal.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Facebook acquires Instagram | Hacker News",
+        "source": "https://news.ycombinator.com/item?id=3817840",
+        "key_text": "FaceBook is only worth 100b on paper. It's not worth close to that. The reason this is absolutely a bubble is because you have one paper tiger buying another paper tiger with virtual paper.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "DolphinGemma: How Google AI is helping decode dolphin communication | Hacker News",
+        "source": "https://news.ycombinator.com/item?id=43680899",
+        "key_text": "It does kind of bum me out to be at a point in time where instead of addressing our impact on the environment directly, we're trying to make computers that can talk to dolphins so we can tell them to stay out of the way lol.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Structured Procrastination",
+        "source": "https://www.structuredprocrastination.com/",
+        "key_text": "Anyone can do any amount of work, provided it isn't the work he is supposed to be doing at that moment.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
         "title": "1945-2015 Rebuilding Dresden",
         "source": "https://mashable.com/feature/rebuilding-dresden",
         "key_text": "Over two days and nights in February 1945, American and British bombers dropped 2,400 tons of high explosives and 1,500 tons of incendiary bombs on the German city of Dresden.",
@@ -110,173 +166,173 @@
         "key_text": "In June 1946, Hall's security clearance was revoked by the US Army, not over suspicions of being a Soviet asset but because of discovery of a letter he had received from his British sister-in-law, his brother Edward's wife Edith, who inquired jokingly of him: \"I hear you're working on something that goes up with a big bang! Can you send us one of them for Guy Fawkes Day?\"",
         "why_interesting": "Theodore Hall got betrayed as Soviet spy by his aunt because she mentioned having heard he's working on something that goes up with a big bang.",
         "screenshot": "theodore-hall.jpg"
-      },
-      {
+    },
+    {
         "title": "How to Stage a Coup",
         "source": "https://www.statecraft.pub/p/how-to-commit-a-coup",
         "key_text": "For example, King Hassan II of Morocco was the victim of a coup. His airplane was to be shot down coming back from Paris, but he landed and became very energetic, took control of the airbase, and then eventually tracked down the organizer of the coup, who was the minister of the interior, General Mohamed Oufkir. According to King Hassan's New York Times obituary, \"When pilots of his air force attacked his Boeing 727 jetliner, the King, himself a pilot, seized the radio and shouted, 'Stop firing! The tyrant is dead!' — fooling the rebels into breaking off their attack.\"",
         "why_interesting": "King Hassan II called himself a tyrant to fool the rebels.",
         "screenshot": "king-hassan-2.jpg"
-      },
-      {
+    },
+    {
         "title": "Time For Light interview Screaming Trees",
         "source": "https://archive.ph/crQNh",
         "key_text": "One of the high points both for Martin, and the Trees in general, came when President Clinton used the drum riff from \"Nearly Lost You\" as the background during the Inauguration ceremony. \"It was really weird, these tribal drums; but I thought it was pretty cool because I came up with that part.\"",
         "why_interesting": "Bill Clinton used the drum riff from \"Nearly Lost You\" as background music during his Inauguration ceremony.",
         "screenshot": "bill-clinton-inauguration-1993.jpg"
-      },
-      {
+    },
+    {
         "title": "Russian Word for Queen in Chess",
         "source": "",
         "key_text": "",
         "why_interesting": "The Russian word for queen in chess is masculine.",
         "screenshot": "russian-word-queen-male.png"
-      },
-      {
+    },
+    {
         "title": "Soorin Kim Twitter",
         "source": "https://twitter.com/SooRinKimm/status/1749706123639214132",
         "key_text": "You actually hear the Smiths more often than you'd think at 2024 Trump rallies.",
         "why_interesting": "Trump plays The Smiths Please, Please, Please, Let Me Get What I Want at rallies.",
         "screenshot": "hatful-of-hollow.jpg"
-      },
-      {
+    },
+    {
         "title": "Commodus the gladiator",
         "source": "https://en.wikipedia.org/wiki/Commodus#Commodus_the_gladiator",
         "key_text": "Commodus also had a passion for gladiatorial combat, which he took so far as to take to the arena himself, dressed as a secutor. The Romans found Commodus' gladiatorial combat to be scandalous and disgraceful. According to Herodian, spectators of Commodus thought it unbecoming of an emperor to take up arms in the amphitheater for sport when he could be campaigning against barbarians among other opponents of Rome. The consensus was that it was below his office to participate as a gladiator.",
         "why_interesting": "Trump acts like Commodus.",
         "screenshot": "commodus-in-arena.jpg"
-      },
-      {
+    },
+    {
         "title": "Yandex founder Arkady Volozh says he hired security detail after Putin hinted at Prigozhin's demise",
         "source": "https://meduza.io/en/news/2025/01/10/yandex-founder-arkady-volozh-says-he-hired-a-security-detail-after-putin-called-him-a-talented-person-the-same-phrase-he-used-when-commenting-on-prigozhin-s-violent-death",
         "key_text": "In August 2023, the Russian president publicly described the tech entrepreneur as \"a talented person\" — the same language he'd recently used when commenting on the violent death of mercenary leader Yevgeny Prigozhin, who perished with several others in a plane crash under suspicious circumstances, two months after his brief but shocking armed insurrection.",
         "why_interesting": "When Putin calls you a talented person, you have to fear for your life.",
         "screenshot": "putin-volozh.webp"
-      },
-      {
+    },
+    {
         "title": "WarGonzo",
         "source": "https://meduza.io/en/feature/2025/01/10/america-has-legitimized-redrawing-the-world-map",
         "key_text": "And we'll turn a blind eye to the liberation of Canada. Except for Quebec, of course — it should return to its rightful home in France. But only after Marine Le Pen comes to power there.",
         "why_interesting": "Russian war bloggers are already thinking of returning Quebec to France after the American war between the USA and Canada.",
         "screenshot": "france-quebec.jpg"
-      },
-      {
+    },
+    {
         "title": "Tehanu",
         "source": "https://www.tehanu.io/",
         "key_text": "Animals, trees, and many other species are essential to the global economy. Our world cannot prosper if only humans benefit from its resources. Tehanu exists in the belief that these species need to participate in our economy in order to survive.",
         "why_interesting": "Tehanu wants to extends the gig economy to animals.",
         "screenshot": "tehanu.webp"
-      },
-      {
+    },
+    {
         "title": "Anthropic jobs boards",
         "source": "https://boards.greenhouse.io/anthropic/jobs/4462114008",
         "key_text": "They will build and maintain strong relationships with our Human Feedback (HF) resources and optimize how we do this work on an ongoing basis.",
         "why_interesting": "Anthropic calls people human feedback resources.",
         "screenshot": ""
-      },
-      {
+    },
+    {
         "title": "Максим Кац",
         "source": "https://www.youtube.com/watch?v=NyhCZvFE0C4",
         "key_text": "Apple has a market cap of over $2.5 trillion. If you consider the aggregate budget of Russia, Apple's market cap should be covering all the costs for five years.",
         "why_interesting": "Market cap Apple covers 5 years of the Russia budget.",
         "screenshot": "maxim-katz.png"
-      },
-      {
+    },
+    {
         "title": "62 Fascinating Facts of 2024",
         "source": "https://www.nytimes.com/2024/12/31/insider/-ifacts-2024.html",
         "key_text": "Only 15 percent of previously married women say they want to do it again, according to a Pew Center for Research study. That's half the portion of men who want to remarry.",
         "why_interesting": "Only 15 percent of previously married women say they want to do it again.",
         "screenshot": "62-fascinating-facts-2024.webp"
-      },
-      {
+    },
+    {
         "title": "Why we stopped making Einsteins",
         "source": "https://www.theintrinsicperspective.com/p/why-we-stopped-making-einsteins",
         "key_text": "In fact, there was a family tutor of the Einsteins who went by the name Max Talmud (possibly the best name of a tutor ever), and it was indeed Max Talmud who introduced the young 12-year-old Albert to geometry, prefacing young Albert's eventual transformation of our understanding of space and time into something geometric. Maybe we don't make Einsteins anymore because we don't make Max Talmuds anymore.",
         "why_interesting": "Einstein's tutor was called Max Talmud.",
         "screenshot": "max-talmud.jpg"
-      },
-      {
+    },
+    {
         "title": "Don't believe him",
         "source": "https://www.nytimes.com/video/opinion/100000009968320/dont-believe-him.html",
         "key_text": "Steve Bannon: The opposition party is the media. And the media can only, because they're dumb and they're lazy, they can only focus on one thing at a time. … All we have to do is flood the zone. Every day we hit them with three things. They'll bite on one, and we'll get all of our stuff done. Bang, bang, bang. These guys will never — will never be able to recover. But we've got to start with muzzle velocity.",
         "why_interesting": "Steve Bannon calls overwhelming the media muzzle velocity.",
         "screenshot": "muzzle-velocity.jpg"
-      },
-      {
+    },
+    {
         "title": "Myspace Wikipedia",
         "source": "https://en.wikipedia.org/wiki/Myspace",
         "key_text": "In June 2006, it surpassed Yahoo and Google to become the most visited website in the United States.",
         "why_interesting": "At one point in time Myspace was visited more than Google.",
         "screenshot": "memento-mori.webp"
-      },
-      {
+    },
+    {
         "title": "Anima archives",
         "source": "https://animafestival.be/animafestival/up/a-propos/Archives/1991/1991-compressed.pdf",
         "key_text": "",
         "why_interesting": "Anima festival used to be sponsored by Bifi.",
         "screenshot": "bifi-sponsor-anima-festival.png"
-      },
-      {
+    },
+    {
         "title": "Nam-ı Kemal jokes",
         "source": "https://en.m.wikipedia.org/wiki/Nam-%C4%B1_Kemal_jokes",
         "key_text": "Nam-ı Kemal jokes (Turkish: Nâm-ı Kemâl fıkraları) are a variety of dirty jokes in Turkish folk literature that originated during the Ottoman era. In the archaic Ottoman Turkish language, the phrase nam-ı Kemal means \" a man named Kemal\", i.e. a generic and unconventionally humorous everyman. However, due to the phrase's vocal similarity with the name of one of the most foremost figures in Turkish literature, the poet and playwright Namık Kemal (1840–1888), the jokes underwent an evolution. With the growing obscurity of Ottoman terms among most speakers of modern Turkish, \"nam-ı Kemal jokes\" became, more often than not, \"Namık Kemal jokes\", an example of a mondegreen. The obscenity of the \"nam-ı Kemal jokes\" tradition is based mainly on phallic exaggerations.",
         "why_interesting": "Nam-ı Kemal jokes are dirty jokes in Turkish.",
         "screenshot": "namik-kemal.jpg"
-      },
-      {
+    },
+    {
         "title": "The Russian Effort to Abolish Marriage",
         "source": "https://www.theatlantic.com/magazine/archive/1926/07/the-russian-effort-to-abolish-marriage/306295/",
         "key_text": " As a solution for the vexing problem of children she suggested a scheme of 'marriage insurance,' to be financed by an annual levy of one dollar on every adult citizen of the Soviet Union. This would provide a fund of about sixty million dollars a year, enough to provide for all the babies who might be born as a result of free-love unions.",
         "why_interesting": "",
         "screenshot": "kollontai.jpg"
-      },
-      {
+    },
+    {
         "title": "fellrnr",
         "source": "https://fellrnr.com/wiki/Trust_No_One",
         "key_text": "The most important running tip I have is this; do not trust these running tips! More precisely, don't take anything I, or anyone else, tells you at face value. Do your own research, check the references given, and verify the facts that are presented.",
         "why_interesting": "",
         "screenshot": ""
-      },
-      {
+    },
+    {
         "title": "AI legibility, physical archives, and the future of research",
         "source": "https://resobscura.substack.com/p/ai-legibility-archives-future-of-research",
         "key_text": "Generative AI has made it absurdly easy to generate a lot of text or images. But it hasn't made us any better at subtracting the useful, meaningful, or simply interesting stuff from text and images — isolating the gold from the fool's gold.",
         "why_interesting": "",
         "screenshot": ""
-      },
-      {
+    },
+    {
         "title": "Unmasking EncryptHub: Help from ChatGPT & OPSEC blunders",
         "source": "",
         "key_text": "This brings us to the present, and to the picture of a conflicted man. Someone who has perhaps not had the easiest life, and has struggled to choose between a legitimate career and cybercrime and trying to play both roles at the same time. Whatever his motivations, he is clearly a driven individual with a desire to learn.",
         "why_interesting": "",
         "screenshot": ""
-      },
-      {
+    },
+    {
         "title": "Trump tells Oprah his political views in 1988",
         "source": "https://youtu.be/6BJYbn4MppM?feature=shared&t=21",
         "key_text": "I want free trade.",
         "why_interesting": "",
         "screenshot": ""
-      },
-      {
+    },
+    {
         "title": "How couples met (1930-2024)",
         "source": "https://x.com/burkov/status/1843793993274143184",
         "key_text": "",
         "why_interesting": "",
         "screenshot": "how-couples-met-2024.png"
-      },
-      {
+    },
+    {
         "title": "Northern European Enclosure Dam",
         "source": "https://en.wikipedia.org/wiki/Northern_European_Enclosure_Dam",
         "key_text": "The Northern European Enclosure Dam (NEED) is a proposed solution to the problem of rising ocean levels in Northern Europe. It would be a megaproject, involving the construction of two massive dams in the English Channel and the North Sea; the former between France and England, and the latter between Scotland and Norway.",
         "why_interesting": "",
         "screenshot": "need.png"
-      },
-      {
+    },
+    {
         "title": "The case against conversational interfaces",
         "source": "https://julian.digital/2025/03/27/the-case-against-conversational-interfaces/",
         "key_text": "To put the writing and speaking speeds into perspective, we form thoughts at 1,000-3,000 words per minute. Natural language might be natural, but it’s a bottleneck. And yet, if you think about your day-to-day interactions with other humans, most communication feels really fast and efficient. That’s because natural language is only one of many data transfer mechanisms available to us. For example, instead of saying “I think what you just said is a great idea”, I can just give you a thumbs up. Or nod my head. Or simply smile. ",
         "why_interesting": "",
         "screenshot": "thumb-data-compression.png"
-      }
+    }
 ]
