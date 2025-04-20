@@ -1,5 +1,110 @@
 [
     {
+        "title": "Daft Punk - Interview in Japan (Discovery Release) With Real Voices",
+        "source": "https://www.youtube.com/watch?v=mLPaSp1Q0yw",
+        "key_text": "",
+        "why_interesting": "",
+        "screenshot": "daft-punk-interview.png"
+    },
+    {
+        "title": "Recreating Daft Punk's Something About Us",
+        "source": "https://thoughts-and-things.ghost.io/recreating-daft-punks-something-about-us/",
+        "key_text": "An in-depth, personal journey recreating Daft Punk’s “Something About Us” in Ableton Live 12—track by track. From synths to talkbox guitars, a nostalgic dive into French Touch culture, sound design, and the joys of music production... When learning a new music production software, recreating a cover track is always a smart move. You don't have to worry too much about the songwriting itself, which frees you up to focus on the tools and the production process.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "What If We Made Advertising Illegal?",
+        "source": "https://simone.org/advertising/",
+        "key_text": "Ad companies are never going to regulate themselves—it's like hoping for heroin dealers to write drug laws.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "American Disruption",
+        "source": "https://stratechery.com/2025/american-disruption/",
+        "key_text": "The most important components for executing a fundamental shift in trade are those that go into building actual factories, or equipment for those factories. In the vast sea of stupidity that are these tariffs this is perhaps the stupidest detail of all: the U.S. is tariffing raw materials and components for factory equipment, like CNC machines.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "The Best Programmers I Know",
+        "source": "https://endler.dev/2025/best-programmers/",
+        "key_text": "Great devs understand the technologies they use on a fundamental level.\n\nIt’s one thing to be able to use a tool and a whole other thing to truly grok (understand) it.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "How to use Gemini Live with camera and screen sharing",
+        "source": "https://blog.google/products/gemini/gemini-live-android-tips/",
+        "key_text": "Gemini Live lets you have natural, free-flowing conversations with Gemini in over 45 different languages. ",
+        "why_interesting": "",
+        "screenshot": "gemini-live.png"
+    },
+    {
+        "title": "DOGE Is Far Short of Its Goal, and Still Overstating Its Progress",
+        "source": "https://www.nytimes.com/2025/04/13/us/politics/doge-contracts-savings.html",
+        "key_text": "Elon Musk now says his group will produce only 15 percent of the savings it promised. But even that estimate is inflated with errors and guesswork.",
+        "why_interesting": "Why wouldn't Tesla's numbers be manipulated in the same way?",
+        "screenshot": ""
+    },
+    {
+        "title": "Big Book of R | Hacker News",
+        "source": "https://news.ycombinator.com/item?id=43646219",
+        "key_text": "R especially dplyr/tidyverse is so underrated. Working in ML engineering, I see a lot of my coworkers suffering through pandas (or occasionally polars or even base Python without dataframes) to do basic analytics or debugging, it takes eons and gets complex so quickly that only the most rudimentary checks get done. Anyone working in data-adjacent engineering work would benefit from R/dplyr in their toolkit.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "garfield minus garfield",
+        "source": "https://garfieldminusgarfield.net/",
+        "key_text": "Garfield Minus Garfield is a site dedicated to removing Garfield from the Garfield comic strips in order to reveal the existential angst of a certain young Mr. Jon Arbuckle. It is a journey deep into the mind of an isolated young everyman as he fights a losing battle against loneliness and depression in a quiet American suburb. ",
+        "why_interesting": "",
+        "screenshot": "garfield-thinking-about-things.png"
+    },
+    {
+        "title": "The top 1000 words checker",
+        "source": "https://www.benguttmann.com/thousand",
+        "key_text": "The 1,000 most commonly used words in English make up about 75% of the language as it’s actually used.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "How To Build An Agent",
+        "source": "https://ampcode.com/how-to-build-an-agent",
+        "key_text": "This is essentially all there is to the inner loop of a code-editing agent. Sure, integrating it into your editor, tweaking the system prompt, giving it the right feedback at the right time, a nice UI around it, better tooling around the tools, support for multiple agents, and so on — we’ve built all of that in Amp, but it didn’t require moments of genius. All that was required was practical engineering and elbow grease.\n\nThese models are incredibly powerful now. 300 lines of code and three tools and now you’re to be able to talk to an alien intelligence that edits your code. If you think “well, but we didn’t really…” — go and try it! Go and see how far you can get with this. I bet it’s a lot farther than you think.\n\nThat’s why we think everything’s changing.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "A Field Guide to Rapidly Improving AI Products",
+        "source": "https://www.oreilly.com/radar/a-field-guide-to-rapidly-improving-ai-products/",
+        "key_text": "When identifying error types, you can take either a “top-down” or “bottom-up” approach. The top-down approach starts with common metrics like “hallucination” or “toxicity” plus metrics unique to your task. While convenient, it often misses domain-specific issues. The more effective bottom-up approach forces you to look at actual data and let metrics naturally emerge.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Money laundering and AML compliance",
+        "source": "https://www.bitsaboutmoney.com/archive/money-laundering-and-aml-compliance/",
+        "key_text": "Money laundering is, effectively, a process crime. We criminalized it not because of the direct harms, but because it tends to make other interdiction of criminal activity more difficult. Money laundering covers anything which obscures the link between another crime and the proceeds of that crime. This is intentionally extremely vague and expansive. The victim is, take your pick, either the state or the financial institutions the state has deputized to detect it.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Saul Teaches Jesse Money Laundering",
+        "source": "https://www.youtube.com/watch?v=RhsUHDJ0BFM",
+        "key_text": "\"I'm a drug dealer\". Wrong, a million times worse. You're a tax cheat and you know what they do? They take every penny and you go in the can for felony tax evasion. Ouch!",
+        "why_interesting": "",
+        "screenshot": "better-call-saul.webp"
+    },
+    {
+        "title": "No general method to detect fraud",
+        "source": "https://calpaterson.com/fraud.html",
+        "key_text": "In this scenario the scammer is starting out writing to a huge number of people, half with a prediction for the market to go up and the other half with a prediction for it to go down. At the end of each month, he discards those to whom he made an inaccurate prediction and splits the rest into two groups, sending new (opposite) predictions to each group. Eventually some of those being scammed \"convert\" (I may as well use the marketing terminology given how closely this resembles an A/B test) and he's able to dupe them into making an investment.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
         "title": "Contra MacAskill and Wiblin on The Intelligence Explosion",
         "source": "https://www.maximum-progress.com/p/contra-macaskill-and-wiblin-on-the",
         "key_text": "What would happen if the previous century of progress were compressed into a decade? Just look around you. We’ve been on this trend for thousands of years. The 20th century was a thousand years of progress or more compressed into century. We've already increased through several orders of magnitude in how fast the world moves, how rapid economic growth is, how much economic activity each person is responsible for, and how much destructive power each person and government can wield.\n\nIf, as MacAskill claims, human decision making hasn’t sped up, we’ve somehow managed to avoid the “holy shit chaos” that Will and Rob predicted would result.\n\nMaybe some particular theory of human psychology and economics can predict that the next speed-up will finally take us over the threshold of human understanding, but just bamboozling with big numbers doesn’t stand up to our already proven success through the even more bamboozling long-view of history.",
