@@ -1,5 +1,75 @@
 [
     {
+        "title": "Onfim's world",
+        "source": "https://resobscura.substack.com/p/onfims-world-medieval-child-artists",
+        "key_text": "These children, who lived around the year 1250 CE, were meant to be learning how to read and write. But one student named Onfim used them to draw. And for this reason, Onfim has become immortal.",
+        "why_interesting": "",
+        "screenshot": "onfim.webp"
+    },
+    {
+        "title": "Chess Proverbs by Edward Winter",
+        "source": "https://www.chesshistory.com/winter/extra/proverbs.html",
+        "key_text": "Chess is a sea in which a gnat may drink and an elephant may bathe.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Stasi Tactics – Zersetzung",
+        "source": "https://www.maxhertzberg.co.uk/background/politics/stasi-tactics/",
+        "key_text": "The Zersetzung of individuals had the aim of ‘switching off’ that person’s efficacy by undermining their confidence and their belief in the value of their activities. The Stasi did not usually care whether an individual was switched off through disillusionment, fear, burn-out or mental illness: all outcomes were acceptable, and people’s mental health and social standing during or after an operation were of no concern to the officers involved.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "The Creativity Hack No One Told You About: Read the Obits",
+        "source": "https://thereader.mitpress.mit.edu/the-creativity-hack-no-one-told-you-about-read-the-obits/",
+        "key_text": "Reading obituaries can boost creativity by exposing you to distant ideas, fueling the associations that lead to unexpected breakthroughs.",
+        "why_interesting": "",
+        "screenshot": "nyt-obituaries.jpg"
+    },
+    {
+        "title": "Sam Patterson",
+        "source": "https://sampatt.com/blog/2025-04-28-can-o3-beat-a-geoguessr-master",
+        "key_text": "In a head-to-head Geoguessr match, OpenAI’s o3 model out-scored me—a Master I–ranked human—23,179 to 22,054, correctly identifying all five countries and twice landing within a few hundred metres.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Daft Punk - Giorgio by Moroder Lyrics",
+        "source": "https://genius.com/Daft-punk-giorgio-by-moroder-lyrics",
+        "key_text": "When I was fifteen, sixteen, when I really started to play guitar, I definitely wanted to become a musician. It was almost impossible because—it was—the dream was so big that I didn't see any chance because I was living in a little town; was studying. And when I finally broke away from school and became a musician, I thought, 'Well, now I may have a little bit of a chance,' because all I really wanted to do is music. And not only play music, but compose music. At that time, in Germany, in '69, '70, they had already discotheques. So, I would take my car, would go to a discotheque, sing maybe thirty minutes. I think I had about seven, eight songs. I would partially sleep in the car because I didn't want to drive home and that helped me for about almost two years to survive in the beginning. I wanted to do an album with the sounds of the '50s, the sounds of the '60s, of the '70s, and then have a sound of the future. And I said, 'Wait a second, I know the synthesizer. Why don't I use the synthesizer which is the sound of the future?' And I didn't have any idea what to do, but I knew I needed a click, so we put a click on the 24-track, which then was synced to the Moog Modular. I knew that could be a sound of the future, but I didn't realize how much the impact would be. My name is Giovanni Giorgio, but everybody calls me Giorgio.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Linux for PlayStation 2",
+        "source": "https://en.m.wikipedia.org/wiki/Linux_for_PlayStation_2",
+        "key_text": "Linux for PlayStation 2 (or PS2 Linux) is a kit released by Sony Computer Entertainment in 2002 that allows the PlayStation 2 console to be used as a personal computer.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Artificial General Intelligence Is Already Here",
+        "source": "https://www.noemamag.com/artificial-general-intelligence-is-already-here/",
+        "key_text": "Today’s most advanced AI models have many flaws, but decades from now, they will be recognized as the first true examples of artificial general intelligence.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "How We Investigated France’s Mass Profiling Machine",
+        "source": "https://www.lighthousereports.com/methodology/how-we-investigated-frances-mass-profiling-machine/",
+        "key_text": "Nearly half of France’s population is scored each year by the model...All of the three models are written in SAS, a programming language designed for statistical analysis. ",
+        "why_interesting": "SAS...",
+        "screenshot": ""
+    },
+    {
+        "title": "Teach Yourself Programming in Ten Years",
+        "source": "https://www.norvig.com/21-days.html",
+        "key_text": "The key is deliberative practice: not just doing it again and again, but challenging yourself with a task that is just beyond your current ability, trying it, analyzing your performance while and after doing it, and correcting any mistakes. Then repeat. And repeat again. There appear to be no real shortcuts.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
         "title": "Daft Punk - Interview in Japan (Discovery Release) With Real Voices",
         "source": "https://www.youtube.com/watch?v=mLPaSp1Q0yw",
         "key_text": "",
