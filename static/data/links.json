@@ -1,5 +1,208 @@
 [
     {
+        "title": "Why does the world have such an intense stake in Israel/Palestine?",
+        "source": "https://aeon.co/essays/why-does-the-world-have-such-an-intense-stake-in-israel-palestine",
+        "key_text": "Palestine has become a palimpsest onto which people around the world project problems within their own countries, adding another layer of commitment – and, often, distortion.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Why the deep learning boom caught almost everyone by surprise",
+        "source": "https://www.understandingai.org/p/why-the-deep-learning-boom-caught",
+        "key_text": "So the AI boom of the last 12 years was made possible by three visionaries who pursued unorthodox ideas in the face of widespread criticism. One was Geoffrey Hinton, a University of Toronto computer scientist who spent decades promoting neural networks despite near-universal skepticism. The second was Jensen Huang, the CEO of Nvidia, who recognized early that GPUs could be useful for more than just graphics.\n\nThe third was Fei-Fei Li. She created an image dataset that seemed ludicrously large to most of her colleagues. But it turned out to be essential for demonstrating the potential of neural networks trained on GPUs.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "The Evolution of Trust",
+        "source": "https://ncase.me/trust/",
+        "key_text": "I think game theory can help explain our epidemic of distrust –\nand how we can fix it!",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Wrong",
+        "source": "https://nealstephenson.substack.com/p/wrong-1",
+        "key_text": "During COVID I went down something of a rabbit hole on the subject of wrongness, and wrote some essays into a OneDrive folder that I had established on a new PC. ",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Spaced Repetition Systems Have Gotten Way Better",
+        "source": "https://domenic.me/fsrs/",
+        "key_text": "Stepping back, my takeaway from this experience is that Anki is king. People complain about how its UI is created by developers instead of designers, or how you have to find or make your own decks instead of using prepackaged ones. These are all fair complaints. But Anki is maintained by people who actually care about learning efficiently. It receives frequent updates that make it better at that goal. And it’s flexible enough to carry you through any stage of your knowledge-acquisition journey. Putting in the time to master it will provide a foundation that lasts you a literal lifetime.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "The Unreasonable Effectiveness of an LLM Agent Loop with Tool Use",
+        "source": "https://sketch.dev/blog/agent-loop",
+        "key_text": "I have no doubt that agent loops will get incorporated into more day to day automation tedium that's historically been too specific for general purpose tools and too esoteric and unstable to automate traditionally. I keep thinking of how much time I've spent correlating stack traces with git commits, and how good LLMs are at doing a first pass on it. ",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Rampant AI Cheating Is Ruining Education Alarmingly Fast",
+        "source": "https://web.archive.org/web/20250507231632/https://nymag.com/intelligencer/article/openai-chatgpt-ai-cheating-education-college-students-school.html",
+        "key_text": "The ideal of college as a place of intellectual growth, where students engage with deep, profound ideas, was gone long before ChatGPT. The combination of high costs and a winner-takes-all economy had already made it feel transactional, a means to an end.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Will the Humanities Survive Artificial Intelligence?",
+        "source": "https://web.archive.org/web/20250426101126/https://www.newyorker.com/culture/the-weekend-essay/will-the-humanities-survive-artificial-intelligence",
+        "key_text": "On the contrary, staggering transformations are in full swing. And yet, on campus, we’re in a bizarre interlude: everyone seems intent on pretending that the most significant revolution in the world of thought in the past century isn’t happening. The approach appears to be: “We’ll just tell the kids they can’t use these tools and carry on as before.” This is, simply, madness. And it won’t hold for long. It’s time to talk about what all this means for university life, and for the humanities in particular.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Grigory’s Ode to Joy Facing six years in prison",
+        "source": "https://meduza.io/en/feature/2025/05/13/grigory-s-ode-to-joy",
+        "key_text": "This case is missing the very foundation of any criminal prosecution: the occurrence of a crime. ",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Using static websites for tiny archives",
+        "source": "https://alexwlchan.net/2024/static-websites/",
+        "key_text": "Introducing a bit of friction is helping me to decide what I really care about saving. What’s worth taking the time to organise properly, and what can’t I be bothered with? If I don’t want to take even a minute to save it, am I going to look at it again? But if I do save something, I’ve become more willing to take time to write proper metadata, in a way that will make it easier to find later.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "People watching",
+        "source": "http://www.eringreenauthor.co.uk/blog/people-watching",
+        "key_text": "I used to write in public places, cafes and libraries but recent observations have distracted me from my writing, filling me with sadness and an instant desire to withdraw to my desk. As a species we seem to be losing the ability to truly connect, to empathise or show kindness towards others. I’m hoping this current trend is simply a phase that will pass as readily as it seems to have appeared, enabling ‘people watching’ to return to the guilty pleasure it once was.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Timeful Texts",
+        "source": "https://numinous.productions/timeful/",
+        "key_text": "Consider texts like the Bible and the Analects of Confucius. People integrate ideas from those books into their lives over time—but not because authors designed them that way. Those books work because they’re surrounded by rich cultural activity. Weekly sermons and communities of practice keep ideas fresh in readers’ minds and facilitate ongoing connections to lived experiences. This is a powerful approach for powerful texts, requiring extensive investment from readers and organizers. We can’t build cathedrals for every book. Sophisticated readers adopt similar methods to study less exalted texts, but most people lack the necessary skills, drive, and cultural contexts. How might we design texts to more widely enable such practices?",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Anonymous artists",
+        "source": "https://en.wikipedia.org/wiki/Category:Anonymous_artists",
+        "key_text": "In art history, an anonymous master is an Old Master whose work is known, but whose name is lost. ",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Analogy and the Roots of Creative Intelligence",
+        "source": "https://thereader.mitpress.mit.edu/analogy-and-the-roots-of-creative-intelligence/",
+        "key_text": "For example, the earliest scientific theory still accepted today — the wave theory of sound — was proposed by a Roman engineer who noticed an analogy between the behavior of sound and water. Sound rebounds off barriers, creating an echo, much as water waves rebound off the shore. Thinking by analogy can foster creative thinking when something puzzling triggers the recognition of a similar situation that is easier to understand.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Ask HN: What are you working on? (April 2025)",
+        "source": "https://news.ycombinator.com/item?id=43815523",
+        "key_text": "I used to work for Lark. They raised $140mm to solve this problem and the best they could do was a non-ai chatbot that whined at users for not eating enough vegetables. The Lark app has 100% user drop off in 60 days and yet is still the silicon darling in the diabetes space.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "The Anti-Social Century",
+        "source": "https://www.theatlantic.com/magazine/archive/2025/02/american-loneliness-personality-politics/681091/",
+        "key_text": "Today, the typical American adult buys about three movie tickets a year—and watches almost 19 hours of television, the equivalent of roughly eight movies, on a weekly basis. In entertainment, as in dining, modernity has transformed a ritual of togetherness into an experience of homebound reclusion and even solitude.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Orbit",
+        "source": "https://withorbit.com/",
+        "key_text": "When you read a text that’s written with Orbit, you don’t just read it once and then set it aside, perhaps forever. The review sessions keep you in contact with the ideas, returning you to the material again and again over weeks and months. The ongoing practice changes your relationship to what you read. It gives you a way to bring ideas into your orbit.",
+        "why_interesting": "",
+        "screenshot": "orbit.png"
+    },
+    {
+        "title": "The Totalitarian Buddhist Who Beat Sim City",
+        "source": "https://www.vice.com/en/article/the-totalitarian-buddhist-who-beat-sim-city/",
+        "key_text": "Technically, no one is leaving or coming into the city. Population growth is stagnant. Sims don’t need to travel long distances, because their workplace is just within walking distance. In fact they do not even need to leave their own block. Wherever they go it’s like going to the same place.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Modern-Day Oracles or Bullshit Machines?",
+        "source": "https://thebullshitmachines.com/lesson-1-autocomplete-in-overdrive/index.html",
+        "key_text": "We find it absolutely amazing that simply by predicting the next words in a stream of text, an algorithm can do all of the things that ChatGPT does. ",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Writing an LLM from scratch, part 1",
+        "source": "https://www.gilesthomas.com/2024/12/llm-from-scratch-1",
+        "key_text": "The next thing that people discovered was that the encoder and the decoder were actually useful on their own. I've heard models described as \"encoder-only\" or \"decoder-only\" -- GPT-based LLMs being one of the latter -- and this explains where that terminology came from.\n\nAn example of a encoder-only model is BERT, which I know is used heavily for classification tasks; indeed, Answer.AI recently announced ModernBERT, an updated version that is targeting exactly that. This makes some kind of intuitive sense to me. If you have something that is designed to take in text input and produce an embedding that represents its meaning (in some sense) then tacking on an extra layer to convert that meaning into \"the tone of this text is happy/sad/angry/etc\" doesn't feel like a huge lift.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "On the benefits of learning in public",
+        "source": "https://www.gilesthomas.com/2025/02/20250223-til-deep-dive-posts",
+        "key_text": "I've also spent some time reading through the archives here, and come to the conclusion that the best posts I've made -- at least from my perspective -- follow a similar pattern. They're posts where I've been learning how to do something, or how something worked, and presented what I've found as a summary, often as a tutorial.\n\nI think of these as writing the post that I wished I'd found when I started learning whatever it was.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Plain Vanilla",
+        "source": "https://plainvanillaweb.com/index.html",
+        "key_text": " Modern web development frameworks are powerful in their ability to develop rich well-structured web applications quickly, and for this reason alone they are well worth your time to learn. However, this rich functionality comes at the cost of framework and tooling complexity, and the resulting projects often require regular maintenance to keep secure and up to date.\n\nThe plain vanilla style of web development makes a different choice, trading off a few short term comforts for long term benefits like simplicity and being effectively zero-maintenance. This approach is made possible by today's browser landscape, which offers excellent web standards support. ",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "The Last Ringbearer",
+        "source": "https://dotat.at/tmp/LastRB.pdf",
+        "key_text": "Haddami was a genius\ngraphologist able to put together a complete psychological profile of an author and then\nmorph into him, so that the texts he wrote in other people’s names were authentic, in a way.\nAfter the maestro told Haladdin everything he had learned about him from a few\nhandwritten lines, the doctor experienced bewilderment liberally spiced with fear – this was\nreal magic, and not benign, either. For a moment Haladdin was even sorely tempted to show\nthe maestro some notes of Tangorn’s, although he clearly realized that this would have been\neven worse than simply snooping in someone’s private diary. No one has the right to know\nmore about a person than he is willing to tell, and both friendship and love die together with\nthe person’s right to privacy.",
+        "why_interesting": "Description black magic in book 'The Last Ringbearer' exists in real life, it's called an LLM.",
+        "screenshot": "last-ringbearer-cover.jpg"
+    },
+    {
+        "title": "Techniques for improving text-to-SQL",
+        "source": "https://cloud.google.com/blog/products/databases/techniques-for-improving-text-to-sql",
+        "key_text": "Current state-of-the-art LLMs like Gemini 2.5 have reasoning capabilities that make them good at translating complex questions posed in natural language to functioning SQL, complete with joins, filters, aggregations and other difficult concepts.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Ditching Obsidian and building my own",
+        "source": "https://amberwilliams.io/blogs/building-my-own-pkms",
+        "key_text": "No longer do we need to install a random developer's plugin that sends our private thoughts who knows where. We can vibe-code our own or use open-source tooling. I used to use an Obsidian plugin to pull uncompleted tasks from todo checklists that were scattered around various notes, but after 10 minutes of prompting Anthropic's Claude, I had my own private equivalent tool.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "How And Why To Keep A 'Commonplace Book'",
+        "source": "https://ryanholiday.net/how-and-why-to-keep-a-commonplace-book/",
+        "key_text": "A commonplace book is a central resource or depository for ideas, quotes, anecdotes, observations and information you come across during your life and didactic pursuits.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Remarks on AI from NZ",
+        "source": "https://nealstephenson.substack.com/p/remarks-on-ai-from-nz",
+        "key_text": "I follow conversations among professional educators who all report the same phenomenon, which is that their students use ChatGPT for everything, and in consequence learn nothing. We may end up with at least one generation of people who are like the Eloi in H.G. Wells’s The Time Machine, in that they are mental weaklings utterly dependent on technologies that they don’t understand and that they could never rebuild from scratch were they to break down.",
+        "why_interesting": "",
+        "screenshot": "wells-the-time-machine.jpg"
+    },
+    {
+        "title": "What The Hell Are People Doing?",
+        "source": "https://humans.maxcomperatore.com/how.html",
+        "key_text": "The \"What The Hell Are People Doing?\" dashboard presents a dynamic, illustrative simulation of estimated global human activities in real-time. It aims to provide a thought-provoking and engaging perspective on how humanity collectively spends its time, visualized through constantly updating statistics and a global day/night map.",
+        "why_interesting": "",
+        "screenshot": "dashboard-what-the-hell-are-people-doing.png"
+    },
+    {
+        "title": "How the last letters of the condemned can teach us how to live",
+        "source": "https://aeon.co/essays/how-the-last-letters-of-the-condemned-can-teach-us-how-to-live",
+        "key_text": "Last letters are unlike any other type of writing I have ever encountered. They are of a singular ilk because they peer into the souls of those confronting imminent and inescapable death. Different from everyday letters, diaries, memoirs, political tracts or philosophical treatises, because of the urgency that shapes the act of writing. The authors know there will not be another chance to say what must be said.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
         "title": "Israel’s A.I. Experiments in Gaza War Raise Ethical Concerns",
         "source": "https://www.nytimes.com/2025/04/25/technology/israel-gaza-ai.html",
         "key_text": "One tool developed by “The Studio” was an Arabic-language A.I. model known as a large language model, three Israeli officers familiar with the program said. (The large language model was earlier reported by Plus 972, an Israeli-Palestinian news site.)\n\nDevelopers previously struggled to create such a model because of a dearth of Arabic-language data to train the technology. When such data was available, it was mostly in standard written Arabic, which is more formal than the dozens of dialects used in spoken Arabic.\n\nThe Israeli military did not have that problem, the three officers said. The country had decades of intercepted text messages, transcribed phone calls and posts scraped from social media in spoken Arabic dialects. So Israeli officers created the large language model in the first few months of the war and built a chatbot to run queries in Arabic. ",
