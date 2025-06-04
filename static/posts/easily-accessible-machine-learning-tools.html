@@ -1,65 +1,143 @@
-<h1 id="easily-accessible-machine-learning-tools">Easily accessible machine learning tools</h1>
-<p>Overview of machine learning tools (in the broad sense of the word) which are easy to get started with. Easy means you don’t have to go through all kinds of hoops before using them. In practice this means they’re available in the browser.</p>
-<p>Interesting tools:</p>
-<ul>
-<li><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></li>
-<li><a href="https://ml5js.org/">ml5.js (+ p5.js)</a></li>
-<li><a href="https://github.com/features/codespaces">GitHub Codespaces</a></li>
-<li><a href="https://llm.datasette.io/en/stable/index.html">Datasette llm</a></li>
-<li><a href="https://pages.github.com/">GitHub Pages</a> (to be documented)</li>
-<li><a href="https://github.com/features/actions">GitHub Actions</a> (to be documented)</li>
-<li><a href="https://aistudio.google.com">Google AI Studio</a> (to be documented)</li>
-</ul>
-<h2 id="teachable-machine">Teachable Machine</h2>
-<p>Part of machine learning is training a model, another part is actually using it. <a href="https://github.com/googlecreativelab/teachablemachine-community/">Teachable Machine helps with training a model in an easy way</a>:</p>
-<blockquote>
-<p>You train a computer to recognize your images, sounds, and poses without writing any machine learning code. Then, use your model in your own projects, sites, apps, and more.</p>
-</blockquote>
-<p>You can create a complete model and test it in just 2 minutes. You create training image data with your webcam, train the model and instantly test it.</p>
-<p>Although it feels like science fiction, this project might already be a bit outdated (<a href="https://news.ycombinator.com/item?id=15399132">originally released in 2017</a>, <a href="https://github.com/googlecreativelab/teachable-machine-v1">GitHub version first iteration</a>). Should explore if there are other similar projects like Teachable Machine.</p>
-<p>Teachable Machine models are trained completely locally. Only when you upload the model data leaves your computer.</p>
-<p>Teachable Machine doesn’t stand on it’s own but is based on <a href="https://www.tensorflow.org/js/">TensorFlow.js</a>. The nice thing about this is your model is very close to the web.</p>
-<p>You can <a href="https://medium.com/@warronbebster/teachable-machine-tutorial-bananameter-4bfffa765866">export the model and use it in your own web app</a>. For example <a href="https://teachablemachine.withgoogle.com/models/KYiXDhDr9/">this is a model I made to differentiate between my hand showing one and two fingers</a>.</p>
-<h2 id="ml5.js-p5.js"><code>ml5.js</code> (+ <code>p5.js</code>)</h2>
-<p><a href="#teachable-machine">Teachable Machine</a> above helps with creating a model and using <code>ml5.js</code> helps with applying the model:</p>
-<ul>
-<li>Teachable Machine is used to train a model (e.g. to classify 1 and 2 with hand gestures)</li>
-<li><code>ml5.js</code> loads the model and continuously runs the classification</li>
-</ul>
-<p><code>p5.js</code> naturally fits in because it displays the results.</p>
-<p>Just as with Teachable Machine there’s no need to install anything. <code>p5.js</code> has a web editor. <a href="https://editor.p5js.org/ml5/sketches/VvGXajA36">This sketch</a> for example shows a basic setup with a model classying between daytime and nighttime.</p>
-<p>The most important code in that sketch is the <code>classifyStart</code> function. I think the classification is done even more than once a frame (really <a href="https://docs.ml5js.org/#/reference/image-classifier?id=imageclassifierclassifystart">continuously</a>). It keeps on updating the label, but the updated label is updated only once a frame (because it’s part of the <code>draw</code> function).</p>
-<p>The <a href="https://thecodingtrain.com/tracks/ml5js-beginners-guide/ml5/1-classification/image-classification">tutorial by Daniel Shiffman on using m5.js for image classification</a> is very good. In addition it’s part of an excellent series of tutorials on how to use <code>m5.js</code> Daniel Shiffman is a bit like Bob Ross. He’s the guy behind <a href="https://processing.org/tutorials">Processing</a> as well.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pbjR20eTLVs?si=UX7C_eHqhMLhFh1a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-</iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_CpdwTcvBU8?si=hHlBvBRVPZzZJblZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-</iframe>
-<h2 id="github-codespaces">GitHub Codespaces</h2>
-<p><a href="#teachable-machine">Teachable Machine</a> and <a href="#ml5js--p5js">m5.js</a> are used to set up a model but you also need tooling around how to manage the model. Save the code for any web wrappers around the model, documentation about the model itself, … Enter <a href="https://github.com/features/codespaces">Codespaces</a>. If you already have a repository on GitHub for your model, using Codespaces is just a button away:</p>
-<p><img src="/static/images/posts/easily-accessible-machine-learning-tools/codespaces-button.png" /></p>
-<p>When opening the codespace of the repository, you immediately get an editor much like VSCode in the browser:</p>
-<p><img src="/static/images/posts/easily-accessible-machine-learning-tools/vscode-style-editor.png" /></p>
-<p><code>git</code> is automatically configured with <code>push</code> rights and so forth. So there’s nothing to do in terms of adding <code>ssh</code> keys or anything like that. You can just commit and push any changes you made in the Codespace and they will be part of the repository commit history.</p>
-<p>I wanted to work with the <code>p5.js</code> rendering of the <code>ml5.js</code> model. For that to work you need to install the <code>Live Server</code> extension first. <code>index.html</code> contains the HTML code and links to the <code>ml5.js</code> JavaScript code. After installing the <code>Live Server</code> extension, you can just right-click <code>index.html</code> and open the web app.</p>
-<p>GitHub Codespaces is <a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces">free up to a certain point</a>. You get a maximum number of hours of usage but don’t have to worry about overusing it:</p>
-<blockquote>
-<p>If you leave your codespace running without interaction, or if you exit your codespace without explicitly stopping it, the codespace will timeout after a period of inactivity and stop running. By default, a codespace will timeout after 30 minutes of inactivity.</p>
-</blockquote>
-<p>Starting a Codespace takes around 10 seconds, but you can use <a href="https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds">prebuilds</a> to make the launching faster.</p>
-<h2 id="datasette-llm">Datasette llm</h2>
-<p>You can use the <code>llm</code> library to use LLMs in the terminal. Allows you to easily do things like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">cat</span> myscript.py <span class="kw">|</span> <span class="ex">llm</span> <span class="st">&#39;explain this code&#39;</span></span></code></pre></div>
-<p>With a one-liner you can get explanations about your code.</p>
-<p>The <code>llm</code> libraries plays nice with other software mentioned above like <a href="#github-codespaces">Codespaces</a>. You can add a secret environment variable in a repo. I’m using Claude by Anthrophic so I have to set up a <a href="https://github.com/simonw/llm-anthropic?tab=readme-ov-file#usage">secret with Anthropic key</a>.</p>
-<p><img src="/static/images/posts/easily-accessible-machine-learning-tools/codespaces-secrets.png" /></p>
-<p>Now when I open the Codespace of my repository, I can install <code>llm</code> and use it with Claude. I could for example ask to explain the HTML tags used in the <code>index.html</code> file:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ex">pip</span> install llm</span>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Easily accessible machine learning tools</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <h1 id="easily-accessible-machine-learning-tools">Easily accessible machine learning tools</h1>
+    <p>Overview of machine learning tools (in the broad sense of the word) which are easy to get started with. Easy
+        means you don’t have to go through all kinds of hoops before using them. In practice this means they’re
+        available in the browser.</p>
+    <p>Interesting tools:</p>
+    <ul>
+        <li><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></li>
+        <li><a href="https://ml5js.org/">ml5.js (+ p5.js)</a></li>
+        <li><a href="https://github.com/features/codespaces">GitHub Codespaces</a></li>
+        <li><a href="https://llm.datasette.io/en/stable/index.html">Datasette llm</a></li>
+        <li><a href="https://pages.github.com/">GitHub Pages</a> (to be documented)</li>
+        <li><a href="https://github.com/features/actions">GitHub Actions</a> (to be documented)</li>
+        <li><a href="https://aistudio.google.com">Google AI Studio</a> (to be documented)</li>
+    </ul>
+    <h2 id="teachable-machine">Teachable Machine</h2>
+    <p>Part of machine learning is training a model, another part is actually using it. <a
+            href="https://github.com/googlecreativelab/teachablemachine-community/">Teachable Machine helps with
+            training a model in an easy way</a>:</p>
+    <blockquote>
+        <p>You train a computer to recognize your images, sounds, and poses without writing any machine learning code.
+            Then, use your model in your own projects, sites, apps, and more.</p>
+    </blockquote>
+    <p>You can create a complete model and test it in just 2 minutes. You create training image data with your webcam,
+        train the model and instantly test it.</p>
+    <p>Although it feels like science fiction, this project might already be a bit outdated (<a
+            href="https://news.ycombinator.com/item?id=15399132">originally released in 2017</a>, <a
+            href="https://github.com/googlecreativelab/teachable-machine-v1">GitHub version first iteration</a>). Should
+        explore if there are other similar projects like Teachable Machine.</p>
+    <p>Teachable Machine models are trained completely locally. Only when you upload the model data leaves your
+        computer.</p>
+    <p>Teachable Machine doesn’t stand on it’s own but is based on <a
+            href="https://www.tensorflow.org/js/">TensorFlow.js</a>. The nice thing about this is your model is very
+        close to the web.</p>
+    <p>You can <a href="https://medium.com/@warronbebster/teachable-machine-tutorial-bananameter-4bfffa765866">export
+            the model and use it in your own web app</a>. For example <a
+            href="https://teachablemachine.withgoogle.com/models/KYiXDhDr9/">this is a model I made to differentiate
+            between my hand showing one and two fingers</a>.</p>
+    <h2 id="ml5.js-p5.js"><code>ml5.js</code> (+ <code>p5.js</code>)</h2>
+    <p><a href="#teachable-machine">Teachable Machine</a> above helps with creating a model and using
+        <code>ml5.js</code> helps with applying the model:
+    </p>
+    <ul>
+        <li>Teachable Machine is used to train a model (e.g. to classify 1 and 2 with hand gestures)</li>
+        <li><code>ml5.js</code> loads the model and continuously runs the classification</li>
+    </ul>
+    <p><code>p5.js</code> naturally fits in because it displays the results.</p>
+    <p>Just as with Teachable Machine there’s no need to install anything. <code>p5.js</code> has a web editor. <a
+            href="https://editor.p5js.org/ml5/sketches/VvGXajA36">This sketch</a> for example shows a basic setup with a
+        model classying between daytime and nighttime.</p>
+    <p>The most important code in that sketch is the <code>classifyStart</code> function. I think the classification is
+        done even more than once a frame (really <a
+            href="https://docs.ml5js.org/#/reference/image-classifier?id=imageclassifierclassifystart">continuously</a>).
+        It keeps on updating the label, but the updated label is updated only once a frame (because it’s part of the
+        <code>draw</code> function).
+    </p>
+    <p>The <a
+            href="https://thecodingtrain.com/tracks/ml5js-beginners-guide/ml5/1-classification/image-classification">tutorial
+            by Daniel Shiffman on using m5.js for image classification</a> is very good. In addition it’s part of an
+        excellent series of tutorials on how to use <code>m5.js</code> Daniel Shiffman is a bit like Bob Ross. He’s the
+        guy behind <a href="https://processing.org/tutorials">Processing</a> as well.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/pbjR20eTLVs?si=UX7C_eHqhMLhFh1a"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_CpdwTcvBU8?si=hHlBvBRVPZzZJblZ"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+    <h2 id="github-codespaces">GitHub Codespaces</h2>
+    <p><a href="#teachable-machine">Teachable Machine</a> and <a href="#ml5js--p5js">m5.js</a> are used to set up a
+        model but you also need tooling around how to manage the model. Save the code for any web wrappers around the
+        model, documentation about the model itself, … Enter <a
+            href="https://github.com/features/codespaces">Codespaces</a>. If you already have a repository on GitHub for
+        your model, using Codespaces is just a button away:</p>
+    <p><img src="/static/images/posts/easily-accessible-machine-learning-tools/codespaces-button.png" /></p>
+    <p>When opening the codespace of the repository, you immediately get an editor much like VSCode in the browser:</p>
+    <p><img src="/static/images/posts/easily-accessible-machine-learning-tools/vscode-style-editor.png" /></p>
+    <p><code>git</code> is automatically configured with <code>push</code> rights and so forth. So there’s nothing to do
+        in terms of adding <code>ssh</code> keys or anything like that. You can just commit and push any changes you
+        made in the Codespace and they will be part of the repository commit history.</p>
+    <p>I wanted to work with the <code>p5.js</code> rendering of the <code>ml5.js</code> model. For that to work you
+        need to install the <code>Live Server</code> extension first. <code>index.html</code> contains the HTML code and
+        links to the <code>ml5.js</code> JavaScript code. After installing the <code>Live Server</code> extension, you
+        can just right-click <code>index.html</code> and open the web app.</p>
+    <p>GitHub Codespaces is <a
+            href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces">free
+            up to a certain point</a>. You get a maximum number of hours of usage but don’t have to worry about
+        overusing it:</p>
+    <blockquote>
+        <p>If you leave your codespace running without interaction, or if you exit your codespace without explicitly
+            stopping it, the codespace will timeout after a period of inactivity and stop running. By default, a
+            codespace will timeout after 30 minutes of inactivity.</p>
+    </blockquote>
+    <p>Starting a Codespace takes around 10 seconds, but you can use <a
+            href="https://docs.github.com/en/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds">prebuilds</a>
+        to make the launching faster.</p>
+    <h2 id="datasette-llm">Datasette llm</h2>
+    <p>You can use the <code>llm</code> library to use LLMs in the terminal. Allows you to easily do things like this:
+    </p>
+    <div class="sourceCode" id="cb1">
+        <pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">cat</span> myscript.py <span class="kw">|</span> <span class="ex">llm</span> <span class="st">&#39;explain this code&#39;</span></span></code></pre>
+    </div>
+    <p>With a one-liner you can get explanations about your code.</p>
+    <p>The <code>llm</code> libraries plays nice with other software mentioned above like <a
+            href="#github-codespaces">Codespaces</a>. You can add a secret environment variable in a repo. I’m using
+        Claude by Anthrophic so I have to set up a <a
+            href="https://github.com/simonw/llm-anthropic?tab=readme-ov-file#usage">secret with Anthropic key</a>.</p>
+    <p><img src="/static/images/posts/easily-accessible-machine-learning-tools/codespaces-secrets.png" /></p>
+    <p>Now when I open the Codespace of my repository, I can install <code>llm</code> and use it with Claude. I could
+        for example ask to explain the HTML tags used in the <code>index.html</code> file:</p>
+    <div class="sourceCode" id="cb2">
+        <pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ex">pip</span> install llm</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="ex">llm</span> install llm-anthropic</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="ex">llm</span> models default anthropic/claude-sonnet-4-0</span></code></pre></div>
-<p><img src="/static/images/posts/easily-accessible-machine-learning-tools/llm-explanation-index.png" /></p>
-<h2 id="code">Code</h2>
-<p>Code used for these research notes can be found <a href="https://github.com/IsaacVerm/easily-accessible-machine-learning-tools">in the repo with the same name</a>.</p>
-<h2 id="changelog">CHANGELOG</h2>
-<ul>
-<li>04-06-2025: initial draft</li>
-</ul>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="ex">llm</span> models default anthropic/claude-sonnet-4-0</span></code></pre>
+    </div>
+    <p><img src="/static/images/posts/easily-accessible-machine-learning-tools/llm-explanation-index.png" /></p>
+    <h2 id="code">Code</h2>
+    <p>Code used for these research notes can be found <a
+            href="https://github.com/IsaacVerm/easily-accessible-machine-learning-tools">in the repo with the same
+            name</a>.</p>
+    <h2 id="changelog">CHANGELOG</h2>
+    <ul>
+        <li>04-06-2025: initial draft</li>
+    </ul>
+
+</body>
+
+</html>
