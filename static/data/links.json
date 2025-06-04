@@ -1,5 +1,40 @@
 [
     {
+        "title": "Toyota War",
+        "source": "https://en.wikipedia.org/wiki/Toyota_War",
+        "key_text": "The Toyota War, also known as the Great Toyota War, which took place in 1987 in Northern Chad and on the Chad–Libya border, was the last phase of the Chadian–Libyan War. It takes its name from the Toyota pickup trucks, primarily the Toyota Hilux and the Toyota Land Cruiser, used to provide mobility for the Chadian troops as they fought against the Libyans, and as technicals.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "LLMs as Method Actors: A Model for Prompt Engineering and Architecture",
+        "source": "https://arxiv.org/abs/2411.05778v2",
+        "key_text": "When asked to solve a puzzle all at once, o1-preview solves 79% of Connections puzzles in our dataset, and when allowed to build puzzle solutions one guess at a time over multiple API calls, o1-preview solves 100% of the puzzles. ",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Street smarts: how a hawk learned to use traffic signals to hunt more successfully",
+        "source": "https://www.frontiersin.org/news/2025/05/23/street-smarts-hawk-use-traffic-signals-hunting",
+        "key_text": " A Cooper’s hawk, a medium-sized raptor native to North America, appears to have learned how to adapt its hunting strategy and strike at a flock of birds precisely when cars at an intersection lined up after traffic lights switched to red, having been alerted by a sound signal that the red phase would last longer than usual.",
+        "why_interesting": "",
+        "screenshot": "cooper-hawk.webp"
+    },
+    {
+        "title": "Avadhanam",
+        "source": "https://en.wikipedia.org/wiki/Avadhanam",
+        "key_text": "Avadhānaṃ (literally meaning \"concentration\") is a genre of performance in India, where a performer (called the avadhāni) answers challenging questions from several questioners in parallel.",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
+        "title": "Don’t Believe the AI Hype",
+        "source": "https://www.project-syndicate.org/commentary/ai-productivity-boom-forecasts-countered-by-theory-and-data-by-daron-acemoglu-2024-05",
+        "key_text": "Early adoption of generative AI has naturally occurred where it performs reasonably well, meaning tasks for which there are objective measures of success, such as writing simple programming subroutines or verifying information. Here, the model can learn on the basis of outside information and readily available historical data. But many of the 4.6% of tasks that could feasibly be automated within ten years – evaluating applications, diagnosing health problems, providing financial advice – do not have such clearly defined objective measures of success, and often involve complex context-dependent variables (what is good for one patient will not be right for another).",
+        "why_interesting": "",
+        "screenshot": ""
+    },
+    {
         "title": "Why does the world have such an intense stake in Israel/Palestine?",
         "source": "https://aeon.co/essays/why-does-the-world-have-such-an-intense-stake-in-israel-palestine",
         "key_text": "Palestine has become a palimpsest onto which people around the world project problems within their own countries, adding another layer of commitment – and, often, distortion.",
