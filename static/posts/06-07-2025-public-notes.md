@@ -25,3 +25,15 @@ Think a few seconds if pieces are safe or not, it's worth it in the longer run.
 
 The game after another basic mistake: Bxd7 and he wins my queen after the discovered attack.
 I didn't blunder the piece directly but my safety radar was clearly off.
+
+The final game was a wild rollercoaster:
+
+![](/static/images/posts/06-07-2025-public-notes/sIEfEv3C-rollercoaster.png)
+
+Mistakes made were very clear and insightful.
+
+![](https://lichess1.org/export/fen.gif?fen=r3qr1k%2F1p4pp%2Fp1np1p2%2F4nb2%2F7R%2F1BB1Q3%2FPPP3PP%2FRN4K1+b+-+-+1+18&color=white&lastMove=h3e3&variant=standard&theme=brown&piece=cburnett)
+
+In my first blunder I went into defensive mode way too quickly.
+He took my pawn and the only thing I thought about was moving my piece away, although his own piece was hanging. In the end I did win the game in a time scramble.
+Goes to show you should always keep going on, even after a massive blunder like the one above.
