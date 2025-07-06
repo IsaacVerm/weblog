@@ -7,3 +7,16 @@ The solution is to have a section public notes with entries marked by day. By da
 ---
 
 A good candidate for short entries is chess analysis. After playing a game I can just add the most remarkable thing about the game in a note. If I ever create lots of notes in this way, I can always compile them in a separate post or page.
+
+---
+
+A habit I used to have is focusing on playing just 3 chess games but as focused as possible.
+Afterwards I can see if there any highlights, things to remember about these games.
+
+![](https://lichess1.org/export/fen.gif?fen=r5k1%2F6pn%2F1p1p3p%2Fp1p1q3%2FP1P2R2%2F3P3P%2F2P1B1P1%2F2Q3K1+b+-+-+2+24&color=white&lastMove=d2c1&variant=standard&theme=brown&piece=cburnett)
+
+In Blitz games I often end up basic mistakes like hanging a piece.
+[In this game](https://lichess.org/9RlPi3nO/white#47) I was afraid of losing the a4 pawn in a fork of his queen on a1.
+But I completely forgot about the more important issue of keeping the bishop on e2 protected.
+I have to keep a basic safety check in mind all the time.
+Think a few seconds if pieces are safe or not, it's worth it in the longer run.
