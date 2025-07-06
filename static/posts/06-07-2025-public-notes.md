@@ -20,3 +20,8 @@ In Blitz games I often end up basic mistakes like hanging a piece.
 But I completely forgot about the more important issue of keeping the bishop on e2 protected.
 I have to keep a basic safety check in mind all the time.
 Think a few seconds if pieces are safe or not, it's worth it in the longer run.
+
+![](https://lichess1.org/export/fen.gif?fen=1nk2r1r%2Fpppn3p%2F3b2p1%2FPP1pp3%2F7q%2F4P2B%2F1BPP1P2%2FRN1QK2R+w+KQ+-+1+18&color=black&lastMove=g5h4&variant=standard&theme=brown&piece=cburnett)
+
+The game after another basic mistake: Bxd7 and he wins my queen after the discovered attack.
+I didn't blunder the piece directly but my safety radar was clearly off.
