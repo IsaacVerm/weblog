@@ -1,0 +1,5 @@
+# 06-07-2025
+
+My weblog isn't dead but it's not as active as it used to be either. Time to kickstart things again. I think the key thing I'm missing at the momentis having a way to create small notes on a regular basis. I do have posts and research notes but both of these are in long format. I keep short notes in Obsidian but they're kept private. Something for good reason because they're about my private life, other times it would be interesting to share them.
+
+The solution is to have a section public notes with entries marked by day. By day doesn't mean I aim to add new notes everyday, but I do aim for frequent updates. The topics could be diverse: some comments on an interesting article, something I started to research, a code snippet. Just about anything. If I notice I keep on working on the same topic for a longer time, I can always turn them into longer posts or research notes. It's easier to go from something small and concrete to something more fleshed out instead of trying to do the inverse and overreaching.
