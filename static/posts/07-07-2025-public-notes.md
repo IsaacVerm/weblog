@@ -42,3 +42,4 @@ In the endgame I did blitz out some moves but there wasn't any danger in those.
 A small analysis focused just on time management makes a lot of sense.
 Now I start to win games just because I've got the game under control.
 The biggest danger will be playing too slow, but I can remedy that later on.
+The great thing about time management is you can improve just by thinking about it consistently.
