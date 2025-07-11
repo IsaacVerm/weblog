@@ -44,3 +44,12 @@ With a bit of practice this can all be done rather quickly.
 And best of all, you can do all of it in your browser.
 The [final result](https://www.datawrapper.de/_/PdD9C/) looks rather good out of the box.
 
+---
+
+My current approach to these public notes works well:
+
+- when I come across something interesting I add it to the `PUBLIC NOTES` chat group
+- based on these entries I start adding notes for the day
+- whenever I notice I keep working on the same thing, I can compile these notes into a bigger project note
+
+Added benefit: never have to start from scratch with a project note since I can build upon the daily notes already created by that time.
