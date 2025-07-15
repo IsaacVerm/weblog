@@ -29,3 +29,20 @@ Since I've adopted this approach of analysing my own games and focusing on time 
 ![](/static/images/posts/15-07-2025-public-notes/elo-going-up.png)
 
 ---
+
+I [started working on a small side project called `chess-dashboard`](https://github.com/IsaacVerm/chess-dashboard/commit/6aec39fd80fcde583efa553218233e3632ba5f6e).
+The goal is to keep track of some key chess metrics of my chess play.
+This is something I want to aim for: lots of small projects which solve a problem I'm having.
+
+---
+
+Neat trick: I wanted to use `llm` from the Datasette package but didn't have it configured yet in the GitHub Workspace I'm using. But I can do it locally with `curl https://raw.githubusercontent.com/IsaacVerm/chess-dashboard/refs/heads/main/README.md | llm "implement first fetching step implementation"`
+
+---
+
+Even after a couple of years of having LLM it remains a crazy thing to see.
+[Implementing the chess dashboard took about half an hour](https://github.com/IsaacVerm/chess-dashboard/tree/294654a81eb94149646714ecc7239417eca0227a):
+
+![](/static/images/posts/15-07-2025-public-notes/chess-dashboard-30min-implementation.png)
+
+These days specifying what you want takes more time than actually implementing it.
