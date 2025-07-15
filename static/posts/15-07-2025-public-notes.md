@@ -40,9 +40,15 @@ Neat trick: I wanted to use `llm` from the Datasette package but didn't have it 
 
 ---
 
-Even after a couple of years of having LLM it remains a crazy thing to see.
+Even after a couple of years of having LLMs it remains a crazy thing to see in action.
 [Implementing the chess dashboard took about half an hour](https://github.com/IsaacVerm/chess-dashboard/tree/294654a81eb94149646714ecc7239417eca0227a):
 
 ![](/static/images/posts/15-07-2025-public-notes/chess-dashboard-30min-implementation.png)
 
 These days specifying what you want takes more time than actually implementing it.
+
+---
+
+There's a danger of letting the LLM come up with too much code and you start to lose a grip.
+You need to have a good idea of what's happening in each step and if you don't know how something happens ask the LLM or try to figure it out for yourself.
+The best way to keep your skills sharp might be to rebuild something you already made and see if you can replicate it.
