@@ -1,4 +1,3 @@
-::: {.container}
 How to use LLMs for learning a language (examples in French)
 ============================================================
 
@@ -641,4 +640,3 @@ this topic before I start doing something.\". I strongly believe this is
 the wrong approach. People should be more like Bob Dylan and just keep
 going at it. Somehow something will always pop up. Not everything will
 turn out great, but it\'s guaranteed you\'ll have learned something.
-:::
