@@ -1,22 +1,5 @@
 # Weblog IV
 
-- Daily posts: just a place to dump something: links, elaboration of an idea to work on,...
-    - [06-07-2025](./06-07-2025/06-07-2025.md)
-    - [07-07-2025](./07-07-2025/07-07-2025.md)
-    - [09-07-2025](./09-07-2025/09-07-2025.md)
-    - [10-07-2025](./10-07-2025/10-07-2025.md)
-    - [11-07-2025](./11-07-2025/11-07-2025.md)
-    - [14-07-2025](./14-07-2025/14-07-2025.md)
-    - [15-07-2025](./15-07-2025/15-07-2025.md)
-    - [17-07-2025](./17-07-2025/17-07-2025.md)
-- Short-form posts: posts with a limited scope so they can be done start to finish in a single day.
-    - [curl + jq + llm to extract places from VRT NWS articles](./curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles/curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles.md)
-    - [Choosing data format for data saved to GitHub repo](./choosing-data-format-for-data-saved-to-github-repo/choosing-data-format-for-data-saved-to-github-repo.md)
-    - [Prompting LLM with images chess positions physical board](./prompting-llm-with-images-chess-positions-physical-board/prompting-llm-with-images-chess-positions-physical-board.md)
-    - [Gathering Lichess clock data using jq + Datasette](./gathering-lichess-clock-data-using-jq-+-datasette/gathering-lichess-clock-data-using-jq-+-datasette.md)
-- Long-form posts: in-depth treatment of topics I found particularly interesting.
-    - [How to use LLMs for learning a language](./how-to-use-llms-for-learning-a-language-fr/how-to-use-llms-for-learning-a-language-fr.md)
-    - [Building a web app to help with reading a foreign language](./building-a-web-app-to-help-with-reading-a-foreign-language/building-a-web-app-to-help-with-reading-a-foreign-language.md)
-    - [Docs as CLI](./docs-as-cli/docs-as-cli.md)
-    - [Easily accessible machine learning tools](./easily-accessible-machine-learning-tools/easily-accessible-machine-learning-tools.md)
-    - [Prompting LLM with images chess positions physical board](./prompting-llm-with-images-chess-positions-physical-board/prompting-llm-with-images-chess-positions-physical-board.md)
+- [Daily posts](./daily.md): just a place to dump links, elaboration of an idea to work on,...
+- [Short-form posts](./short.md): posts with a limited scope so they can be done start to finish in a single day.
+- [Long-form posts](./long.md): in-depth treatment of topics I found particularly interesting.
