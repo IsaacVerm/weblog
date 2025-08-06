@@ -303,7 +303,7 @@ multiple types of questions:
 
 A good example of partial translation is [the Metro book series turned
 into a
-game](https://play.textadventures.co.uk/Play.aspx?id=ubqglkk1j0m5bzdeolih9a).[Opinions
+game](https://play.textadventures.co.uk/Play.aspx?id=ubqglkk1j0m5bzdeolih9a). [Opinions
 differ on whether this is a good
 idea](https://www.reddit.com/r/languagelearning/comments/16mlg02/language_learning_app_using_partial_translation/)
 but I found translating some words to French in a text while keeping
