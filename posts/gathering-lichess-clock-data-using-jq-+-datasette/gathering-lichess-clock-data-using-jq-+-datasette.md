@@ -1,4 +1,4 @@
-# 26-03-2025 - gathering Lichess clock data using jq + Datasette
+# Gathering Lichess clock data using jq + Datasette
 
 ## What's the problem I want to tackle?
 

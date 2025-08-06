@@ -1,4 +1,4 @@
-# 14-03-2025 - curl + jq + llm to extract places from VRT NWS articles
+# curl + jq + llm to extract places from VRT NWS articles
 
 ## What exactly are we trying to accomplish?
 

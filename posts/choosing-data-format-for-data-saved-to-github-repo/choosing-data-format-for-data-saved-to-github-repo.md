@@ -1,4 +1,4 @@
-# 19-03-2025 - choosing data format for data saved to GitHub repo
+# Choosing data format for data saved to GitHub repo
 
 ## What can go wrong when saving data?
 

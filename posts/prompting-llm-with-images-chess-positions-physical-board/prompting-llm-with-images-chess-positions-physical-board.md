@@ -1,4 +1,4 @@
-# 22-03-2025 - prompting LLM with images chess positions physical board
+# Prompting LLM with images chess positions physical board
 
 For quite some time I have been thinking how cool it would be to have a physical chess board setup digitizing the moves. You could play moves and the moves will be registered so you can analyse the game on your computer later on. Apparently [boards like that already exist](https://digitalgametechnology.com/products/home-use-e-boards), but they're quite pricy and if I check the [reviews](https://www.reddit.com/r/chess/comments/s583d7/dgt_pegasus_board_review/) I'm not that convinced they work all that well.
 

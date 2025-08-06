@@ -10,5 +10,9 @@
     - [15-07-2025](./15-07-2025/15-07-2025.md)
     - [17-07-2025](./17-07-2025/17-07-2025.md)
 - Short-form posts: posts with a limited scope so they can be done start to finish in a single day.
+    - [curl + jq + llm to extract places from VRT NWS articles](./curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles/curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles.md)
+    - [Choosing data format for data saved to GitHub repo](./choosing-data-format-for-data-saved-to-github-repo/choosing-data-format-for-data-saved-to-github-repo.md)
+    - [Prompting LLM with images chess positions physical board](./prompting-llm-with-images-chess-positions-physical-board/prompting-llm-with-images-chess-positions-physical-board.md)
+    - [Gathering Lichess clock data using jq + Datasette](./gathering-lichess-clock-data-using-jq-+-datasette/gathering-lichess-clock-data-using-jq-+-datasette.md)
 - Long-form posts: in-depth treatment of topics I found particularly interesting.
     - [How to use LLMs for learning a language](./how-to-use-llms-for-learning-a-language-fr/how-to-use-llms-for-learning-a-language-fr.md)
