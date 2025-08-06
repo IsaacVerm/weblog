@@ -121,7 +121,7 @@ I noticed as well you start to struggle when you try to use `jq` for tasks too c
 
 So instead of using `jq` for everything, now I'm planning to use `jq` just to transform the JSON data to a tabular format. Additional cleaning can be done later on in the `sqlite` database itself. At the end `sqlite-utils` allows to [insert this JSON data into a `sqlite` database](https://sqlite-utils.datasette.io/en/stable/cli.html#inserting-json-data). This allows me to take advantage of [all Datasette has to offer](https://datasette.io/for). 
 
-![](/static/images/posts/26-03-2025---gathering-lichess-clock-data-using-jq-+-datasette/pipeline-chess-games.png)
+![](./pipeline-chess-games.png)
 
 ## Using `jq` to transform the data in tabular format
 
@@ -268,7 +268,7 @@ datasette serve move-times.db
 
 This [opens the Datasette web interface](https://github.com/simonw/datasette) wrapping our data:
 
-![](/static/images/posts/26-03-2025---gathering-lichess-clock-data-using-jq-+-datasette/datasette-move-times.png)
+![](./datasette-move-times.png)
 
 This is a great start but a quick inspection of the data makes clear some essential data is still missing:
 

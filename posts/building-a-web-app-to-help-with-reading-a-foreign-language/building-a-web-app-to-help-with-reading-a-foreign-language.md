@@ -31,11 +31,11 @@ Combining these three, it becomes possible to read the text even when you're not
 
 Russian words are notoriously long, but often the root of the word is short and returns in many different words. [Knowing the root can help a lot both with understanding and remembering](http://russian.cornell.edu/grammar/html/gr11_a_a.htm).
 
-![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/verbs-with-root-каз.png)
+![](./verbs-with-root-каз.png)
 
 You can ask the LLM to show what the root of a word is. Take for example the first part of the first sentence in Последний кольценосец:
 
-![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-root-word.png)
+![](./ask-llm-root-word.png)
 
 ### Sentences cut in semantically sensible pieces
 
@@ -49,7 +49,7 @@ Having an entire, long sentence in front of you which you don't understand at al
 
 You can split this long sentences into pieces with the help of an LLM:
 
-![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-split-sentence-in-semantically-sensible-pieces.png)
+![](./ask-llm-split-sentence-in-semantically-sensible-pieces.png)
 
 It's clear having the English part next to the Russian part makes it a lot easier to read, but I'm not sure yet how exactly to implement this in the app.
 
@@ -59,7 +59,7 @@ This works well because the sentence was originally translated into English with
 
 You can ask the LLM to explain a word using simple language. The explanation can still be in Russian, so you avoid having an internal translation.
 
-![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/ask-llm-explain-word-simple-language.png)
+![](./ask-llm-explain-word-simple-language.png)
 
 ## How does the app work in practice?
 
@@ -92,7 +92,7 @@ In a way these options are ordered according to difficulty. First you try it the
 Having the English translation is handy if you really don't understand what it's about.
 Or it might be the word is just too difficult for you still:
 
-![](/static/images/posts/building-a-web-app-to-help-with-reading-a-foreign-language/word-too-difficult-judged-by-llm.png)
+![](./word-too-difficult-judged-by-llm.png)
 
 
 ## Features

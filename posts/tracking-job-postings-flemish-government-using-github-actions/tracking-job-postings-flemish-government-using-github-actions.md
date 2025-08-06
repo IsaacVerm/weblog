@@ -29,25 +29,25 @@ This technique heavily relies on GitHub and GitHub actions so you first need to 
 
 We're going to use the API of [the Flemish government job postings site](https://www.vlaanderen.be/werken-voor-vlaanderen/vacatures) so we first have to know what endpoint we actually need to make requests to. Any browser has some developer tools enabling you to see what requests are made when visiting a page. In the example below I use [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/), but the process is more or less the same for any browser. 
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/firefox-devtools.png)
+![](./firefox-devtools.png)
 
 This is the network tab of the developer tools showing requests made when I opened the job postings page. Any request made by your browser to the server is logged here. This includes the request for the job postings data:
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/overview-search-devtools.png)
+![](./overview-search-devtools.png)
 
 The `https://www.vlaanderen.be/api/overview-search` endpoint returns all job postings data (including metadata) in JSON format:
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/overview-search-json.png)
+![](./overview-search-json.png)
 
 Not strictly necessary, but if you right click and ask to open the request in a new tab the data is formatted and way more readable. This makes it easy to verify if you're really dealing with the data you think you're dealing with:
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/open-request-in-new-tab-devtools.png)
+![](./open-request-in-new-tab-devtools.png)
 
 ### Adapting request to `overview-search` to fit our needs
 
 Developer tools in the browser has an option to copy the request as `curl` command. Since I want to fetch the data with `curl` anyway, this is very handy:
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/copy-request-as-curl-devtools.png)
+![](./copy-request-as-curl-devtools.png)
 
 The problem is everything is copied. [Every parameter sent to `overview-search`](https://github.com/IsaacVerm/track-werken-voor-vlaanderen/blob/main/curl-overview-search.sh) [The copied `curl` command]() is copied as well. Definitely not every parameter is required for the request to be succesful. In itself it doesn't matter if the request contains irrelevant parameters, but it does make maintenance in the long run harder. If I want to make a change later on, I'll never be sure if I'm breaking something or not. Since no documentation for the API is provided, we have to find a different way to determine which parameters are required and which aren't. I decided on a two-step approach where I first let the LLM have a go at it and do some manual curation afterwards. 
 
@@ -61,7 +61,7 @@ If we now run the [`curl` command without the parameters identified as superfluo
 
 The `curl` command eventually looks like this:
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/final-curl-overview-search-command.png)r
+![](./final-curl-overview-search-command.png)r
 
 The basic parts are:
 
@@ -73,7 +73,7 @@ The basic parts are:
 
 The `Authorization` field is very basic when [decoded with base64](https://www.base64decode.org/) so no need to make this dynamic:
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/base64-authorization-field-decoded.png)
+![](./base64-authorization-field-decoded.png)
 
 ### Creating a GitHub Action workflow to fetch data from the endpoint on schedule
 
@@ -81,7 +81,7 @@ In the step just before we determined `/overview-search` is the endpoint we need
 
 Workflows should be added to `.github/workflows`. You don't even need an editor to add this file, but you can add this workflow on GitHub itself from within your browser:
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/add-file-to-repo-in-github-itself.png)
+![](./add-file-to-repo-in-github-itself.png)
 
 The worksflow I use is based on the [workflow used as an example in the Simon Willison git scraping article](https://github.com/simonw/ca-fires-history/blob/main/.github/workflows/scrape.yml):
 
@@ -149,7 +149,7 @@ The [final workflow looks like this](https://github.com/IsaacVerm/track-werken-v
 
 Having the data as a [constantly updating JSON file](https://github.com/IsaacVerm/track-werken-voor-vlaanderen/blob/main/job-postings.json) is nice, but the format isn't very user-friendly. Originally I was planning on using  [Datasette](https://datasette.io/), in combation with [sqlite-utils](https://datasette.io/tools/sqlite-utils), to display the data in a more readable format. This would have meant converting the `job-postings.json` file to a `sqlite` table and then displaying this table with `Datasette`. While looking up how to do this, I noticed there's an even easier way to do this. [Datasette Lite is a Datasette instance served to your browser ](https://github.com/simonw/datasette-lite/). You can [point Datasette to the JSON file directly](https://simonwillison.net/2022/Nov/18/datasette-lite-loading-json-data/) by adding `?json=` to the `https://lite.datasette.io` URL adding the URL pointing to your JSON file ([job-postings.json in the repo](https://raw.githubusercontent.com/IsaacVerm/track-werken-voor-vlaanderen/refs/heads/main/job-postings.json) in our case). So `https://lite.datasette.io?json=https://raw.githubusercontent.com/IsaacVerm/track-werken-voor-vlaanderen/refs/heads/main/job-postings.json` will create a Datasette instance for the latest version of our job postings.
 
-![](/static/images/posts/tracking-job-postings-flemish-government-using-github-actions/job-postings-datasette.png)
+![](./job-postings-datasette.png)
 
 Datasette gives immediate access to all kinds of useful functionality like filtering and running SQL queries against your data. You can just send this link to anyone you want and they can experiment with the data right away.
 

@@ -219,8 +219,8 @@ French. With LLMs combining those two is trivial. Look at the contrast
 between the two examples below. Both take the same amount of time to
 make but the results of the chess prompt are way more useful.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/llms-supercharge-both-apps-1.png)
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/llms-supercharge-both-apps-2.png)
+![](./llms-supercharge-both-apps-1.png)
+![](./llms-supercharge-both-apps-2.png)
 
 By using Obsidian you can take it even further. For example I can use
 articles I\'ve added to my notes as inspiration for the LLM to take
@@ -235,7 +235,7 @@ a lot with making questions based on information I already have in my
 Obsidian notes. For example, I\'ve got some list with favorite books and
 films. I can turn these lists into suitable Anki flashcards.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/llms-supercharge-both-apps-3.png)
+![](./llms-supercharge-both-apps-3.png)
 
 If I want to use these questions to learn French now, I should just ask
 the LLM to translate them. Answering these questions in Anki will be a
@@ -243,7 +243,7 @@ lot easier than answering other questions in French, because I already
 know a lot of context because they\'re based on notes I\'ve written
 myself.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/llms-supercharge-both-apps-4.png)
+![](./llms-supercharge-both-apps-4.png)
 
 How I\'ve been using the Claude LLM when learning French
 --------------------------------------------------------
@@ -258,14 +258,14 @@ Say I\'m a complete beginner at French and I don\'t know anything about
 how verbs in French work. You can ask the LLM to give you a quick
 introduction to this topic.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-to-explain-a-grammatical-concept-1.png)
+![](./ask-to-explain-a-grammatical-concept-1.png)
 
 This introduction of a concept can be customized in the prompt as well.
 For example, you can make the link with a language you\'re already
 familiar with. This gives you some grounding and helps you put the
 concepts explained into context.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-to-explain-a-grammatical-concept-2.png)
+![](./ask-to-explain-a-grammatical-concept-2.png)
 
 Since I know a bit of French already I can make the call these
 differences are really differences between French and English and not
@@ -287,7 +287,7 @@ Often you read something and you\'re not sure exactly why a word is
 used. Why not some other verb? Why does the word end in these letters?
 You can just ask the LLM to explain.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-why-a-specific-form-of-a-word-is-used-1.png)
+![](./ask-why-a-specific-form-of-a-word-is-used-1.png)
 
 This approach works well in combination with Anki. You can imagine
 multiple types of questions:
@@ -322,7 +322,7 @@ example, if you just ask the LLM to alternate without providing context
 why, it will provide both the French translation but also the original
 English word which spoils the effect:
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-2.png)
+![](./partial-translation-2.png)
 
 By providing an example how the alternating text should be formatted and
 what makes a good candidate for translation, the results are instantly a
@@ -330,14 +330,14 @@ lot better. To the point I don\'t think it\'s a lot worse than the Metro
 text adventure. I assume in that game it was done manually since the
 game was released long before LLMs became mainstream.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-3.png)
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-4.png)
+![](./partial-translation-3.png)
+![](./partial-translation-4.png)
 
 I didn\'t ask for the reason why these words exactly were translated,
 but the LLM provided it by himself. You could ask to list the reason why
 each word was translated for testing purposes:
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/partial-translation-6.png)
+![](./partial-translation-6.png)
 
 This information you can use once more to iterate on your prompt. You
 could for example tell the LLM to only translate if a word is part of a
@@ -359,7 +359,7 @@ example. Using LLMs it\'s easy to create a lot of targeted examples. Say
 I\'m learning about verb conjugations. It\'s natural to want to know
 what these conjugations look like.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/quickly-generate-a-lot-of-customized-examples-1.png)
+![](./quickly-generate-a-lot-of-customized-examples-1.png)
 
 Anything you can think of can be customized: the difficulty level, the
 theme, \... You just have to ask for it.
@@ -376,13 +376,13 @@ rather boring and annoying to do. The solution is just a prompt away (in
 the process showing another example of how easy it is to generate
 examples):
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/help-with-creating-hints-for-words-in-anki-flashcards-1.png)
+![](./help-with-creating-hints-for-words-in-anki-flashcards-1.png)
 
 You can be ambitious and not limit yourself to syllables and try
 something more ambitious like splitting the word in its constituent
 parts.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/help-with-creating-hints-for-words-in-anki-flashcards-2.png)
+![](./help-with-creating-hints-for-words-in-anki-flashcards-2.png)
 
 Talk about LLMs often is about some kind of superintelligence but the
 way I use it, it\'s more like a tool making common tasks scalable. If
@@ -416,7 +416,7 @@ It contains entries like this:
 If I ask the LLM to think of some questions based on that input I get
 this:
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/turn-facts-into-questions-1.png)
+![](./turn-facts-into-questions-1.png)
 
 All of a sudden the data is in a format usable to Anki.
 
@@ -437,7 +437,7 @@ how](https://howtogetfluent.com/translation-as-a-language-learning-method/),
 an article focusing on the benefits and drawbacks of translation as a
 learning tool.
 
-![](/static/images/posts/how-to-use-llms-for-learning-a-language-fr/ask-for-equivalent-expression-in-different-language-1.png)
+![](./ask-for-equivalent-expression-in-different-language-1.png)
 
 How do these practical examples relate to the bigger picture?
 -------------------------------------------------------------

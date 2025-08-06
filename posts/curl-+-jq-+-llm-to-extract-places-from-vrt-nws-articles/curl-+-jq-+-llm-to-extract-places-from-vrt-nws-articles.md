@@ -13,7 +13,7 @@ The first step of fetching the articles is as easy as can be. No authentication 
 ```bash
 curl https://www.vrt.be/vrtnws/_next/data/lOVEAve2b6oRA8in28B4v/nl/net-binnen.json
 ```
-![](/static/images/posts/14-03-2025---curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles/net-binnen-json.png)
+![](./net-binnen-json.png)
 
 ## Extracting the article titles
 
@@ -40,11 +40,11 @@ cat net-binnen.json | jq -r '.pageProps.data.compositions[0].compositions[] | .t
 
 The result looks like this with each article title on a new line:
 
-![](/static/images/posts/14-03-2025---curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles/titles-without-quotation-marks.png)
+![](./titles-without-quotation-marks.png)
 
 Note the `-r` flag. If we don't specify this flag, `jq` will keep string quotation marks in the output:
 
-![](/static/images/posts/14-03-2025---curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles/titles-with-quotation-marks.png)
+![](./titles-with-quotation-marks.png)
 
 We want to pass the titles to an LLM so we have no use for these quotation marks.
 
@@ -66,7 +66,7 @@ cat article-titles.txt | head -n 5 | llm --schema-multi 'places,article_title' '
 
 Which gives:
 
-![](/static/images/posts/14-03-2025---curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles/places-from-titles-sonnet.png)
+![](./places-from-titles-sonnet.png)
 
 This really feels like magic and it feels like it's important. I do concur with [Simon Willison](https://simonwillison.net/2025/Feb/28/llm-schemas/) on this one:
 
@@ -82,7 +82,7 @@ Some small remarks about the command above:
 
 By default I use Claude 3.7 Sonnet as LLM model. I was curious if the cheaper Haiku 3.5 model would be able to offer the same  level of quality. This would be a good thing since [Haiku 3.5 only costs about 1/4 of Sonnet 3.7](https://www.anthropic.com/pricing#anthropic-api). And luckily this does seem the case. In some ways it even does a better job than Sonnet. This is what Haiku returns using the same command as above:
 
-![](/static/images/posts/14-03-2025---curl-+-jq-+-llm-to-extract-places-from-vrt-nws-articles/places-from-titles-haiku.png)
+![](./places-from-titles-haiku.png)
 
 Haiku by default seems a bit less strict than Sonnet, but unfortunately not in a consistent way. For example for "Trump vraagt Poetin met aandrang levens van Oekraïense militairen te sparen" Sonnet only identifies "Oekraïne" (the only country really specified in the title), while Haiku identifies both Ukraine and Russia. I get why it extracts Russia since Putin is mentioned in the title, but in that case the USA should be extracted as well since Trump is mentioned too in the title. It's clear some prompt engineering is still required being very explicit about the output: define what language the output should be in and how strict the LLM should be about what exactly constitutes mentioning a place.
 

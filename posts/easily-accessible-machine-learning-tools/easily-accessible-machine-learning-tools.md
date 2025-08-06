@@ -60,11 +60,11 @@ Save the code for any web wrappers around the model, documentation about the mod
 Enter [Codespaces](https://github.com/features/codespaces).
 If you already have a repository on GitHub for your model, using Codespaces is just a button away:
 
-![](/static/images/posts/easily-accessible-machine-learning-tools/codespaces-button.png)
+![](./codespaces-button.png)
 
 When opening the codespace of the repository, you immediately get an editor much like VSCode in the browser:
 
-![](/static/images/posts/easily-accessible-machine-learning-tools/vscode-style-editor.png)
+![](./vscode-style-editor.png)
 
 `git` is automatically configured with `push` rights and so forth.
 So there's nothing to do in terms of adding `ssh` keys or anything like that.
@@ -94,7 +94,7 @@ With a one-liner you can get explanations about your code.
 The `llm` libraries plays nice with other software mentioned above like [Codespaces](#github-codespaces). You can add a secret environment variable in a repo. 
 I'm using Claude by Anthrophic so I have to set up a [secret with Anthropic key](https://github.com/simonw/llm-anthropic?tab=readme-ov-file#usage).
 
-![](/static/images/posts/easily-accessible-machine-learning-tools/codespaces-secrets.png)
+![](./codespaces-secrets.png)
 
 Now when I open the Codespace of my repository, I can install `llm` and use it with Claude.
 I could for example ask to explain the HTML tags used in the `index.html` file:
@@ -105,7 +105,7 @@ llm install llm-anthropic
 llm models default anthropic/claude-sonnet-4-0
 ```
 
-![](/static/images/posts/easily-accessible-machine-learning-tools/llm-explanation-index.png)
+![](./llm-explanation-index.png)
 
 ## Code
 

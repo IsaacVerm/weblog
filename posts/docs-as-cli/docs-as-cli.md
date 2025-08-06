@@ -34,7 +34,7 @@ def create_post_in_obsidian(post_name_kebab_case, post_name_natural):
     print(f"- images are kept in the /static/images/posts/{post_name_kebab_case} folder in the Obsidian vault")
     print("- there's a newline after each header")
     print("- there's a newline before starting a list")
-    print(f"- images are added as ![](/static/images/posts/{post_name_kebab_case}/{{image_name}}.{{extension}})")
+    print(f"- images are added as ![](./{{image_name}}.{{extension}})")
     print("")
     print("Make sure to use /static and not static or the post and images won't load in the web app later on.")
     print("")
@@ -45,7 +45,7 @@ When you run the script, it runs each function (so each step) one after another.
 
 The end result looks like this:
 
-![](/static/images/posts/docs-as-cli/doc-cli-all-steps.gif)
+![](./doc-cli-all-steps.gif)
 
 My first experiment was with a [how-to guide](https://diataxis.fr/) to publish a post on my `weblog`, but I can see value in using the same approach of docs as CLIs for other documentation types like references and explanations. In this way the doc/CLI can be more like a quiz.
 

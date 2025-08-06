@@ -6,7 +6,7 @@ I've been using the [llm utility of Datasette](https://llm.datasette.io/en/stabl
 
 Take for example this position resulting from the [Vienna Gambit](https://lichess.org/opening/Vienna_Game_Vienna_Gambit/e4_e5_Nc3_Nf6_f4_exf4_e5):
 
-![](/static/images/posts/22-03-2025---prompting-llm-with-images-chess-positions-physical-board/chessboard-4.jpg)
+![](./chessboard-4.jpg)
 
 I prompt Claude 3.7 Sonnet to get the FEN of this position:
 
@@ -16,7 +16,7 @@ llm "give the FEN notation of this position" -a chessboard-4.jpg
 
 The resulting FEN, `r1bqk1nr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R`, is completely off the mark:
 
-![](/static/images/posts/22-03-2025---prompting-llm-with-images-chess-positions-physical-board/chessboard-4-lichess.png)
+![](./chessboard-4-lichess.png)
 
 Not a single piece is in its right place. It's clear using images with an LLM is different than using text. I'm definitely [not the only one getting disappointing results](https://medium.com/@gyardley/chess-claude-3-5-sonnet-d05cc57e00c1). However, I do see plenty of possibilities to experiment though:
 
@@ -32,7 +32,7 @@ llm "Give the FEN notation of this position. The previous position was rnbqkb1r/
 
 This doesn't seem to improve anything, the result still is really off:
 
-![](/static/images/posts/22-03-2025---prompting-llm-with-images-chess-positions-physical-board/chessboard-4-with-prompt-previous-position-lichess.png)
+![](./chessboard-4-with-prompt-previous-position-lichess.png)
 
 In a way this is to be expected, even [way more rigorous research](https://github.com/notnil/fenify-3D?tab=readme-ov-file#prediction-visualization) cites a very low accuracy rate: models can get a lot of squares right (62 or 63 out of all 64 squares) but any model which doesn't have perfect accuracy isn't really usable in practice. It seems you only get at [15% of board recognition](https://repository.tudelft.nl/record/uuid:5453c9dd-6a9b-4443-a4cf-c6b9db2f4c10).  I assume this number is inflated as well: the model will probably handle early game positions way better than late game positions since there are just way more examples of those.
 

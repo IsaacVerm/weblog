@@ -19,7 +19,7 @@ Next to this the project also got me wondering whether JSON is the right format 
 
 These are pretty big disadvantages, all of this to have line-by-line comparisons. Luckily this is one of those rare cases where you can have your cake and eat it too. A format called [JSON Lines](https://jsonlines.org/), sometimes also called NDJSON (newline-delimited JSON), exists (I was vaguely aware of its existence since [the Lichess API uses it](https://lichess.org/api). The main idea of JSON Lines is each line contains a valid [JSON value](https://www.json.org/json-en.html) and these lines are separate by newlines. This solves the main issue I had with using JSON as a format to save data in. Now it's easy to see at a glance what data has been added or removed. Take for example the data added in [this commit](https://github.com/IsaacVerm/track-vrt-nws/commit/40f765e018a6a729afb5928cf23afcdff496375f) in the `track-vrt-nws` repository (in which I scrape new news articles and if there are any I add them to the file below):
 
-![](/static/images/posts/19-03-2025---choosing-data-format-for-data-saved-to-github-repo/git-changes-main-events-track-vrt-nws.png)
+![](./git-changes-main-events-track-vrt-nws.png)
 
 The remaining question is how to get there. I had fun using `jq` when [tracking job postings](https://github.com/IsaacVerm/track-werken-voor-vlaanderen) or [new subsidies](https://github.com/IsaacVerm/track-subsidieregister), so I was happy to discover `jq` offers the [`--compact-output` option](https://jqlang.org/manual/#invoking-jq) which offers exactly what I need:
 
