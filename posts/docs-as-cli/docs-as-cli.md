@@ -48,7 +48,3 @@ The end result looks like this:
 ![](./doc-cli-all-steps.gif)
 
 My first experiment was with a [how-to guide](https://diataxis.fr/) to publish a post on my `weblog`, but I can see value in using the same approach of docs as CLIs for other documentation types like references and explanations. In this way the doc/CLI can be more like a quiz.
-
-## CHANGELOG
-
-- 12-02-2025: initial draft

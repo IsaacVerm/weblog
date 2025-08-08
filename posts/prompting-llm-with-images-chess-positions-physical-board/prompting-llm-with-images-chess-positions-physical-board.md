@@ -37,7 +37,3 @@ This doesn't seem to improve anything, the result still is really off:
 In a way this is to be expected, even [way more rigorous research](https://github.com/notnil/fenify-3D?tab=readme-ov-file#prediction-visualization) cites a very low accuracy rate: models can get a lot of squares right (62 or 63 out of all 64 squares) but any model which doesn't have perfect accuracy isn't really usable in practice. It seems you only get at [15% of board recognition](https://repository.tudelft.nl/record/uuid:5453c9dd-6a9b-4443-a4cf-c6b9db2f4c10).  I assume this number is inflated as well: the model will probably handle early game positions way better than late game positions since there are just way more examples of those.
 
 A different approach would be to make sure the physical chess pieces resemble digital pieces. This problem is as good as solved (for example by [Chessvision.ai](https://chessvision.ai/)).
-
-## CHANGELOG
-
-- 22-03-2025: initial draft

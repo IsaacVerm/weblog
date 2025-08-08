@@ -324,7 +324,3 @@ These are important concepts/commands to know inside out:
 - [`map`](https://jqlang.org/manual/#map-map_values)
 - [`transpose`](https://jqlang.org/manual/#transpose): this is like `zip` in other programming languages
 - [Variable Operator](https://jqlang.org/manual/#variable-symbolic-binding-operator): if you want to reuse a value for each element of an array.
-
-## CHANGELOG
-
-- 26-03-2025: initial draft

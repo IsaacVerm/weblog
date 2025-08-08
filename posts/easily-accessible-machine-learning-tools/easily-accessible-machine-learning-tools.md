@@ -110,7 +110,3 @@ llm models default anthropic/claude-sonnet-4-0
 ## Code
 
 Code used for these research notes can be found [in the repo with the same name](https://github.com/IsaacVerm/easily-accessible-machine-learning-tools).
-
-## CHANGELOG
-
-- 04-06-2025: initial draft

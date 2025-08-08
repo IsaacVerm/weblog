@@ -158,7 +158,3 @@ In the first place I wanted to focus on how the data changes, but the Datasette 
 ## Conclusion
 
 I really like this approach of using GitHub Actions for scraping. It feels very lightweight. I imagine I'll be applying the same approach to other data sources in the future. The lightweight part is really important: scraping Subsidieregister was more complex and this complexity really made it not worth doing. You had to use [Playwright](https://playwright.dev/) to fetch the data and I couldn't use the basic GitHub Actions runner because of geo-blocking. I underestimated how much this would increase the time it takes to finish the project. The devil is always in the details. I'm not saying it's never worth it to go down this more complex road, but you have to make sure first the value of the final result offsets all the effort it takes to get there.
-
-## CHANGELOG
-
-- 06-03-2025: initial draft

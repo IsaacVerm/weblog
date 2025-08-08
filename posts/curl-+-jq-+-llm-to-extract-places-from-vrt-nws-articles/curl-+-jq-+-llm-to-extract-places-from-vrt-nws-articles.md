@@ -105,7 +105,3 @@ Some reflections upon writing this post:
 - LLMs open up a lot of new data sources which previously would be hard to access.
 - Keeping a post limited is very hard: I tried to limit myself to 200 words and now this post approaches 1400 words while I don't feel like there's a lot I could remove without making the story less clear.
 - Next time I should keep the scope of a short post even more limited: just focus on a small topic (schemas in `llm`,  the `Array Value Iterator` in `jq`,...) without integrating those in a larger project.
-
-## CHANGELOG
-
-- 14-03-2025: initial draft

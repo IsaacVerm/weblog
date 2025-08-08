@@ -31,7 +31,3 @@ A small flag and you can always revert back to JSON.
 ## Conclusion
 
 JSON Lines perfectly suits my needs: it's the best combination of JSON and having each element on a single line to easily compare data changes. Thanks to `jq` transforming JSON to JSON Lines or the inverse is a breeze.
-
-## CHANGELOG
-
-- 19-03-2025: initial draft
